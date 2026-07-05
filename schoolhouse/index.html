@@ -3,153 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SchoolHouse — Classroom Management</title>
-  <meta name="description" content="The classroom-management shelf: what is known, shown with its source. Read-only. No account, no tracking.">
-  <!-- SchoolHouse invariants, stated plainly so they can't drift:
-       sourced · un-minable (read-only, no analytics, no account) · door not gate · orient don't diagnose · positive framing -->
+  <title>SchoolHouse — Positive Classroom Environment</title>
+  <meta name="description" content="A learning environment: meet what's known about a positive classroom environment, one claim at a time, each with its source. No account, no tracking.">
+  <!-- SchoolHouse invariants: sourced · un-minable (read-only, no analytics, no account, nothing saved or sent) ·
+       door not gate · orient don't diagnose · positive framing. SoL layer = architecture of the encounter, not a gate. -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #faf9f7; color: #1a1a1a; line-height: 1.6; }
 
-    body {
-      font-family: Georgia, serif;
-      background: #faf9f7;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
-
-    nav {
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid #e0dbd4;
-    }
-    .wordmark {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em;
-      color: #1a1a1a; text-decoration: none;
-    }
+    nav { padding: 24px 40px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e0dbd4; }
+    .wordmark { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: #1a1a1a; text-decoration: none; }
     .wordmark span { color: #7a5c3e; }
-    nav .crumb {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.8rem; color: #888; letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
+    nav .crumb { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #888; letter-spacing: 0.06em; text-transform: uppercase; }
 
-    .hero { padding: 72px 40px 48px; max-width: 820px; }
-    .hero .kicker {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: #7a5c3e; margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: normal;
-      line-height: 1.2; margin-bottom: 20px; color: #111;
-    }
+    .hero { padding: 72px 40px 40px; max-width: 820px; }
+    .hero .kicker { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7a5c3e; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: normal; line-height: 1.2; margin-bottom: 20px; color: #111; }
     .hero .lede { font-size: 1.08rem; color: #555; max-width: 620px; }
 
-    /* how-to-read strip: the ethic, visible */
-    .ethic {
-      max-width: 820px; margin: 0 40px 8px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.78rem; color: #8a8378; line-height: 1.6;
-      border-left: 2px solid #e0dbd4; padding: 4px 0 4px 16px;
-    }
+    .ethic { max-width: 820px; margin: 0 40px 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #8a8378; line-height: 1.6; border-left: 2px solid #e0dbd4; padding: 4px 0 4px 16px; }
     .ethic b { color: #6a6358; font-weight: 600; }
 
     hr.divider { border: none; border-top: 1px solid #e0dbd4; margin: 40px 40px; }
-
     section { padding: 8px 40px 8px; max-width: 820px; }
+    .section-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa; margin: 40px 0 22px; }
 
-    .section-label {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #aaa; margin: 40px 0 22px;
-    }
+    /* prompt (predict / explain-back) — reflective, never saved */
+    .prompt { background: #f4f1ec; border: 1px solid #e6e0d6; border-radius: 3px; padding: 18px 20px; margin: 12px 0 4px; }
+    .prompt .q { font-size: 0.98rem; color: #4a453d; margin-bottom: 6px; }
+    .prompt .note { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: #b0a894; letter-spacing: 0.04em; }
+    .prompt textarea { width: 100%; margin-top: 10px; border: 1px solid #e0dbd4; border-radius: 3px; padding: 10px 12px; font-family: Georgia, serif; font-size: 0.95rem; color: #333; background: #fffdf9; resize: vertical; min-height: 60px; }
+    .prompt textarea:focus { outline: none; border-color: #c4a882; }
 
-    /* domain block */
     .domain-def { font-size: 1.02rem; color: #444; max-width: 640px; margin-bottom: 8px; }
 
-    /* capacity card */
-    .capacity {
-      background: white; border: 1px solid #e0dbd4; border-radius: 3px;
-      padding: 26px 28px; margin-bottom: 20px;
-    }
-    .capacity h2 {
-      font-size: 1.25rem; font-weight: normal; color: #111; margin-bottom: 8px;
-    }
-    .capacity .cap-desc { font-size: 0.9rem; color: #777; margin-bottom: 20px; max-width: 620px; }
+    /* capacity as a door you open, one at a time, any order */
+    details.capacity { background: white; border: 1px solid #e0dbd4; border-radius: 3px; margin-bottom: 16px; overflow: hidden; }
+    details.capacity > summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: baseline; gap: 12px; }
+    details.capacity > summary::-webkit-details-marker { display: none; }
+    details.capacity > summary::before { content: "→"; color: #c4a882; font-size: 1rem; transition: transform 0.15s; }
+    details.capacity[open] > summary::before { content: "↓"; }
+    details.capacity > summary h2 { font-size: 1.2rem; font-weight: normal; color: #111; display: inline; }
+    details.capacity > summary .peek { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: #b0a894; text-transform: uppercase; letter-spacing: 0.08em; margin-left: auto; white-space: nowrap; }
+    .cap-body { padding: 0 26px 22px; }
+    .cap-desc { font-size: 0.9rem; color: #777; margin-bottom: 18px; max-width: 620px; }
 
     .claim { padding: 16px 0; border-top: 1px solid #efeae3; }
     .claim:first-of-type { border-top: none; }
     .claim-statement { font-size: 1rem; color: #1a1a1a; margin-bottom: 8px; }
 
-    /* provenance tag */
-    .prov {
-      display: inline-block; font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
-      vertical-align: middle; margin-right: 8px;
-    }
-    .prov-D { background: #e7f0e9; color: #3d6b4c; }   /* Data — measured */
-    .prov-S { background: #e6edf3; color: #3a5a75; }   /* Source — stated by an authority */
-    .prov-I { background: #f3ede1; color: #8a6d3b; }   /* Interpretation — reasoned from evidence */
-    .prov-U { background: #efe9e9; color: #7a5c5c; }   /* Unwarranted — asserted without backing */
+    .prov { display: inline-block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; vertical-align: middle; margin-right: 8px; }
+    .prov-D { background: #e7f0e9; color: #3d6b4c; }
+    .prov-S { background: #e6edf3; color: #3a5a75; }
+    .prov-I { background: #f3ede1; color: #8a6d3b; }
+    .prov-U { background: #efe9e9; color: #7a5c5c; }
 
-    /* source receipt */
     details.receipt { margin-top: 6px; }
-    details.receipt > summary {
-      list-style: none; cursor: pointer;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.76rem; color: #7a5c3e; letter-spacing: 0.02em;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
+    details.receipt > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
     details.receipt > summary::-webkit-details-marker { display: none; }
     details.receipt > summary::before { content: "▸"; font-size: 0.7rem; color: #c4a882; }
     details.receipt[open] > summary::before { content: "▾"; }
     details.receipt > summary:hover { color: #1a1a1a; }
-    .receipt-body {
-      margin-top: 8px; padding: 12px 14px; background: #faf8f4;
-      border: 1px solid #eee7dc; border-radius: 3px;
-      font-size: 0.86rem; color: #555;
-    }
+    .receipt-body { margin-top: 8px; padding: 12px 14px; background: #faf8f4; border: 1px solid #eee7dc; border-radius: 3px; font-size: 0.86rem; color: #555; }
     .receipt-body .src-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 6px; }
     .receipt-body .src-name a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
     .receipt-body .excerpt { font-style: italic; color: #444; border-left: 2px solid #d8cdbb; padding-left: 12px; margin-top: 6px; }
     .receipt-body .rel { color: #999; font-size: 0.78rem; margin-top: 6px; }
 
-    /* not-yet-placed */
-    .not-placed {
-      background: #f7f5f1; border: 1px dashed #d8cdbb; border-radius: 3px;
-      padding: 22px 26px; margin-bottom: 20px;
-    }
-    .not-placed .np-note {
-      font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.74rem;
-      text-transform: uppercase; letter-spacing: 0.1em; color: #b09a76; margin-bottom: 12px;
-    }
+    /* not-yet-placed — active */
+    .not-placed { background: #f7f5f1; border: 1px dashed #d8cdbb; border-radius: 3px; padding: 22px 26px; margin-bottom: 20px; }
+    .not-placed .np-note { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: #b09a76; margin-bottom: 12px; }
+    .np-guess { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .np-guess button { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; color: #6a6358; background: #fffdf9; border: 1px solid #d8cdbb; border-radius: 3px; padding: 8px 12px; cursor: pointer; }
+    .np-guess button:hover { border-color: #7a5c3e; color: #1a1a1a; }
+    .np-reveal { margin-top: 12px; font-size: 0.92rem; color: #555; display: none; }
+    .np-reveal.show { display: block; }
 
-    /* legend */
-    .legend {
-      display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px;
-      font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #777;
-    }
+    .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #777; }
     .legend span b { display: inline-block; margin-right: 4px; }
 
     .status { padding: 40px; max-width: 820px; color: #888; font-size: 0.95rem; }
     .status code { background: #efeae3; padding: 2px 6px; border-radius: 3px; font-size: 0.85rem; }
 
-    footer {
-      border-top: 1px solid #e0dbd4; padding: 28px 40px; margin-top: 40px;
-      font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb;
-    }
+    footer { border-top: 1px solid #e0dbd4; padding: 28px 40px; margin-top: 40px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; }
 
     @media (max-width: 560px) {
-      nav { padding: 20px 24px; }
-      .hero { padding: 48px 24px 36px; }
-      section { padding: 8px 24px; }
-      .ethic { margin: 0 24px 8px; }
-      hr.divider { margin: 32px 24px; }
-      footer { padding: 24px; }
+      nav { padding: 20px 24px; } .hero { padding: 48px 24px 32px; } section { padding: 8px 24px; }
+      .ethic { margin: 0 24px 8px; } hr.divider { margin: 32px 24px; } footer { padding: 24px; }
+      details.capacity > summary { flex-wrap: wrap; } .cap-body { padding: 0 24px 20px; }
     }
   </style>
 </head>
@@ -161,42 +102,35 @@
 </nav>
 
 <div class="hero">
-  <div class="kicker">SchoolHouse · A Shelf</div>
-  <h1>Classroom Management</h1>
-  <p class="lede">What is known about classroom management — shown, not asserted. Every claim carries its source. Read any part, in any order.</p>
+  <div class="kicker">SchoolHouse · A Learning Environment</div>
+  <h1 id="hero-title">Loading…</h1>
+  <p class="lede">Not an article to read — a place to <em>meet</em> what's known, one claim at a time. Each carries its source. Open any branch, in any order.</p>
 </div>
 
 <div class="ethic">
-  <b>How to read this.</b> Each claim shows a tag for how we know it — <b>D</b>ata, <b>S</b>ource, <b>I</b>nterpretation, or <b>U</b>nwarranted — and a receipt you can open to see the source in its own words.
-  Nothing here diagnoses your classroom; it orients. This page collects nothing about you: no account, no tracking, no dead ends.
+  <b>How this works.</b> Each claim shows how we know it — <b>D</b>ata, <b>S</b>ource, <b>I</b>nterpretation, or <b>U</b>nwarranted — and a receipt you can open to read the source in its own words.
+  Nothing here diagnoses your classroom; it orients. Nothing you type is saved or sent. No account, no tracking, no trace.
 </div>
 
 <hr class="divider">
 
 <div id="app">
-  <div class="status" id="status">Loading the shelf…</div>
+  <div class="status" id="status">Opening the shelf…</div>
 </div>
 
-<footer>
-  © Kim Starkey · HecKte · SchoolHouse — sourced, read-only, non-extractive.
-</footer>
+<footer>© Kim Starkey · HecKte · SchoolHouse — sourced, read-only, non-extractive.</footer>
 
 <script>
-  // ── Supabase (public, read-only) ─────────────────────────────────────────
-  // The anon/publishable key is SAFE to embed: Row-Level Security allows public
-  // READ only. The page can read the shelf; it cannot write, and collects nothing.
   const SUPABASE_URL  = "https://ttqzijxlwtvpuetkljiy.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_fIj48cRnn4T1kP5xKX-OZg_34_Xfsn-";
 
   const PROV = {
-    D: { label: "Data",          hint: "measured in the record" },
-    S: { label: "Source",        hint: "stated by an authority" },
-    I: { label: "Interpretation",hint: "reasoned from the evidence" },
-    U: { label: "Unwarranted",   hint: "asserted without backing" }
+    D: { label: "Data", hint: "measured in the record" },
+    S: { label: "Source", hint: "stated by an authority" },
+    I: { label: "Interpretation", hint: "reasoned from the evidence" },
+    U: { label: "Unwarranted", hint: "asserted without backing" }
   };
-
-  const esc = s => (s == null ? "" : String(s).replace(/[&<>"']/g, c => (
-    { "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])));
+  const esc = s => (s == null ? "" : String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])));
 
   async function api(path) {
     const res = await fetch(SUPABASE_URL + "/rest/v1/" + path, {
@@ -207,11 +141,8 @@
   }
 
   function receiptHTML(cs) {
-    // cs: { relationship, excerpt, sources: {title, authority, url, citation, year} }
     const s = cs.sources || {};
-    const name = s.url
-      ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.authority || s.title)}</a>`
-      : esc(s.authority || s.title);
+    const name = s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.authority || s.title)}</a>` : esc(s.authority || s.title);
     let body = `<div class="src-name">${name}${s.year ? " · " + esc(s.year) : ""}</div>`;
     body += `<div>${esc(s.title)}</div>`;
     if (cs.excerpt) body += `<div class="excerpt">“${esc(cs.excerpt)}”</div>`;
@@ -219,77 +150,91 @@
     if (s.citation && !cs.excerpt) body += `<div class="rel">${esc(s.citation)}</div>`;
     return `<details class="receipt"><summary>source</summary><div class="receipt-body">${body}</div></details>`;
   }
-
   function claimHTML(claim) {
-    const p = PROV[claim.provenance] || null;
+    const p = PROV[claim.provenance];
     const tag = p ? `<span class="prov prov-${esc(claim.provenance)}" title="${esc(p.label)} — ${esc(p.hint)}">${esc(claim.provenance)}</span>` : "";
     const receipts = (claim.claim_sources || []).map(receiptHTML).join("");
-    return `<div class="claim">
-      <div class="claim-statement">${tag}${esc(claim.statement)}</div>
-      ${receipts}
-    </div>`;
+    return `<div class="claim"><div class="claim-statement">${tag}${esc(claim.statement)}</div>${receipts}</div>`;
   }
-
   function legendHTML() {
-    return `<div class="legend">` +
-      Object.entries(PROV).map(([k,v]) =>
-        `<span><b class="prov prov-${k}">${k}</b>${esc(v.label)} — ${esc(v.hint)}</span>`).join("") +
-      `</div>`;
+    return `<div class="legend">` + Object.entries(PROV).map(([k,v]) => `<span><b class="prov prov-${k}">${k}</b>${esc(v.label)} — ${esc(v.hint)}</span>`).join("") + `</div>`;
   }
 
   function render(entries, claims) {
-    // index claims by entry_id via the mesh; collect unconnected
-    const byEntry = {};
-    const unplaced = [];
+    const byEntry = {}, unplaced = [];
     for (const c of claims) {
       const homes = c.claim_entries || [];
-      if (homes.length === 0) { unplaced.push(c); continue; }
+      if (!homes.length) { unplaced.push(c); continue; }
       for (const h of homes) (byEntry[h.entry_id] = byEntry[h.entry_id] || []).push(c);
     }
-
     const domain = entries.find(e => e.level === "domain");
     const capacities = entries.filter(e => e.level === "capacity");
 
+    if (domain) document.getElementById("hero-title").textContent = domain.title;
+
     let html = "";
 
-    // Domain header + its own claim(s) (the DESE definition)
+    html += `<section><div class="prompt">
+      <div class="q">Before you read — what do you already know or believe about creating a positive classroom environment?</div>
+      <textarea placeholder="Just for you. There's no wrong answer, and nothing here is saved."></textarea>
+      <div class="note">This stays on your screen. Nothing is saved or sent.</div>
+    </div></section>`;
+
     if (domain) {
-      html += `<section>`;
-      html += `<div class="section-label">The Domain</div>`;
+      html += `<section><div class="section-label">What the standard says</div>`;
       html += `<p class="domain-def">${esc(domain.description)}</p>`;
       for (const c of (byEntry[domain.id] || [])) html += claimHTML(c);
       html += legendHTML();
       html += `</section>`;
     }
 
-    // Capacities
-    html += `<section><div class="section-label">The Capacities · open any, in any order</div>`;
+    html += `<section><div class="section-label">The branches · open one at a time, in any order</div>`;
     for (const cap of capacities) {
       const cs = byEntry[cap.id] || [];
-      html += `<div class="capacity">
-        <h2>${esc(cap.title)}</h2>
-        <div class="cap-desc">${esc(cap.description)}</div>
-        ${cs.map(claimHTML).join("") || '<div class="claim"><em style="color:#aaa">No claims placed here yet.</em></div>'}
-      </div>`;
+      html += `<details class="capacity">
+        <summary><span><h2>${esc(cap.title)}</h2></span><span class="peek">${cs.length} claim${cs.length===1?"":"s"}</span></summary>
+        <div class="cap-body">
+          <div class="cap-desc">${esc(cap.description)}</div>
+          ${cs.map(claimHTML).join("") || '<div class="claim"><em style="color:#aaa">No claims placed here yet.</em></div>'}
+          <div class="prompt" style="margin-top:18px;">
+            <div class="q">What would you take from this branch to your classroom on Monday?</div>
+            <textarea placeholder="A line for you. Not saved, not sent."></textarea>
+          </div>
+        </div>
+      </details>`;
     }
     html += `</section>`;
 
-    // Not yet placed
     if (unplaced.length) {
-      html += `<section><div class="section-label">Held, Not Yet Placed</div>
-        <div class="not-placed">
-          <div class="np-note">Backed by a source · not yet connected to a capacity</div>
-          ${unplaced.map(claimHTML).join("")}
-        </div></section>`;
+      html += `<section><div class="section-label">Held, not yet placed</div>`;
+      unplaced.forEach((c, i) => {
+        const capBtns = capacities.map(cap => `<button data-np="${i}">${esc(cap.title)}</button>`).join("");
+        html += `<div class="not-placed">
+          <div class="np-note">A real claim, backed by a source — not yet connected to a branch</div>
+          <div class="claim-statement">${esc(c.statement)}</div>
+          <div style="font-size:0.9rem;color:#8a8378;margin-top:10px;">Where do you think this belongs?</div>
+          <div class="np-guess">${capBtns}</div>
+          <div class="np-reveal" id="np-reveal-${i}">
+            Good instinct to look for a home. In this shelf, though, it isn't settled yet — it's held here, connected to its source but not to a branch. Nothing forced onto a shelf it doesn't fit.
+            ${(c.claim_sources||[]).map(receiptHTML).join("")}
+          </div>
+        </div>`;
+      });
+      html += `</section>`;
     }
 
     document.getElementById("app").innerHTML = html;
+
+    document.querySelectorAll('.np-guess button').forEach(b => {
+      b.addEventListener('click', () => {
+        document.getElementById('np-reveal-' + b.dataset.np).classList.add('show');
+      });
+    });
   }
 
   async function boot() {
     if (SUPABASE_ANON_KEY.startsWith("PASTE_")) {
-      document.getElementById("status").innerHTML =
-        "Almost live. Add the Supabase <code>anon</code> / publishable key to <code>SUPABASE_ANON_KEY</code> in this file (Dashboard → Settings → API Keys). It is the public key — safe to embed.";
+      document.getElementById("status").innerHTML = "Almost live. Add the Supabase publishable key to <code>SUPABASE_ANON_KEY</code>.";
       return;
     }
     try {
@@ -299,9 +244,7 @@
       ]);
       render(entries, claims);
     } catch (err) {
-      document.getElementById("status").innerHTML =
-        "Couldn't load the shelf. <code>" + esc(err.message) + "</code><br><br>" +
-        "If this is a relationship-name error, the PostgREST embed names may differ — check <code>claim_entries</code> / <code>claim_sources</code> / <code>sources</code> against the live API.";
+      document.getElementById("status").innerHTML = "Couldn't open the shelf. <code>" + esc(err.message) + "</code>";
     }
   }
   boot();
