@@ -19,6 +19,7 @@
     .hero { padding: 72px 40px 40px; max-width: 820px; }
     .hero .kicker { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7a5c3e; margin-bottom: 20px; }
     .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: normal; line-height: 1.2; margin-bottom: 20px; color: #111; }
+    .hero .bridge { font-size: 1rem; color: #7a5c3e; max-width: 620px; margin-bottom: 10px; }
     .hero .lede { font-size: 1.08rem; color: #555; max-width: 620px; }
 
     .ethic { max-width: 820px; margin: 0 40px 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #8a8378; line-height: 1.6; border-left: 2px solid #e0dbd4; padding: 4px 0 4px 16px; }
@@ -102,9 +103,10 @@
 </nav>
 
 <div class="hero">
-  <div class="kicker">SchoolHouse · A Learning Environment</div>
-  <h1 id="hero-title">Loading…</h1>
-  <p class="lede">Not an article to read — a place to <em>meet</em> what's known, one claim at a time. Each carries its source. Open any branch, in any order.</p>
+  <div class="kicker">SchoolHouse · Missouri</div>
+  <h1>Classroom Management</h1>
+  <p class="bridge">What Missouri asks teachers to know. The state calls it “<span id="official-name">…</span>” — Teacher Standard 5.</p>
+  <p class="lede">Here's what the state says you should know. Each thing below carries its source.</p>
 </div>
 
 <div class="ethic">
@@ -170,7 +172,7 @@
     const domain = entries.find(e => e.level === "domain");
     const capacities = entries.filter(e => e.level === "capacity");
 
-    if (domain) document.getElementById("hero-title").textContent = domain.title;
+    if (domain) { const on = document.getElementById("official-name"); if (on) on.textContent = domain.title; }
 
     let html = "";
 
