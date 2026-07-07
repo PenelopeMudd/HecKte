@@ -6,7 +6,9 @@
   <title>SchoolHouse — Positive Classroom Environment</title>
   <meta name="description" content="A learning environment: meet what's known about a positive classroom environment, one claim at a time, each with its source. No account, no tracking.">
   <!-- SchoolHouse invariants: sourced · un-minable (read-only, no analytics, no account, nothing saved or sent) ·
-       door not gate · orient don't diagnose · positive framing. SoL layer = architecture of the encounter, not a gate. -->
+       door not gate · orient don't diagnose · positive framing.
+       TEMPLATE: one codebase renders ANY shelf (?shelf=slug) in ANY world (?world=name).
+       The hedge is read once; each "world" re-renders the same evidence in a different schema. -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Georgia, serif; background: #faf9f7; color: #1a1a1a; line-height: 1.6; }
@@ -22,29 +24,27 @@
     .hero .bridge { font-size: 1rem; color: #7a5c3e; max-width: 620px; margin-bottom: 10px; }
     .hero .lede { font-size: 1.08rem; color: #555; max-width: 620px; }
 
-    .ethic { max-width: 820px; margin: 0 40px 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #8a8378; line-height: 1.6; border-left: 2px solid #e0dbd4; padding: 4px 0 4px 16px; }
-    .ethic b { color: #6a6358; font-weight: 600; }
-
     hr.divider { border: none; border-top: 1px solid #e0dbd4; margin: 40px 40px; }
     section { padding: 8px 40px 8px; max-width: 820px; }
     .section-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa; margin: 40px 0 22px; }
 
-    /* prompt (predict / explain-back) — reflective, never saved */
+    /* prompt (explain-back) — reflective, never saved */
     .prompt { background: #f4f1ec; border: 1px solid #e6e0d6; border-radius: 3px; padding: 18px 20px; margin: 12px 0 4px; }
     .prompt .q { font-size: 0.98rem; color: #4a453d; margin-bottom: 6px; }
-    .prompt .note { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: #b0a894; letter-spacing: 0.04em; }
     .prompt textarea { width: 100%; margin-top: 10px; border: 1px solid #e0dbd4; border-radius: 3px; padding: 10px 12px; font-family: Georgia, serif; font-size: 0.95rem; color: #333; background: #fffdf9; resize: vertical; min-height: 60px; }
     .prompt textarea:focus { outline: none; border-color: #c4a882; }
 
     .domain-def { font-size: 1.02rem; color: #444; max-width: 640px; margin-bottom: 8px; }
 
-    /* capacity as a door you open, one at a time, any order */
+    /* branch as a door you open, one at a time, any order */
     details.capacity { background: white; border: 1px solid #e0dbd4; border-radius: 3px; margin-bottom: 16px; overflow: hidden; }
+    details.capacity.proposed { border-style: dashed; border-color: #c9b48f; background: #fdfbf6; }
     details.capacity > summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: baseline; gap: 12px; }
     details.capacity > summary::-webkit-details-marker { display: none; }
     details.capacity > summary::before { content: "→"; color: #c4a882; font-size: 1rem; transition: transform 0.15s; }
     details.capacity[open] > summary::before { content: "↓"; }
     details.capacity > summary h2 { font-size: 1.2rem; font-weight: normal; color: #111; display: inline; }
+    details.capacity > summary .flag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: #a8814e; margin-left: 8px; }
     details.capacity > summary .peek { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: #b0a894; text-transform: uppercase; letter-spacing: 0.08em; margin-left: auto; white-space: nowrap; }
     .cap-body { padding: 0 26px 22px; }
     .cap-desc { font-size: 0.9rem; color: #777; margin-bottom: 18px; max-width: 620px; }
@@ -90,7 +90,7 @@
 
     @media (max-width: 560px) {
       nav { padding: 20px 24px; } .hero { padding: 48px 24px 32px; } section { padding: 8px 24px; }
-      .ethic { margin: 0 24px 8px; } hr.divider { margin: 32px 24px; } footer { padding: 24px; }
+      hr.divider { margin: 32px 24px; } footer { padding: 24px; }
       details.capacity > summary { flex-wrap: wrap; } .cap-body { padding: 0 24px 20px; }
     }
   </style>
@@ -109,11 +109,6 @@
   <p class="lede">Here's what the state says you should know. Each thing below carries its source.</p>
 </div>
 
-<div class="ethic">
-  <b>How this works.</b> Each claim shows how we know it — <b>D</b>ata, <b>S</b>ource, <b>I</b>nterpretation, or <b>U</b>nwarranted — and a receipt you can open to read the source in its own words.
-  Nothing here diagnoses your classroom; it orients. Nothing you type is saved or sent. No account, no tracking, no trace.
-</div>
-
 <hr class="divider">
 
 <div id="app">
@@ -123,8 +118,21 @@
 <footer>© Kim Starkey · HecKte · SchoolHouse — sourced, read-only, non-extractive.</footer>
 
 <script>
+  // ════════════════════════════════════════════════════════════════════════
+  //  SchoolHouse renderer — TEMPLATE
+  //  One codebase renders ANY shelf in ANY world.
+  //    ?shelf=<domain-slug>   which hedge to read   (default: positive-classroom-environment)
+  //    ?world=<world-name>    which schema to wear   (default: workshop)
+  //  Data layer reads the hedge once, world-agnostic. Worlds re-render the same
+  //  shelf object in different schemas — "same evidence, different presentation."
+  // ════════════════════════════════════════════════════════════════════════
+
   const SUPABASE_URL  = "https://ttqzijxlwtvpuetkljiy.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_fIj48cRnn4T1kP5xKX-OZg_34_Xfsn-";
+
+  const params    = new URLSearchParams(location.search);
+  const SHELF_SLUG = params.get("shelf") || "positive-classroom-environment";
+  const WORLD      = params.get("world") || "workshop";
 
   const PROV = {
     D: { label: "Data", hint: "measured in the record" },
@@ -142,6 +150,32 @@
     return res.json();
   }
 
+  // ── DATA LAYER — fetch one shelf, scoped to its subtree; world-agnostic ──
+  async function fetchShelf(slug) {
+    const [entries, claims] = await Promise.all([
+      api("entries?select=id,slug,title,level,description,parent_id&order=created_at"),
+      api("claims?select=id,statement,provenance,claim_entries(entry_id,relationship),claim_sources(relationship,excerpt,sources(title,authority,url,citation,year,source_type))")
+    ]);
+    const domain = entries.find(e => e.level === "domain" && e.slug === slug)
+                || entries.find(e => e.level === "domain");
+    if (!domain) throw new Error("shelf not found: " + slug);
+    const branches = entries.filter(e => e.parent_id === domain.id);
+    const inShelf  = new Set([domain.id, ...branches.map(b => b.id)]);
+
+    const byEntry = {}, unplaced = [];
+    for (const c of claims) {
+      const homesHere = (c.claim_entries || []).filter(h => inShelf.has(h.entry_id));
+      if (!homesHere.length) {
+        // truly not-yet-connected (no home anywhere) surfaces on the shelf; otherwise it belongs elsewhere
+        if (!(c.claim_entries || []).length) unplaced.push(c);
+        continue;
+      }
+      for (const h of homesHere) (byEntry[h.entry_id] = byEntry[h.entry_id] || []).push(c);
+    }
+    return { slug, domain, branches, byEntry, unplaced };
+  }
+
+  // ── shared fragments (every world can reuse) ──
   function receiptHTML(cs) {
     const s = cs.sources || {};
     const name = s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.authority || s.title)}</a>` : esc(s.authority || s.title);
@@ -161,90 +195,92 @@
   function legendHTML() {
     return `<div class="legend">` + Object.entries(PROV).map(([k,v]) => `<span><b class="prov prov-${k}">${k}</b>${esc(v.label)} — ${esc(v.hint)}</span>`).join("") + `</div>`;
   }
+  // a branch reads as "proposed" (✦, ours-not-DESE) when the data flags it.
+  // Tolerant to however Data marks it: slug prefix, a level value, or a description tag.
+  function isProposed(entry) {
+    const lv = (entry.level || "").toLowerCase();
+    return lv.includes("proposed") || /^proposed[-:]/.test(entry.slug || "") || /\bproposed\b/i.test(entry.description || "");
+  }
 
-  function render(entries, claims) {
-    const byEntry = {}, unplaced = [];
-    for (const c of claims) {
-      const homes = c.claim_entries || [];
-      if (!homes.length) { unplaced.push(c); continue; }
-      for (const h of homes) (byEntry[h.entry_id] = byEntry[h.entry_id] || []).push(c);
-    }
-    const domain = entries.find(e => e.level === "domain");
-    const capacities = entries.filter(e => e.level === "capacity");
+  // ════════════════════════════════════════════════════════════════════════
+  //  WORLDS — each renders the SAME shelf object in a different schema.
+  //  Add a world = add a function here. No data changes, no new page.
+  // ════════════════════════════════════════════════════════════════════════
+  const WORLDS = {
+    // "Classroom Workshop" — the warm, practitioner article (current default)
+    workshop(shelf) {
+      const { domain, branches, byEntry, unplaced } = shelf;
+      const on = document.getElementById("official-name"); if (on && domain) on.textContent = domain.title;
 
-    if (domain) { const on = document.getElementById("official-name"); if (on) on.textContent = domain.title; }
+      let html = "";
+      if (domain) {
+        html += `<section><div class="section-label">What the standard says</div>`;
+        html += `<p class="domain-def">${esc(domain.description)}</p>`;
+        for (const c of (byEntry[domain.id] || [])) html += claimHTML(c);
+        html += legendHTML();
+        html += `</section>`;
+      }
 
-    let html = "";
-
-    html += `<section><div class="prompt">
-      <div class="q">Before you read — what do you already know or believe about creating a positive classroom environment?</div>
-      <textarea placeholder="Just for you. There's no wrong answer, and nothing here is saved."></textarea>
-      <div class="note">This stays on your screen. Nothing is saved or sent.</div>
-    </div></section>`;
-
-    if (domain) {
-      html += `<section><div class="section-label">What the standard says</div>`;
-      html += `<p class="domain-def">${esc(domain.description)}</p>`;
-      for (const c of (byEntry[domain.id] || [])) html += claimHTML(c);
-      html += legendHTML();
-      html += `</section>`;
-    }
-
-    html += `<section><div class="section-label">The branches · open one at a time, in any order</div>`;
-    for (const cap of capacities) {
-      const cs = byEntry[cap.id] || [];
-      html += `<details class="capacity">
-        <summary><span><h2>${esc(cap.title)}</h2></span><span class="peek">${cs.length} claim${cs.length===1?"":"s"}</span></summary>
-        <div class="cap-body">
-          <div class="cap-desc">${esc(cap.description)}</div>
-          ${cs.map(claimHTML).join("") || '<div class="claim"><em style="color:#aaa">No claims placed here yet.</em></div>'}
-          <div class="prompt" style="margin-top:18px;">
-            <div class="q">What would you take from this branch to your classroom on Monday?</div>
-            <textarea placeholder="A line for you. Not saved, not sent."></textarea>
+      html += `<section><div class="section-label">The branches · open one at a time, in any order</div>`;
+      for (const cap of branches) {
+        const cs = byEntry[cap.id] || [];
+        const proposed = isProposed(cap);
+        html += `<details class="capacity${proposed ? " proposed" : ""}">
+          <summary>
+            <span><h2>${esc(cap.title)}</h2>${proposed ? '<span class="flag">✦ proposed · not DESE</span>' : ''}</span>
+            <span class="peek">${cs.length} claim${cs.length===1?"":"s"}</span>
+          </summary>
+          <div class="cap-body">
+            <div class="cap-desc">${esc(cap.description)}</div>
+            ${cs.map(claimHTML).join("") || '<div class="claim"><em style="color:#aaa">Content coming — sourcing in progress.</em></div>'}
+            <div class="prompt" style="margin-top:18px;">
+              <div class="q">What would you take from this branch to your classroom on Monday?</div>
+              <textarea placeholder="A line for you. Not saved, not sent."></textarea>
+            </div>
           </div>
-        </div>
-      </details>`;
-    }
-    html += `</section>`;
-
-    if (unplaced.length) {
-      html += `<section><div class="section-label">Held, not yet placed</div>`;
-      unplaced.forEach((c, i) => {
-        const capBtns = capacities.map(cap => `<button data-np="${i}">${esc(cap.title)}</button>`).join("");
-        html += `<div class="not-placed">
-          <div class="np-note">A real claim, backed by a source — not yet connected to a branch</div>
-          <div class="claim-statement">${esc(c.statement)}</div>
-          <div style="font-size:0.9rem;color:#8a8378;margin-top:10px;">Where do you think this belongs?</div>
-          <div class="np-guess">${capBtns}</div>
-          <div class="np-reveal" id="np-reveal-${i}">
-            Good instinct to look for a home. In this shelf, though, it isn't settled yet — it's held here, connected to its source but not to a branch. Nothing forced onto a shelf it doesn't fit.
-            ${(c.claim_sources||[]).map(receiptHTML).join("")}
-          </div>
-        </div>`;
-      });
+        </details>`;
+      }
       html += `</section>`;
+
+      if (unplaced.length) {
+        html += `<section><div class="section-label">Held, not yet placed</div>`;
+        unplaced.forEach((c, i) => {
+          const capBtns = branches.map(cap => `<button data-np="${i}">${esc(cap.title)}</button>`).join("");
+          html += `<div class="not-placed">
+            <div class="np-note">A real claim, backed by a source — not yet connected to a branch</div>
+            <div class="claim-statement">${esc(c.statement)}</div>
+            <div style="font-size:0.9rem;color:#8a8378;margin-top:10px;">Where do you think this belongs?</div>
+            <div class="np-guess">${capBtns}</div>
+            <div class="np-reveal" id="np-reveal-${i}">
+              Good instinct to look for a home. In this shelf, though, it isn't settled yet — it's held here, connected to its source but not to a branch. Nothing forced onto a shelf it doesn't fit.
+              ${(c.claim_sources||[]).map(receiptHTML).join("")}
+            </div>
+          </div>`;
+        });
+        html += `</section>`;
+      }
+      return html;
     }
 
-    document.getElementById("app").innerHTML = html;
+    // Future worlds (same shelf, different schema): garden, playground, arena, lab, expedition.
+    // Each is a function(shelf) => htmlString. That's the whole extension point.
+  };
 
+  function wireInteractions() {
     document.querySelectorAll('.np-guess button').forEach(b => {
       b.addEventListener('click', () => {
-        document.getElementById('np-reveal-' + b.dataset.np).classList.add('show');
+        const el = document.getElementById('np-reveal-' + b.dataset.np);
+        if (el) el.classList.add('show');
       });
     });
   }
 
   async function boot() {
-    if (SUPABASE_ANON_KEY.startsWith("PASTE_")) {
-      document.getElementById("status").innerHTML = "Almost live. Add the Supabase publishable key to <code>SUPABASE_ANON_KEY</code>.";
-      return;
-    }
     try {
-      const [entries, claims] = await Promise.all([
-        api("entries?select=id,slug,title,level,description,parent_id&order=created_at"),
-        api("claims?select=id,statement,provenance,claim_entries(entry_id,relationship),claim_sources(relationship,excerpt,sources(title,authority,url,citation,year,source_type))")
-      ]);
-      render(entries, claims);
+      const shelf = await fetchShelf(SHELF_SLUG);
+      const world = WORLDS[WORLD] || WORLDS.workshop;
+      document.getElementById("app").innerHTML = world(shelf);
+      wireInteractions();
     } catch (err) {
       document.getElementById("status").innerHTML = "Couldn't open the shelf. <code>" + esc(err.message) + "</code>";
     }
