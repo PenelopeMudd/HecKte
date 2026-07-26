@@ -83,14 +83,6 @@
     .receipt-body .excerpt { font-style: italic; color: #444; border-left: 2px solid #d8cdbb; padding-left: 12px; margin-top: 6px; }
     .receipt-body .rel { color: #999; font-size: 0.78rem; margin-top: 6px; }
 
-    .not-placed { background: #f7f5f1; border: 1px dashed #d8cdbb; border-radius: 3px; padding: 22px 26px; margin-bottom: 20px; }
-    .not-placed .np-note { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: #b09a76; margin-bottom: 12px; }
-    .np-guess { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    .np-guess button { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; color: #6a6358; background: #fffdf9; border: 1px solid #d8cdbb; border-radius: 3px; padding: 8px 12px; cursor: pointer; }
-    .np-guess button:hover { border-color: #7a5c3e; color: #1a1a1a; }
-    .np-reveal { margin-top: 12px; font-size: 0.92rem; color: #555; display: none; }
-    .np-reveal.show { display: block; }
-
     .unit { padding: 14px 0; border-top: 1px solid #efeae3; }
     .unit:first-child { border-top: none; }
     .unit-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
@@ -403,7 +395,6 @@
     workshop: function(shelf) {
       var domain   = shelf.domain;
       var strands  = shelf.strands;
-      var unplaced = shelf.not_yet_connected || [];
       var html = "";
 
       if (domain) {
@@ -439,37 +430,11 @@
       });
       html += "</section>";
 
-      if (unplaced.length) {
-        html += "<section><div class=\"section-label\">Held, not yet placed</div>";
-        unplaced.forEach(function(c, i) {
-          var btns = (strands || []).map(function(s) {
-            return "<button data-np=\"" + i + "\">" + esc(s.title) + "</button>";
-          }).join("");
-          html += "<div class=\"not-placed\">" +
-            "<div class=\"np-note\">A real claim, backed by a source &mdash; not yet connected to a strand</div>" +
-            "<div class=\"claim-statement\">" + esc(c.statement) + "</div>" +
-            "<div style=\"font-size:0.9rem;color:#8a8378;margin-top:10px;\">Where do you think this belongs?</div>" +
-            "<div class=\"np-guess\">" + btns + "</div>" +
-            "<div class=\"np-reveal\" id=\"np-reveal-" + i + "\">" +
-              "Good instinct to look for a home. In this shelf, though, it isn&#39;t settled yet &mdash; it&#39;s held here, connected to its source but not to a strand. Nothing forced onto a shelf it doesn&#39;t fit." +
-              (c.sources || []).map(receiptHTML).join("") +
-            "</div>" +
-          "</div>";
-        });
-        html += "</section>";
-      }
       return html;
     }
   };
 
-  function wireInteractions() {
-    document.querySelectorAll(".np-guess button").forEach(function(b) {
-      b.addEventListener("click", function() {
-        var el = document.getElementById("np-reveal-" + b.dataset.np);
-        if (el) el.classList.add("show");
-      });
-    });
-  }
+  function wireInteractions() {}
 
   var _shelf = null;
 
