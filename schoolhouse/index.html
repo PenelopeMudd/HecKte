@@ -31,6 +31,16 @@
 
     .domain-def { font-size: 1.02rem; color: #444; max-width: 640px; margin-bottom: 8px; }
 
+    /* band picker */
+    .band-picker { padding: 20px 40px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #efeae3; background: #fdfcf9; }
+    .band-picker-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #888; letter-spacing: 0.04em; }
+    .band-btn { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; padding: 6px 16px; border: 1px solid #d8cdbb; border-radius: 2px; background: white; color: #6a6358; cursor: pointer; transition: all 0.1s; }
+    .band-btn:hover { border-color: #7a5c3e; color: #1a1a1a; }
+    .band-btn.active { background: #7a5c3e; border-color: #7a5c3e; color: white; }
+    .band-btn-clear { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; background: none; border: none; cursor: pointer; padding: 4px 8px; }
+    .band-btn-clear:hover { color: #888; }
+
+    /* article intro */
     .article-intro { margin-bottom: 8px; }
     .article-section { margin-bottom: 22px; max-width: 640px; }
     .article-section h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #7a5c3e; margin-bottom: 10px; }
@@ -91,7 +101,8 @@
     .unit-title { font-size: 0.98rem; color: #111; }
     .unit-title a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
     .unit-title a:hover { border-bottom-color: #c4a882; color: #7a5c3e; }
-    .unit-desc { font-size: 0.88rem; color: #666; padding-left: 38px; margin-bottom: 6px; }
+    .unit-desc { font-size: 0.88rem; color: #666; padding-left: 38px; margin-bottom: 4px; }
+    .unit-band-text { font-size: 0.86rem; color: #555; padding-left: 38px; margin-top: 4px; }
     details.bands { margin-left: 38px; margin-top: 2px; }
     details.bands > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; display: inline-flex; align-items: center; gap: 5px; }
     details.bands > summary::-webkit-details-marker { display: none; }
@@ -103,12 +114,15 @@
     .band-text { color: #555; }
     .strand-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #c4a882; margin-right: 6px; }
 
+    /* unit page */
     .unit-page { padding: 0 40px 40px; max-width: 780px; }
     .unit-breadcrumb { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #aaa; margin-bottom: 36px; padding-top: 8px; }
     .unit-breadcrumb a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
     .unit-page-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #c4a882; margin-bottom: 10px; }
     .unit-page-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: normal; color: #111; margin-bottom: 18px; line-height: 1.25; }
-    .unit-page-desc { font-size: 1.05rem; color: #3a3530; max-width: 580px; margin-bottom: 32px; line-height: 1.7; }
+    .unit-page-desc { font-size: 1.05rem; color: #3a3530; max-width: 580px; margin-bottom: 28px; line-height: 1.7; }
+    .unit-page-band-block { margin-bottom: 32px; padding: 18px 20px; background: #f4f1ec; border: 1px solid #e6e0d6; border-radius: 3px; max-width: 580px; }
+    .unit-page-band-block p { font-size: 1rem; color: #4a453d; line-height: 1.68; }
     .unit-page-bands { margin-bottom: 36px; }
     .unit-page-band { display: flex; gap: 16px; padding: 12px 0; border-top: 1px solid #efeae3; font-size: 0.92rem; }
     .unit-page-band-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.72rem; color: #7a5c3e; min-width: 36px; flex-shrink: 0; padding-top: 3px; }
@@ -131,6 +145,7 @@
       hr.divider { margin: 32px 24px; } footer { padding: 24px; }
       details.capacity > summary { flex-wrap: wrap; } .cap-body { padding: 0 24px 20px; }
       .unit-page { padding: 0 24px 32px; }
+      .band-picker { padding: 16px 24px; }
     }
   </style>
 </head>
@@ -148,6 +163,8 @@
   <p class="lede">Each thing below carries its source. Nothing here without a reason.</p>
 </div>
 
+<div id="band-bar"></div>
+
 <hr class="divider">
 
 <div id="app">
@@ -158,6 +175,12 @@
 
 <script>
   var WORLD = new URLSearchParams(location.search).get("world") || "workshop";
+
+  var BANDS = [
+    { key: "k2",       label: "K–2" },
+    { key: "grades35", label: "3–5" },
+    { key: "grades68", label: "6–8" }
+  ];
 
   var PROV = {
     D: { label: "Data",           hint: "measured in the record" },
@@ -171,6 +194,34 @@
       return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]);
     }));
   };
+
+  function getBand() {
+    try { return localStorage.getItem("sh_band") || null; } catch(e) { return null; }
+  }
+  function setBand(key) {
+    try { if (key) localStorage.setItem("sh_band", key); else localStorage.removeItem("sh_band"); } catch(e) {}
+  }
+
+  function renderBandBar() {
+    var current = getBand();
+    var bar = document.getElementById("band-bar");
+    if (!bar) return;
+    var html = "<div class=\"band-picker\"><span class=\"band-picker-label\">I teach</span>";
+    BANDS.forEach(function(b) {
+      html += "<button class=\"band-btn" + (current === b.key ? " active" : "") + "\" data-band=\"" + b.key + "\">" + b.label + "</button>";
+    });
+    if (current) html += "<button class=\"band-btn-clear\" data-band-clear>change</button>";
+    html += "</div>";
+    bar.innerHTML = html;
+    bar.querySelectorAll(".band-btn").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        setBand(btn.dataset.band);
+        render();
+      });
+    });
+    var clr = bar.querySelector("[data-band-clear]");
+    if (clr) clr.addEventListener("click", function() { setBand(null); render(); });
+  }
 
   async function fetchShelf() {
     var res = await fetch("./data/classroom-management.json");
@@ -190,7 +241,7 @@
 
   function claimHTML(claim) {
     var p   = PROV[claim.provenance];
-    var tag = p ? "<span class=\"prov prov-" + esc(claim.provenance) + "\" title=\"" + esc(p.label) + " &mdash; " + esc(p.hint) + "\">" + esc(claim.provenance) + "</span>" : "";
+    var tag = p ? "<span class=\"prov prov-" + esc(claim.provenance) + "\" title=\"" + esc(p.label) + " — " + esc(p.hint) + "\">" + esc(claim.provenance) + "</span>" : "";
     var receipts = (claim.sources || []).map(receiptHTML).join("");
     return "<div class=\"claim\"><div class=\"claim-statement\">" + tag + esc(claim.statement) + "</div>" + receipts + "</div>";
   }
@@ -198,21 +249,35 @@
   function legendHTML() {
     return "<div class=\"legend\">" +
       Object.entries(PROV).map(function(e) {
-        return "<span><b class=\"prov prov-" + e[0] + "\">" + e[0] + "</b>" + esc(e[1].label) + " &mdash; " + esc(e[1].hint) + "</span>";
+        return "<span><b class=\"prov prov-" + e[0] + "\">" + e[0] + "</b>" + esc(e[1].label) + " — " + esc(e[1].hint) + "</span>";
       }).join("") + "</div>";
   }
 
-  function unitHTML(unit, strandCode) {
+  function enactmentHTML(unit, band, forUnitPage) {
     var e = unit.enactment || {};
-    var bands = [
-      { label: "K&ndash;2", key: "k2" },
-      { label: "3&ndash;5", key: "grades35" },
-      { label: "6&ndash;8", key: "grades68" }
-    ];
-    var bandRows = bands.filter(function(b) { return e[b.key]; }).map(function(b) {
-      return "<div class=\"band-row\"><span class=\"band-label\">" + b.label + "</span>" +
-             "<span class=\"band-text\">" + esc(e[b.key]) + "</span></div>";
+    if (band) {
+      var text = e[band];
+      if (!text) return "";
+      if (forUnitPage) {
+        return "<div class=\"unit-page-band-block\"><p>" + esc(text) + "</p></div>";
+      }
+      return "<div class=\"unit-band-text\">" + esc(text) + "</div>";
+    }
+    var rows = BANDS.filter(function(b) { return e[b.key]; }).map(function(b) {
+      if (forUnitPage) {
+        return "<div class=\"unit-page-band\"><span class=\"unit-page-band-label\">" + esc(b.label) + "</span><span class=\"unit-page-band-text\">" + esc(e[b.key]) + "</span></div>";
+      }
+      return "<div class=\"band-row\"><span class=\"band-label\">" + esc(b.label) + "</span><span class=\"band-text\">" + esc(e[b.key]) + "</span></div>";
     }).join("");
+    if (!rows) return "";
+    if (forUnitPage) {
+      return "<div class=\"unit-page-bands\"><div class=\"section-label\" style=\"margin:0 0 14px\">Grade-band enactment</div>" + rows + "</div>";
+    }
+    return "<details class=\"bands\"><summary>Grade-band enactment</summary><div class=\"band-grid\">" + rows + "</div></details>";
+  }
+
+  function unitHTML(unit, strandCode) {
+    var band = getBand();
     var unitKey = strandCode ? esc(strandCode + "." + unit.id) : null;
     var titleEl = unitKey
       ? "<a href=\"?unit=" + unitKey + "\">" + esc(unit.title) + "</a>"
@@ -223,7 +288,7 @@
         "<span class=\"unit-title\">" + titleEl + "</span>" +
       "</div>" +
       "<div class=\"unit-desc\">" + esc(unit.description) + "</div>" +
-      (bandRows ? "<details class=\"bands\"><summary>Grade-band enactment</summary><div class=\"band-grid\">" + bandRows + "</div></details>" : "") +
+      enactmentHTML(unit, band, false) +
     "</div>";
   }
 
@@ -250,19 +315,7 @@
     var unit   = item.unit;
     var prev   = idx > 0 ? list[idx - 1] : null;
     var next   = idx < list.length - 1 ? list[idx + 1] : null;
-
-    var e = unit.enactment || {};
-    var bands = [
-      { label: "K&ndash;2", key: "k2" },
-      { label: "3&ndash;5", key: "grades35" },
-      { label: "6&ndash;8", key: "grades68" }
-    ];
-    var bandRows = bands.filter(function(b) { return e[b.key]; }).map(function(b) {
-      return "<div class=\"unit-page-band\">" +
-        "<span class=\"unit-page-band-label\">" + b.label + "</span>" +
-        "<span class=\"unit-page-band-text\">" + esc(e[b.key]) + "</span>" +
-      "</div>";
-    }).join("");
+    var band   = getBand();
 
     var position = (idx + 1) + " of " + list.length;
     var prevLink = prev
@@ -277,7 +330,7 @@
       "<div class=\"unit-page-label\">" + esc(strand.dese_code) + " &middot; " + esc(strand.subtitle) + "</div>" +
       "<h2 class=\"unit-page-title\">" + esc(unit.title) + "</h2>" +
       "<p class=\"unit-page-desc\">" + esc(unit.description) + "</p>" +
-      (bandRows ? "<div class=\"unit-page-bands\"><div class=\"section-label\" style=\"margin:0 0 14px\">Grade-band enactment</div>" + bandRows + "</div>" : "") +
+      enactmentHTML(unit, band, true) +
       "<div class=\"unit-nav\">" +
         prevLink +
         "<span class=\"unit-nav-center\"><a href=\"?\">" + position + "</a></span>" +
@@ -291,7 +344,7 @@
       "<div class=\"section-label\">What it actually is</div>" +
       "<div class=\"article-section\">" +
         "<p>Missouri names it <strong>Standard 5: Positive Classroom Environment for Learning</strong> &mdash; and the name is the correction. " +
-        "This is not classroom management in the sense of keeping order. The standard&rsquo;s job is <em>building a place where learning happens</em>: " +
+        "This is not classroom management in the sense of keeping order. The standard&#39;s job is <em>building a place where learning happens</em>: " +
         "environment, engagement, interaction, self-motivation. Not compliance. Not control.</p>" +
       "</div>" +
       "<div class=\"article-section\">" +
@@ -305,17 +358,17 @@
       "<div class=\"article-section\">" +
         "<h3>They cover for each other</h3>" +
         "<div class=\"covers-note\">" +
-        "A kid who won&rsquo;t start <em>looks</em> like 5.1 (behavior) &mdash; but the cause is often 5.2 (the transition dumped them in unprepared) or 5.3 (it isn&rsquo;t safe to be wrong here). " +
+        "A kid who won&#39;t start <em>looks</em> like 5.1 (behavior) &mdash; but the cause is often 5.2 (the transition dumped them in unprepared) or 5.3 (it isn&#39;t safe to be wrong here). " +
         "A &ldquo;chaotic&rdquo; class is frequently 5.2: idle time and unclear next steps, wearing a behavior costume. " +
-        "The most useful first question isn&rsquo;t which rule was broken &mdash; it&rsquo;s <em>which strand is actually the source.</em>" +
+        "The most useful first question isn&#39;t which rule was broken &mdash; it&#39;s <em>which strand is actually the source.</em>" +
         "</div>" +
       "</div>" +
     "</section>";
 
   var WORLDS = {
     workshop: function(shelf) {
-      var domain  = shelf.domain;
-      var strands = shelf.strands;
+      var domain   = shelf.domain;
+      var strands  = shelf.strands;
       var unplaced = shelf.not_yet_connected || [];
       var html = "";
 
@@ -330,9 +383,7 @@
 
       html += GENERAL_FIGURE;
 
-      html += "<section>" +
-        "<div class=\"section-label\">Open a strand &mdash; pick one, in any order</div>";
-
+      html += "<section><div class=\"section-label\">Open a strand &mdash; pick one, in any order</div>";
       (strands || []).forEach(function(strand) {
         var units = strand.units || [];
         html += "<details class=\"capacity\">" +
@@ -356,8 +407,7 @@
       html += "</section>";
 
       if (unplaced.length) {
-        html += "<section>" +
-          "<div class=\"section-label\">Held, not yet placed</div>";
+        html += "<section><div class=\"section-label\">Held, not yet placed</div>";
         unplaced.forEach(function(c, i) {
           var btns = (strands || []).map(function(s) {
             return "<button data-np=\"" + i + "\">" + esc(s.title) + "</button>";
@@ -368,7 +418,7 @@
             "<div style=\"font-size:0.9rem;color:#8a8378;margin-top:10px;\">Where do you think this belongs?</div>" +
             "<div class=\"np-guess\">" + btns + "</div>" +
             "<div class=\"np-reveal\" id=\"np-reveal-" + i + "\">" +
-              "Good instinct to look for a home. In this shelf, though, it isn&rsquo;t settled yet &mdash; it&rsquo;s held here, connected to its source but not to a strand. Nothing forced onto a shelf it doesn&rsquo;t fit." +
+              "Good instinct to look for a home. In this shelf, though, it isn&#39;t settled yet &mdash; it&#39;s held here, connected to its source but not to a strand. Nothing forced onto a shelf it doesn&#39;t fit." +
               (c.sources || []).map(receiptHTML).join("") +
             "</div>" +
           "</div>";
@@ -388,17 +438,25 @@
     });
   }
 
+  var _shelf = null;
+
+  function render() {
+    if (!_shelf) return;
+    renderBandBar();
+    var unitParam = new URLSearchParams(location.search).get("unit");
+    if (unitParam) {
+      document.getElementById("app").innerHTML = unitViewHTML(_shelf, unitParam);
+    } else {
+      var world = WORLDS[WORLD] || WORLDS.workshop;
+      document.getElementById("app").innerHTML = world(_shelf);
+      wireInteractions();
+    }
+  }
+
   async function boot() {
     try {
-      var shelf     = await fetchShelf();
-      var unitParam = new URLSearchParams(location.search).get("unit");
-      if (unitParam) {
-        document.getElementById("app").innerHTML = unitViewHTML(shelf, unitParam);
-      } else {
-        var world = WORLDS[WORLD] || WORLDS.workshop;
-        document.getElementById("app").innerHTML = world(shelf);
-        wireInteractions();
-      }
+      _shelf = await fetchShelf();
+      render();
     } catch (err) {
       document.getElementById("status").innerHTML =
         "Could not open the shelf. <code>" + esc(err.message) + "</code>";
