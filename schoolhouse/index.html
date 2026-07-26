@@ -39,6 +39,13 @@
     .band-btn-clear { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; background: none; border: none; cursor: pointer; padding: 4px 8px; }
     .band-btn-clear:hover { color: #888; }
 
+    /* band context */
+    .band-context { padding: 22px 40px 26px; max-width: 820px; border-bottom: 1px solid #efeae3; background: #faf8f4; }
+    .band-context-driver { font-size: 0.97rem; color: #3a3530; font-style: italic; margin-bottom: 16px; max-width: 620px; line-height: 1.6; }
+    .band-context-strands { list-style: none; padding: 0; margin: 0; max-width: 660px; }
+    .band-context-strands li { display: flex; gap: 12px; font-size: 0.88rem; color: #555; padding: 8px 0; border-top: 1px solid #ede8e0; line-height: 1.55; }
+    .band-context-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; font-weight: 700; color: #c4a882; min-width: 26px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em; }
+
     /* article intro */
     .article-intro { margin-bottom: 8px; }
     .article-section { margin-bottom: 22px; max-width: 640px; }
@@ -64,12 +71,6 @@
     .claim:first-of-type { border-top: none; }
     .claim-statement { font-size: 1rem; color: #1a1a1a; margin-bottom: 8px; }
 
-    .prov { display: inline-block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; vertical-align: middle; margin-right: 8px; }
-    .prov-D { background: #e7f0e9; color: #3d6b4c; }
-    .prov-S { background: #e6edf3; color: #3a5a75; }
-    .prov-I { background: #f3ede1; color: #8a6d3b; }
-    .prov-U { background: #efe9e9; color: #7a5c5c; }
-
     details.receipt { margin-top: 6px; }
     details.receipt > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
     details.receipt > summary::-webkit-details-marker { display: none; }
@@ -89,9 +90,6 @@
     .np-guess button:hover { border-color: #7a5c3e; color: #1a1a1a; }
     .np-reveal { margin-top: 12px; font-size: 0.92rem; color: #555; display: none; }
     .np-reveal.show { display: block; }
-
-    .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #777; }
-    .legend span b { display: inline-block; margin-right: 4px; }
 
     .unit { padding: 14px 0; border-top: 1px solid #efeae3; }
     .unit:first-child { border-top: none; }
@@ -145,6 +143,7 @@
       details.capacity > summary { flex-wrap: wrap; } .cap-body { padding: 0 24px 20px; }
       .unit-page { padding: 0 24px 32px; }
       .band-picker { padding: 16px 24px; }
+      .band-context { padding: 18px 24px 20px; }
     }
   </style>
 </head>
@@ -162,6 +161,7 @@
 </div>
 
 <div id="band-bar"></div>
+<div id="band-context"></div>
 
 <hr class="divider">
 
@@ -179,13 +179,6 @@
     { key: "grades35", label: "3–5" },
     { key: "grades68", label: "6–8" }
   ];
-
-  var PROV = {
-    D: { label: "Data",           hint: "measured in the record" },
-    S: { label: "Source",         hint: "stated by an authority" },
-    I: { label: "Interpretation", hint: "reasoned from the evidence" },
-    U: { label: "Unwarranted",    hint: "asserted without backing" }
-  };
 
   var esc = function(s) {
     return (s == null ? "" : String(s).replace(/[&<>"']/g, function(c) {
@@ -221,6 +214,24 @@
     if (clr) clr.addEventListener("click", function() { setBand(null); render(); });
   }
 
+  function renderBandContext(shelf) {
+    var ctx = document.getElementById("band-context");
+    if (!ctx) return;
+    var band = getBand();
+    if (!band || !shelf || !shelf.bands) { ctx.innerHTML = ""; return; }
+    var b = null;
+    (shelf.bands || []).forEach(function(x) { if (x.key === band) b = x; });
+    if (!b) { ctx.innerHTML = ""; return; }
+    var strandKeys = Object.keys(b.strands || {});
+    var rows = strandKeys.map(function(code) {
+      return "<li><span class=\"band-context-code\">" + esc(code) + "</span>" + esc(b.strands[code]) + "</li>";
+    }).join("");
+    ctx.innerHTML = "<div class=\"band-context\">" +
+      "<div class=\"band-context-driver\">" + esc(b.driver) + "</div>" +
+      "<ul class=\"band-context-strands\">" + rows + "</ul>" +
+    "</div>";
+  }
+
   async function fetchShelf() {
     var res = await fetch("./data/classroom-management.json");
     if (!res.ok) throw new Error("Could not load shelf data (" + res.status + ")");
@@ -238,17 +249,8 @@
   }
 
   function claimHTML(claim) {
-    var p   = PROV[claim.provenance];
-    var tag = p ? "<span class=\"prov prov-" + esc(claim.provenance) + "\" title=\"" + esc(p.label) + " — " + esc(p.hint) + "\">" + esc(claim.provenance) + "</span>" : "";
     var receipts = (claim.sources || []).map(receiptHTML).join("");
-    return "<div class=\"claim\"><div class=\"claim-statement\">" + tag + esc(claim.statement) + "</div>" + receipts + "</div>";
-  }
-
-  function legendHTML() {
-    return "<div class=\"legend\">" +
-      Object.entries(PROV).map(function(e) {
-        return "<span><b class=\"prov prov-" + e[0] + "\">" + e[0] + "</b>" + esc(e[1].label) + " — " + esc(e[1].hint) + "</span>";
-      }).join("") + "</div>";
+    return "<div class=\"claim\"><div class=\"claim-statement\">" + esc(claim.statement) + "</div>" + receipts + "</div>";
   }
 
   function enactmentHTML(unit, band, forUnitPage) {
@@ -375,7 +377,6 @@
           "<div class=\"section-label\">What the standard says</div>" +
           "<p class=\"domain-def\">" + esc(domain.description) + "</p>" +
           (domain.claims || []).map(claimHTML).join("") +
-          legendHTML() +
           "</section>";
       }
 
@@ -441,6 +442,7 @@
   function render() {
     if (!_shelf) return;
     renderBandBar();
+    renderBandContext(_shelf);
     var unitParam = new URLSearchParams(location.search).get("unit");
     if (unitParam) {
       document.getElementById("app").innerHTML = unitViewHTML(_shelf, unitParam);
