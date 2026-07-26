@@ -1,0 +1,246 @@
+{
+  "domain": {
+    "slug": "positive-classroom-environment",
+    "title": "Positive Classroom Environment",
+    "description": "Missouri Standard 5 defines the job as building a place where learning happens — environment, engagement, interaction, self-motivation. Not compliance. Not control. Three views of one room: person · structure · relationship.",
+    "claims": [
+      {
+        "statement": "The teacher uses an understanding of individual/group motivation and behavior to create a learning environment that encourages active engagement in learning, positive social interaction, and self-motivation.",
+        "provenance": "S",
+        "sources": [
+          {
+            "title": "Missouri Teacher Standards — Standard 5: Positive Classroom Environment",
+            "authority": "DESE / Missouri Teacher Standards",
+            "url": "https://dese.mo.gov/educator-quality/educator-effectiveness/educator-standards/teacher-standards",
+            "relationship": "defines",
+            "excerpt": null
+          }
+        ]
+      }
+    ]
+  },
+  "strands": [
+    {
+      "slug": "5-1-behavior-engagement",
+      "dese_code": "5.1",
+      "title": "Behavior & Engagement",
+      "subtitle": "The people, in the moment.",
+      "description": "Keep students engaged and the class in motion; handle misbehavior with least disruption.",
+      "units": [
+        {
+          "id": "U1",
+          "title": "Read the room",
+          "description": "Notice engagement vs. compliance; tell 'quiet' apart from 'with me.'",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        },
+        {
+          "id": "U2",
+          "title": "Open strong",
+          "description": "Design the first four minutes so students start without waiting to be told.",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        },
+        {
+          "id": "U3",
+          "title": "Respond small and early",
+          "description": "Address off-task behavior at 4 seconds, not 4 minutes; keep the lesson moving.",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        },
+        {
+          "id": "U4",
+          "title": "Name the deed, not the doer",
+          "description": "Correct behavior without spending the relationship — keeps the student reachable.",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        },
+        {
+          "id": "U5",
+          "title": "Build engagement structurally",
+          "description": "Frequent opportunities to respond; competence before buy-in (knowledge builds motivation).",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        },
+        {
+          "id": "U6",
+          "title": "Re-engage the dip",
+          "description": "Recover attention mid-lesson without stopping.",
+          "enactment": {
+            "k2": "Routines and re-engagement are taught and rehearsed like content; heavy visual/nonverbal cues; praise is specific and immediate.",
+            "grades35": "Students begin self-monitoring; teacher shifts from directing to prompting; group opportunities to respond.",
+            "grades68": "Engagement runs through relevance and voice; correction protects adolescent face; students help set re-engagement norms."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "5-2-time-space-flow",
+      "dese_code": "5.2",
+      "title": "Time, Space & Flow",
+      "subtitle": "The structure.",
+      "description": "Shape time, space, and transitions so the class runs smoothly and stays productive.",
+      "units": [
+        {
+          "id": "U1",
+          "title": "Map the hour",
+          "description": "Design a predictable lesson rhythm students can anticipate.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        },
+        {
+          "id": "U2",
+          "title": "Design the space",
+          "description": "Place materials, traffic paths, and tools where the work is — fewer teacher-feet, less waiting.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        },
+        {
+          "id": "U3",
+          "title": "Teach the transition",
+          "description": "Make the seams between activities short by practicing them, not policing them.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        },
+        {
+          "id": "U4",
+          "title": "Build the 'what's next'",
+          "description": "Always have a defined next step so finishing early never becomes idle time.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        },
+        {
+          "id": "U5",
+          "title": "Manage materials flow",
+          "description": "Get things into hands without twenty-eight people waiting.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        },
+        {
+          "id": "U6",
+          "title": "Protect instructional time",
+          "description": "Audit where minutes leak and close the leaks.",
+          "enactment": {
+            "k2": "Transitions are explicitly modeled and rehearsed (songs, signals, practiced routes); very short work cycles.",
+            "grades35": "Students manage their own materials and movement within a set structure; longer cycles.",
+            "grades68": "Students move between formats (discussion → group → independent) with minimal cueing; teacher designs, students run it."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "5-3-culture-belonging",
+      "dese_code": "5.3",
+      "title": "Culture & Belonging",
+      "subtitle": "The relational field.",
+      "description": "Build a culture where students belong, trust each other, and want to learn.",
+      "units": [
+        {
+          "id": "U1",
+          "title": "Make belonging structural",
+          "description": "Build in ways every student belongs by default, not by earning it.",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        },
+        {
+          "id": "U2",
+          "title": "Make being-wrong survivable",
+          "description": "Respond to risk-taking and error so students keep trying (psychological safety).",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        },
+        {
+          "id": "U3",
+          "title": "Build the relational bank",
+          "description": "Invest in relationship before you need to spend it on correction — feedback lands through relationship.",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        },
+        {
+          "id": "U4",
+          "title": "Co-create norms",
+          "description": "Students help author how the room treats each other — investment over compliance.",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        },
+        {
+          "id": "U5",
+          "title": "Repair, don't exclude",
+          "description": "Address harm by restoring relationship and keeping students in the community.",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        },
+        {
+          "id": "U6",
+          "title": "Hand culture to students",
+          "description": "Move toward students evaluating and sustaining the culture themselves.",
+          "enactment": {
+            "k2": "Belonging built through naming, greeting, and daily ritual; simple, concrete repair language.",
+            "grades35": "Students take on classroom roles and simple restorative conversations; norms made explicit and revisited.",
+            "grades68": "Students co-own norms and lead repair; identity and peer-belonging are central; culture becomes partly student-run."
+          }
+        }
+      ]
+    }
+  ],
+  "not_yet_connected": [
+    {
+      "statement": "Durable learning reveals itself over time, through what persists; it is built by repeated, spaced practice.",
+      "provenance": "S",
+      "sources": [
+        {
+          "title": "The Science of Learning (2nd ed.)",
+          "authority": "Deans for Impact",
+          "url": "https://www.deansforimpact.org/tools-and-resources/the-science-of-learning",
+          "excerpt": "Completion of assignments and absence of errors does not necessarily equate to long-lasting learning. There are many strategies which support short-term performance that inflate the appearance of learning without deepening meaningful, longer-lasting learning.",
+          "relationship": "states"
+        }
+      ]
+    }
+  ]
+}

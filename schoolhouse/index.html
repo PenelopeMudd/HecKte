@@ -83,6 +83,23 @@
     .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #777; }
     .legend span b { display: inline-block; margin-right: 4px; }
 
+    .unit { padding: 14px 0; border-top: 1px solid #efeae3; }
+    .unit:first-child { border-top: none; }
+    .unit-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+    .unit-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: #c4a882; min-width: 28px; flex-shrink: 0; }
+    .unit-title { font-size: 0.98rem; color: #111; }
+    .unit-desc { font-size: 0.88rem; color: #666; padding-left: 38px; margin-bottom: 6px; }
+    details.bands { margin-left: 38px; margin-top: 2px; }
+    details.bands > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; display: inline-flex; align-items: center; gap: 5px; }
+    details.bands > summary::-webkit-details-marker { display: none; }
+    details.bands > summary::before { content: "▸"; font-size: 0.7rem; color: #c4a882; }
+    details.bands[open] > summary::before { content: "▾"; }
+    .band-grid { margin-top: 8px; display: grid; gap: 8px; }
+    .band-row { display: flex; gap: 10px; font-size: 0.86rem; }
+    .band-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.72rem; color: #7a5c3e; min-width: 30px; flex-shrink: 0; padding-top: 1px; }
+    .band-text { color: #555; }
+    .strand-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #c4a882; margin-right: 6px; }
+
     .status { padding: 40px; max-width: 820px; color: #888; font-size: 0.95rem; }
     .status code { background: #efeae3; padding: 2px 6px; border-radius: 3px; font-size: 0.85rem; }
 
@@ -105,7 +122,7 @@
 <div class="hero">
   <div class="kicker">SchoolHouse · Missouri</div>
   <h1>Classroom Management</h1>
-  <p class="bridge">What Missouri asks teachers to know. The state calls it “<span id="official-name">…</span>” — Teacher Standard 5.</p>
+  <p class="bridge">What Missouri asks teachers to know. The state calls it "<span id="official-name">…</span>" — Teacher Standard 5.</p>
   <p class="lede">Here's what the state says you should know. Each thing below carries its source.</p>
 </div>
 
@@ -118,123 +135,102 @@
 <footer>© Kim Starkey · HecKte · SchoolHouse — sourced, read-only, non-extractive.</footer>
 
 <script>
-  // ════════════════════════════════════════════════════════════════════════
-  //  SchoolHouse renderer — TEMPLATE
-  //  One codebase renders ANY shelf in ANY world.
-  //    ?shelf=<domain-slug>   which hedge to read   (default: positive-classroom-environment)
-  //    ?world=<world-name>    which schema to wear   (default: workshop)
-  //  Data layer reads the hedge once, world-agnostic. Worlds re-render the same
-  //  shelf object in different schemas — "same evidence, different presentation."
-  // ════════════════════════════════════════════════════════════════════════
+  // SchoolHouse renderer — TEMPLATE
+  // One codebase renders ANY shelf in ANY world.
+  //   ?world=<world-name>   which schema to wear (default: workshop)
+  // Data layer reads local JSON. Worlds re-render the same shelf object
+  // in different schemas — "same evidence, different presentation."
 
-  const SUPABASE_URL  = "https://ttqzijxlwtvpuetkljiy.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_fIj48cRnn4T1kP5xKX-OZg_34_Xfsn-";
-
-  const params    = new URLSearchParams(location.search);
-  const SHELF_SLUG = params.get("shelf") || "positive-classroom-environment";
-  const WORLD      = params.get("world") || "workshop";
+  const WORLD = new URLSearchParams(location.search).get("world") || "workshop";
 
   const PROV = {
-    D: { label: "Data", hint: "measured in the record" },
-    S: { label: "Source", hint: "stated by an authority" },
+    D: { label: "Data",           hint: "measured in the record" },
+    S: { label: "Source",         hint: "stated by an authority" },
     I: { label: "Interpretation", hint: "reasoned from the evidence" },
-    U: { label: "Unwarranted", hint: "asserted without backing" }
+    U: { label: "Unwarranted",    hint: "asserted without backing" }
   };
-  const esc = s => (s == null ? "" : String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])));
+  const esc = s => (s == null ? "" : String(s).replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])));
 
-  async function api(path) {
-    const res = await fetch(SUPABASE_URL + "/rest/v1/" + path, {
-      headers: { apikey: SUPABASE_ANON_KEY, Authorization: "Bearer " + SUPABASE_ANON_KEY }
-    });
-    if (!res.ok) throw new Error("REST " + res.status + " — " + (await res.text()).slice(0,200));
+  async function fetchShelf() {
+    const res = await fetch("./data/classroom-management.json");
+    if (!res.ok) throw new Error("Couldn't load shelf data (" + res.status + ")");
     return res.json();
   }
 
-  // ── DATA LAYER — fetch one shelf, scoped to its subtree; world-agnostic ──
-  async function fetchShelf(slug) {
-    const [entries, claims] = await Promise.all([
-      api("entries?select=id,slug,title,level,description,parent_id&order=created_at"),
-      api("claims?select=id,statement,provenance,claim_entries(entry_id,relationship),claim_sources(relationship,excerpt,sources(title,authority,url,citation,year,source_type))")
-    ]);
-    const domain = entries.find(e => e.level === "domain" && e.slug === slug)
-                || entries.find(e => e.level === "domain");
-    if (!domain) throw new Error("shelf not found: " + slug);
-    const branches = entries.filter(e => e.parent_id === domain.id);
-    const inShelf  = new Set([domain.id, ...branches.map(b => b.id)]);
-
-    const byEntry = {}, unplaced = [];
-    for (const c of claims) {
-      const homesHere = (c.claim_entries || []).filter(h => inShelf.has(h.entry_id));
-      if (!homesHere.length) {
-        // truly not-yet-connected (no home anywhere) surfaces on the shelf; otherwise it belongs elsewhere
-        if (!(c.claim_entries || []).length) unplaced.push(c);
-        continue;
-      }
-      for (const h of homesHere) (byEntry[h.entry_id] = byEntry[h.entry_id] || []).push(c);
-    }
-    return { slug, domain, branches, byEntry, unplaced };
-  }
-
-  // ── shared fragments (every world can reuse) ──
-  function receiptHTML(cs) {
-    const s = cs.sources || {};
-    const name = s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.authority || s.title)}</a>` : esc(s.authority || s.title);
-    let body = `<div class="src-name">${name}${s.year ? " · " + esc(s.year) : ""}</div>`;
-    body += `<div>${esc(s.title)}</div>`;
-    if (cs.excerpt) body += `<div class="excerpt">“${esc(cs.excerpt)}”</div>`;
-    if (cs.relationship) body += `<div class="rel">relationship: ${esc(cs.relationship)}</div>`;
-    if (s.citation && !cs.excerpt) body += `<div class="rel">${esc(s.citation)}</div>`;
+  function receiptHTML(s) {
+    const name = s.url
+      ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.authority || s.title)}</a>`
+      : esc(s.authority || s.title);
+    let body = `<div class="src-name">${name}</div><div>${esc(s.title)}</div>`;
+    if (s.excerpt)      body += `<div class="excerpt">"${esc(s.excerpt)}"</div>`;
+    if (s.relationship) body += `<div class="rel">relationship: ${esc(s.relationship)}</div>`;
     return `<details class="receipt"><summary>source</summary><div class="receipt-body">${body}</div></details>`;
   }
   function claimHTML(claim) {
-    const p = PROV[claim.provenance];
+    const p   = PROV[claim.provenance];
     const tag = p ? `<span class="prov prov-${esc(claim.provenance)}" title="${esc(p.label)} — ${esc(p.hint)}">${esc(claim.provenance)}</span>` : "";
-    const receipts = (claim.claim_sources || []).map(receiptHTML).join("");
+    const receipts = (claim.sources || []).map(receiptHTML).join("");
     return `<div class="claim"><div class="claim-statement">${tag}${esc(claim.statement)}</div>${receipts}</div>`;
   }
   function legendHTML() {
-    return `<div class="legend">` + Object.entries(PROV).map(([k,v]) => `<span><b class="prov prov-${k}">${k}</b>${esc(v.label)} — ${esc(v.hint)}</span>`).join("") + `</div>`;
+    return `<div class="legend">` +
+      Object.entries(PROV).map(([k,v]) =>
+        `<span><b class="prov prov-${k}">${k}</b>${esc(v.label)} — ${esc(v.hint)}</span>`
+      ).join("") + `</div>`;
   }
-  // a branch reads as "proposed" (✦, ours-not-DESE) when the data flags it.
-  // Tolerant to however Data marks it: slug prefix, a level value, or a description tag.
-  function isProposed(entry) {
-    const lv = (entry.level || "").toLowerCase();
-    return lv.includes("proposed") || /^proposed[-:]/.test(entry.slug || "") || /\bproposed\b/i.test(entry.description || "");
+  function unitHTML(unit) {
+    const e = unit.enactment || {};
+    const bands = [
+      { label: "K–2", key: "k2"       },
+      { label: "3–5", key: "grades35" },
+      { label: "6–8", key: "grades68" }
+    ];
+    const bandRows = bands.filter(b => e[b.key]).map(b =>
+      `<div class="band-row"><span class="band-label">${esc(b.label)}</span><span class="band-text">${esc(e[b.key])}</span></div>`
+    ).join("");
+    return `<div class="unit">
+      <div class="unit-header">
+        <span class="unit-num">${esc(unit.id)}</span>
+        <span class="unit-title">${esc(unit.title)}</span>
+      </div>
+      <div class="unit-desc">${esc(unit.description)}</div>
+      ${bandRows ? `<details class="bands"><summary>Grade-band enactment</summary><div class="band-grid">${bandRows}</div></details>` : ""}
+    </div>`;
   }
 
-  // ════════════════════════════════════════════════════════════════════════
-  //  WORLDS — each renders the SAME shelf object in a different schema.
-  //  Add a world = add a function here. No data changes, no new page.
-  // ════════════════════════════════════════════════════════════════════════
   const WORLDS = {
-    // "Classroom Workshop" — the warm, practitioner article (current default)
     workshop(shelf) {
-      const { domain, branches, byEntry, unplaced } = shelf;
-      const on = document.getElementById("official-name"); if (on && domain) on.textContent = domain.title;
+      const { domain, strands, not_yet_connected: unplaced } = shelf;
+      const on = document.getElementById("official-name");
+      if (on && domain) on.textContent = domain.title;
 
       let html = "";
       if (domain) {
-        html += `<section><div class="section-label">What the standard says</div>`;
-        html += `<p class="domain-def">${esc(domain.description)}</p>`;
-        for (const c of (byEntry[domain.id] || [])) html += claimHTML(c);
-        html += legendHTML();
-        html += `</section>`;
+        html += `<section>
+          <div class="section-label">What the standard says</div>
+          <p class="domain-def">${esc(domain.description)}</p>
+          ${(domain.claims || []).map(claimHTML).join("")}
+          ${legendHTML()}
+        </section>`;
       }
 
-      html += `<section><div class="section-label">The branches · open one at a time, in any order</div>`;
-      for (const cap of branches) {
-        const cs = byEntry[cap.id] || [];
-        const proposed = isProposed(cap);
-        html += `<details class="capacity${proposed ? " proposed" : ""}">
+      html += `<section><div class="section-label">Three views of one room · open one at a time, in any order</div>`;
+      for (const strand of (strands || [])) {
+        const units = strand.units || [];
+        html += `<details class="capacity">
           <summary>
-            <span><h2>${esc(cap.title)}</h2>${proposed ? '<span class="flag">✦ proposed · not DESE</span>' : ''}</span>
-            <span class="peek">${cs.length} claim${cs.length===1?"":"s"}</span>
+            <span>
+              <span class="strand-code">${esc(strand.dese_code)}</span>
+              <h2 style="display:inline">${esc(strand.title)}</h2>
+            </span>
+            <span class="peek">${units.length} unit${units.length === 1 ? "" : "s"}</span>
           </summary>
           <div class="cap-body">
-            <div class="cap-desc">${esc(cap.description)}</div>
-            ${cs.map(claimHTML).join("") || '<div class="claim"><em style="color:#aaa">Content coming — sourcing in progress.</em></div>'}
+            <div class="cap-desc"><em>${esc(strand.subtitle)}</em> ${esc(strand.description)}</div>
+            ${units.map(unitHTML).join("")}
             <div class="prompt" style="margin-top:18px;">
-              <div class="q">What would you take from this branch to your classroom on Monday?</div>
+              <div class="q">What would you take from this strand to your classroom on Monday?</div>
               <textarea placeholder="A line for you. Not saved, not sent."></textarea>
             </div>
           </div>
@@ -242,18 +238,19 @@
       }
       html += `</section>`;
 
-      if (unplaced.length) {
+      if ((unplaced || []).length) {
         html += `<section><div class="section-label">Held, not yet placed</div>`;
         unplaced.forEach((c, i) => {
-          const capBtns = branches.map(cap => `<button data-np="${i}">${esc(cap.title)}</button>`).join("");
+          const btns = (strands || []).map(s =>
+            `<button data-np="${i}">${esc(s.title)}</button>`).join("");
           html += `<div class="not-placed">
-            <div class="np-note">A real claim, backed by a source — not yet connected to a branch</div>
+            <div class="np-note">A real claim, backed by a source — not yet connected to a strand</div>
             <div class="claim-statement">${esc(c.statement)}</div>
             <div style="font-size:0.9rem;color:#8a8378;margin-top:10px;">Where do you think this belongs?</div>
-            <div class="np-guess">${capBtns}</div>
+            <div class="np-guess">${btns}</div>
             <div class="np-reveal" id="np-reveal-${i}">
-              Good instinct to look for a home. In this shelf, though, it isn't settled yet — it's held here, connected to its source but not to a branch. Nothing forced onto a shelf it doesn't fit.
-              ${(c.claim_sources||[]).map(receiptHTML).join("")}
+              Good instinct to look for a home. In this shelf, though, it isn't settled yet — it's held here, connected to its source but not to a strand. Nothing forced onto a shelf it doesn't fit.
+              ${(c.sources || []).map(receiptHTML).join("")}
             </div>
           </div>`;
         });
@@ -261,28 +258,27 @@
       }
       return html;
     }
-
-    // Future worlds (same shelf, different schema): garden, playground, arena, lab, expedition.
-    // Each is a function(shelf) => htmlString. That's the whole extension point.
+    // Future worlds: garden, playground, arena, lab, expedition.
   };
 
   function wireInteractions() {
-    document.querySelectorAll('.np-guess button').forEach(b => {
-      b.addEventListener('click', () => {
-        const el = document.getElementById('np-reveal-' + b.dataset.np);
-        if (el) el.classList.add('show');
+    document.querySelectorAll(".np-guess button").forEach(b => {
+      b.addEventListener("click", () => {
+        const el = document.getElementById("np-reveal-" + b.dataset.np);
+        if (el) el.classList.add("show");
       });
     });
   }
 
   async function boot() {
     try {
-      const shelf = await fetchShelf(SHELF_SLUG);
+      const shelf = await fetchShelf();
       const world = WORLDS[WORLD] || WORLDS.workshop;
       document.getElementById("app").innerHTML = world(shelf);
       wireInteractions();
     } catch (err) {
-      document.getElementById("status").innerHTML = "Couldn't open the shelf. <code>" + esc(err.message) + "</code>";
+      document.getElementById("status").innerHTML =
+        "Couldn't open the shelf. <code>" + esc(err.message) + "</code>";
     }
   }
   boot();
