@@ -117,6 +117,41 @@
     .unit-page-band-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.7rem; color: #7a5c3e; min-width: 32px; flex-shrink: 0; padding-top: 2px; }
     .unit-page-band-text { color: #555; line-height: 1.6; }
 
+    /* band-specific link in unit right column */
+    .unit-band-link { display: inline-block; margin-top: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.85rem; color: #7a5c3e; text-decoration: none; }
+    .unit-band-link::before { content: "\2192\00a0"; }
+    .unit-band-link:hover { color: #1a1a1a; text-decoration: underline; }
+
+    /* going deeper section */
+    .unit-deeper { border-top: 1px solid #efeae3; padding-top: 24px; margin-bottom: 8px; }
+    .unit-deeper-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b0a894; margin-bottom: 14px; }
+
+    .unit-resource-list { list-style: none; padding: 0; margin: 0 0 20px 0; }
+    .unit-resource-list li { padding: 8px 0; border-top: 1px solid #efeae3; font-size: 0.9rem; }
+    .unit-resource-list li:first-child { border-top: none; }
+    .unit-resource-list a { color: #3a3530; text-decoration: none; }
+    .unit-resource-list a::before { content: "\2192\00a0"; color: #c4a882; font-size: 0.82rem; }
+    .unit-resource-list a:hover { color: #7a5c3e; }
+
+    /* DESE continuum */
+    details.continuum { margin-bottom: 20px; }
+    details.continuum > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; color: #7a5c3e; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; }
+    details.continuum > summary::-webkit-details-marker { display: none; }
+    details.continuum > summary::before { content: "\25B8"; font-size: 0.7rem; color: #c4a882; }
+    details.continuum[open] > summary::before { content: "\25BE"; }
+    details.continuum > summary:hover { color: #1a1a1a; }
+    .continuum-steps { margin-top: 12px; max-width: 640px; }
+    .continuum-step { display: flex; gap: 14px; padding: 9px 0; border-top: 1px solid #efeae3; }
+    .continuum-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; font-weight: 700; color: #c4a882; min-width: 34px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em; }
+    .continuum-text { font-size: 0.87rem; color: #555; line-height: 1.55; }
+
+    /* key sources */
+    .unit-sources-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b0a894; margin-bottom: 8px; }
+    .unit-sources-list { list-style: none; padding: 0; margin: 0; }
+    .unit-sources-list li { font-size: 0.82rem; color: #888; padding: 4px 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+    .unit-sources-list a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
+    .unit-sources-list a:hover { color: #1a1a1a; }
+
     .unit-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid #e0dbd4; margin-top: 8px; gap: 16px; }
     .unit-nav a { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88rem; color: #7a5c3e; text-decoration: none; }
     .unit-nav a:hover { color: #1a1a1a; }
@@ -313,15 +348,61 @@
 
     var position = (idx + 1) + " of " + list.length;
     var prevLink = prev
-      ? "<a href=\"?unit=" + esc(prev.strand.dese_code + "." + prev.unit.id) + "\">" + "&larr; " + esc(prev.unit.title) + "</a>"
+      ? "<a href=\"?unit=" + esc(prev.strand.dese_code + "." + prev.unit.id) + "\">&larr; " + esc(prev.unit.title) + "</a>"
       : "<span></span>";
     var nextLink = next
       ? "<a href=\"?unit=" + esc(next.strand.dese_code + "." + next.unit.id) + "\">" + esc(next.unit.title) + " &rarr;</a>"
       : "<span></span>";
 
+    var bandLink = "";
+    if (band && strand.band_links && strand.band_links[band]) {
+      var bl = strand.band_links[band];
+      bandLink = "<a class=\"unit-band-link\" href=\"" + esc(bl.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(bl.label) + "</a>";
+    }
+
     var rightCol = band
-      ? enactmentHTML(unit, band, true)
+      ? enactmentHTML(unit, band, true) + bandLink
       : "<div class=\"unit-split-prompt\">Select your grade band above to see what this looks like in your classroom.</div>";
+
+    var continuumHTML = "";
+    if (strand.continuum && strand.continuum.length) {
+      var steps = strand.continuum.map(function(step) {
+        return "<div class=\"continuum-step\">" +
+          "<span class=\"continuum-code\">" + esc(step.code) + "</span>" +
+          "<span class=\"continuum-text\">" + esc(step.text) + "</span>" +
+        "</div>";
+      }).join("");
+      continuumHTML = "<details class=\"continuum\"><summary>DESE growth continuum</summary>" +
+        "<div class=\"continuum-steps\">" + steps + "</div>" +
+      "</details>";
+    }
+
+    var resourcesHTML = "";
+    if (strand.resources && strand.resources.length) {
+      var resItems = strand.resources.map(function(r) {
+        return "<li><a href=\"" + esc(r.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(r.label) + "</a></li>";
+      }).join("");
+      resourcesHTML = "<ul class=\"unit-resource-list\">" + resItems + "</ul>";
+    }
+
+    var sourcesHTML = "";
+    if (strand.sources && strand.sources.length) {
+      var srcItems = strand.sources.map(function(s) {
+        return "<li>" + (s.url
+          ? "<a href=\"" + esc(s.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(s.label) + "</a>"
+          : esc(s.label)) + "</li>";
+      }).join("");
+      sourcesHTML = "<div class=\"unit-sources-label\" style=\"margin-top:18px;\">Key sources</div>" +
+        "<ul class=\"unit-sources-list\">" + srcItems + "</ul>";
+    }
+
+    var deeperHTML = (resourcesHTML || continuumHTML || sourcesHTML)
+      ? "<div class=\"unit-deeper\">" +
+          (resourcesHTML ? "<div class=\"unit-deeper-label\">Resources</div>" + resourcesHTML : "") +
+          continuumHTML +
+          sourcesHTML +
+        "</div>"
+      : "";
 
     return "<div class=\"unit-page\">" +
       "<div class=\"unit-breadcrumb\"><a href=\"?\">All strands</a> &rsaquo; " + esc(strand.dese_code) + " " + esc(strand.title) + "</div>" +
@@ -337,6 +418,7 @@
           rightCol +
         "</div>" +
       "</div>" +
+      deeperHTML +
       "<div class=\"unit-nav\">" +
         prevLink +
         "<span class=\"unit-nav-center\"><a href=\"?\">" + position + "</a></span>" +
@@ -351,12 +433,12 @@
       var html = "";
 
       html += "<div class=\"entry\">" +
-        "<div class=\"kicker\">SchoolHouse &middot; Missouri</div>" +
+        "<div class=\"kicker\">SchoolHouse · Missouri</div>" +
         "<p class=\"entry-p\">You&#39;re here because something has your attention. Maybe a student, maybe a transition, maybe just a feeling that the class hasn&#39;t found its footing yet.</p>" +
-        "<p class=\"entry-p\">Missouri calls it Standard 5. A positive classroom environment for learning. The state names three strands &mdash; and knowing which one you&#39;re in shapes where you look.</p>" +
+        "<p class=\"entry-p\">Missouri calls it Standard 5. A positive classroom environment for learning. The state names three strands — and knowing which one you&#39;re in shapes where you look.</p>" +
         "<p class=\"entry-q\">Where is your attention right now?</p>" +
         "<ol class=\"entry-doors\">" +
-          "<li><a href=\"#strand-5-1\">Engagement and behavior &mdash; the people, in the moment <span class=\"door-code\">5.1</span></a></li>" +
+          "<li><a href=\"#strand-5-1\">Engagement and behavior — the people, in the moment <span class=\"door-code\">5.1</span></a></li>" +
           "<li><a href=\"#strand-5-2\">Transitions, routines, the room itself <span class=\"door-code\">5.2</span></a></li>" +
           "<li><a href=\"#strand-5-3\">Whether students belong here, trust each other, and want to be here <span class=\"door-code\">5.3</span></a></li>" +
         "</ol>" +
