@@ -1,7 +1,7 @@
 {
   "version": "2026-07-28",
   "source": "DESE Standard 5 · Vault /Matrix/ · _Catalog — Standard 5 (SchoolHouse)",
-  "frame_note": "Three strand doors only on the surface. Concepts are depth inside strands and internal routing scaffolding — not a nav layer. Typed edges (requires/unlocks/next_to) from Catalog edge table only. related[] from concept row wikilinks filtered to concept targets.",
+  "frame_note": "Three strand doors only on the surface. Concepts are depth inside strands and internal routing scaffolding — not a nav layer. Typed edges (requires/unlocks/next_to) from Catalog edge table only. related[] from concept row wikilinks filtered to concept targets. strategies_attached from Catalog build-status table (programmatically regenerated).",
   "concepts": [
     {
       "id": "relationships",
@@ -15,11 +15,7 @@
       "type": "concept",
       "status": "built",
       "hub": true,
-      "edges": {
-        "requires": [],
-        "unlocks": ["belonging", "repair", "feedback", "behavior-and-redirections"],
-        "next_to": ["engagement"]
-      },
+      "edges": { "requires": [], "unlocks": ["belonging", "repair", "feedback", "behavior-and-redirections"], "next_to": ["engagement"] },
       "related": ["belonging", "repair", "feedback", "behavior-and-redirections", "engagement", "transitions"],
       "strategies_attached": ["greet-students-at-the-door", "restorative-interactions"]
     },
@@ -35,11 +31,7 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["relationships"],
-        "unlocks": ["engagement", "motivation"],
-        "next_to": ["relationships"]
-      },
+      "edges": { "requires": ["relationships"], "unlocks": ["engagement", "motivation"], "next_to": ["relationships"] },
       "related": ["relationships", "engagement", "motivation"],
       "strategies_attached": ["greet-students-at-the-door", "restorative-interactions", "co-created-norms"]
     },
@@ -55,19 +47,11 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["belonging", "motivation", "attention"],
-        "unlocks": [],
-        "next_to": ["behavior-and-redirections"]
-      },
+      "edges": { "requires": ["belonging", "motivation", "attention"], "unlocks": [], "next_to": ["behavior-and-redirections"] },
       "related": ["belonging", "motivation", "attention", "behavior-and-redirections"],
-      "strategies_attached": [],
+      "strategies_attached": ["everybody-answers"],
       "curated_links": [
-        {
-          "label": "Active-participation routines",
-          "url": "https://www.edutopia.org/article/strategies-increasing-student-engagement/",
-          "note": "Low-lift structures that pull students into the work rather than waiting for them to self-start."
-        }
+        { "label": "Active-participation routines", "url": "https://www.edutopia.org/article/strategies-increasing-student-engagement/", "note": "Low-lift structures that pull students into the work rather than waiting for them to self-start." }
       ]
     },
     {
@@ -82,19 +66,11 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["belonging"],
-        "unlocks": ["engagement"],
-        "next_to": ["engagement"]
-      },
+      "edges": { "requires": ["belonging"], "unlocks": ["engagement"], "next_to": ["engagement"] },
       "related": ["belonging", "relationships", "engagement"],
       "strategies_attached": ["co-created-norms"],
       "curated_links": [
-        {
-          "label": "Strategies for student autonomy",
-          "url": "https://www.edutopia.org/article/6-strategies-promoting-student-autonomy/",
-          "note": "Six moves that shift from compliance to investment by giving students real say in how they learn."
-        }
+        { "label": "Strategies for student autonomy", "url": "https://www.edutopia.org/article/6-strategies-promoting-student-autonomy/", "note": "Six moves that shift from compliance to investment by giving students real say in how they learn." }
       ]
     },
     {
@@ -109,11 +85,7 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["relationships", "expectations-and-norms"],
-        "unlocks": ["repair"],
-        "next_to": ["engagement"]
-      },
+      "edges": { "requires": ["relationships", "expectations-and-norms"], "unlocks": ["repair"], "next_to": ["engagement"] },
       "related": ["relationships", "repair", "belonging", "expectations-and-norms"],
       "strategies_attached": ["restorative-interactions", "the-repair-conversation"]
     },
@@ -129,11 +101,7 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["relationships"],
-        "unlocks": [],
-        "next_to": ["behavior-and-redirections"]
-      },
+      "edges": { "requires": ["relationships"], "unlocks": [], "next_to": ["behavior-and-redirections"] },
       "related": ["behavior-and-redirections", "relationships", "belonging", "feedback"],
       "strategies_attached": ["the-repair-conversation"]
     },
@@ -149,11 +117,7 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": [],
-        "unlocks": ["routines", "behavior-and-redirections", "belonging"],
-        "next_to": ["relationships"]
-      },
+      "edges": { "requires": [], "unlocks": ["routines", "behavior-and-redirections", "belonging"], "next_to": ["relationships"] },
       "related": ["belonging", "routines", "behavior-and-redirections", "relationships", "cognitive-load", "working-memory", "motivation"],
       "strategies_attached": ["co-created-norms", "greet-students-at-the-door"]
     },
@@ -169,19 +133,11 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["routines", "expectations-and-norms"],
-        "unlocks": ["attention", "engagement"],
-        "next_to": ["routines"]
-      },
+      "edges": { "requires": ["routines", "expectations-and-norms"], "unlocks": ["attention", "engagement"], "next_to": ["routines"] },
       "related": ["routines", "expectations-and-norms", "attention", "engagement", "relationships", "cognitive-load"],
       "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
       "curated_links": [
-        {
-          "label": "Transition leaders and self-regulation supports",
-          "url": "https://www.edutopia.org/article/strategies-help-students-manage-transitions/",
-          "note": "Reads students who struggle at the seam as having a regulation need rather than a compliance problem, and gives them ownership roles plus sensory/predictability supports to manage the shift."
-        }
+        { "label": "Transition leaders and self-regulation supports", "url": "https://www.edutopia.org/article/strategies-help-students-manage-transitions/", "note": "Reads students who struggle at the seam as having a regulation need rather than a compliance problem, and gives them ownership roles plus sensory/predictability supports to manage the shift." }
       ]
     },
     {
@@ -196,19 +152,11 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["expectations-and-norms"],
-        "unlocks": ["transitions", "working-memory"],
-        "next_to": ["transitions"]
-      },
+      "edges": { "requires": ["expectations-and-norms"], "unlocks": ["transitions", "working-memory"], "next_to": ["transitions"] },
       "related": ["transitions", "expectations-and-norms", "cognitive-load", "working-memory", "attention"],
       "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
       "curated_links": [
-        {
-          "label": "Voice-and-choice routines",
-          "url": "https://www.edutopia.org/article/classroom-routines-support-students-voice-choice",
-          "note": "Routines built around student-led activities — self-selected readings, peer feedback, student-posed questions — so predictability comes from structure students help shape rather than top-down direction."
-        }
+        { "label": "Voice-and-choice routines", "url": "https://www.edutopia.org/article/classroom-routines-support-students-voice-choice", "note": "Routines built around student-led activities so predictability comes from structure students help shape rather than top-down direction." }
       ]
     },
     {
@@ -224,20 +172,9 @@
       "subtype": "supporting",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["relationships"],
-        "unlocks": [],
-        "next_to": []
-      },
+      "edges": { "requires": ["relationships"], "unlocks": [], "next_to": [] },
       "related": ["relationships", "belonging", "engagement", "behavior-and-redirections"],
-      "strategies_attached": [],
-      "curated_links": [
-        {
-          "label": "Third Point Feedback",
-          "url": "https://www.edutopia.org/article/ensuring-productive-students-feedback/",
-          "note": "Feedback aimed at the work, not the person — directing attention to a shared third object rather than the student's performance as a verdict."
-        }
-      ]
+      "strategies_attached": ["third-point-feedback"]
     },
     {
       "id": "physical-space",
@@ -251,19 +188,11 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": [],
-        "unlocks": ["transitions", "routines", "belonging", "engagement"],
-        "next_to": ["visual-supports"]
-      },
+      "edges": { "requires": [], "unlocks": ["transitions", "routines", "belonging", "engagement"], "next_to": ["visual-supports"] },
       "related": ["transitions", "routines", "belonging", "engagement", "visual-supports", "repair"],
-      "strategies_attached": [],
+      "strategies_attached": ["design-the-room-around-the-work"],
       "curated_links": [
-        {
-          "label": "Student-designed flexible seating",
-          "url": "https://www.edutopia.org/article/designing-flexible-seating-students/",
-          "note": "Flexible seating designed with students rather than for them — giving students agency over their environment rather than handing down an arrangement."
-        }
+        { "label": "Student-designed flexible seating", "url": "https://www.edutopia.org/article/designing-flexible-seating-students/", "note": "Flexible seating designed with students rather than for them." }
       ]
     },
     {
@@ -278,49 +207,17 @@
       "type": "concept",
       "status": "built",
       "hub": false,
-      "edges": {
-        "requires": ["routines", "expectations-and-norms"],
-        "unlocks": ["transitions", "working-memory", "belonging"],
-        "next_to": ["physical-space"]
-      },
+      "edges": { "requires": ["routines", "expectations-and-norms"], "unlocks": ["transitions", "working-memory", "belonging"], "next_to": ["physical-space"] },
       "related": ["routines", "expectations-and-norms", "transitions", "belonging", "working-memory", "physical-space"],
-      "strategies_attached": [],
+      "strategies_attached": ["post-what-youd-otherwise-repeat"],
       "curated_links": [
-        {
-          "label": "Student-created visual aids",
-          "url": "https://www.edutopia.org/article/making-most-visual-aids/",
-          "note": "Visual aids made by students rather than downloaded — students who build the anchor chart remember what's on it."
-        }
+        { "label": "Student-created visual aids", "url": "https://www.edutopia.org/article/making-most-visual-aids/", "note": "Visual aids made by students rather than downloaded — students who build the anchor chart remember what's on it." }
       ]
     }
   ],
   "sol_supporting": [
-    {
-      "id": "cognitive-load",
-      "label": "Cognitive Load",
-      "aliases": ["Cognitive Load", "cognitive load"],
-      "type": "sol_support",
-      "note": "The mind has a limited workspace; overloading it blocks learning. Predictable structure, clear routines, and one-thing-at-a-time reduce extraneous load so capacity is free for actual learning.",
-      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1",
-      "linked_from": ["transitions", "routines", "expectations-and-norms"]
-    },
-    {
-      "id": "working-memory",
-      "label": "Working Memory",
-      "aliases": ["Working Memory", "working memory"],
-      "type": "sol_support",
-      "note": "The small, limited store where active thinking happens. Automaticity from rehearsed routines frees it for complex work.",
-      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1/Q2",
-      "linked_from": ["routines", "visual-supports", "expectations-and-norms"]
-    },
-    {
-      "id": "attention",
-      "label": "Attention",
-      "aliases": ["Attention", "attention"],
-      "type": "sol_support",
-      "note": "Finite and easily pulled away. Protected by clean transitions and low load; sustaining it is what engagement depends on.",
-      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1",
-      "linked_from": ["transitions", "engagement"]
-    }
+    { "id": "cognitive-load", "label": "Cognitive Load", "aliases": ["Cognitive Load", "cognitive load"], "type": "sol_support", "note": "The mind has a limited workspace; overloading it blocks learning. Predictable structure, clear routines, and one-thing-at-a-time reduce extraneous load so capacity is free for actual learning.", "source": "Deans for Impact, SoL 2nd ed. 2026, Q1", "linked_from": ["transitions", "routines", "expectations-and-norms"] },
+    { "id": "working-memory", "label": "Working Memory", "aliases": ["Working Memory", "working memory"], "type": "sol_support", "note": "The small, limited store where active thinking happens. Automaticity from rehearsed routines frees it for complex work.", "source": "Deans for Impact, SoL 2nd ed. 2026, Q1/Q2", "linked_from": ["routines", "visual-supports", "expectations-and-norms"] },
+    { "id": "attention", "label": "Attention", "aliases": ["Attention", "attention"], "type": "sol_support", "note": "Finite and easily pulled away. Protected by clean transitions and low load; sustaining it is what engagement depends on.", "source": "Deans for Impact, SoL 2nd ed. 2026, Q1", "linked_from": ["transitions", "engagement"] }
   ]
 }

@@ -6,147 +6,49 @@
   <title>Concept Map — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-      color: #1a1a1a;
-      background: #ffffff;
-      line-height: 1.8;
-    }
-    .strand-nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #999;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: #1a1a1a; background: #ffffff; line-height: 1.8; }
+    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; flex-wrap: wrap; align-items: center; }
     .strand-nav a { color: #999; text-decoration: none; }
     .strand-nav a:hover { color: #555; }
     .strand-nav .active { color: #1a1a1a; }
     .strand-nav .sep { color: #ddd; }
-    header {
-      border-bottom: 2px solid #1a1a1a;
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 0.5rem;
-    }
+    header { border-bottom: 2px solid #1a1a1a; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .eyebrow { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.5rem; }
     h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
-    .lede {
-      font-size: 0.92rem;
-      line-height: 1.75;
-      color: #555;
-      margin-bottom: 2rem;
-    }
+    .lede { font-size: 0.92rem; line-height: 1.75; color: #555; margin-bottom: 2rem; }
     .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .band-btn {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid #1a1a1a;
-      background: none;
-      padding: 0.4rem 0.9rem;
-      cursor: pointer;
-      color: #1a1a1a;
-    }
+    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid #1a1a1a; background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: #1a1a1a; }
     .band-btn.active { background: #1a1a1a; color: #fff; }
     .band-prompt { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 2rem; }
     .band-note { font-size: 0.82rem; color: #bbb; font-style: italic; margin-bottom: 2rem; }
     .strand-section { margin-bottom: 3rem; }
-    .strand-header {
-      border-top: 2px solid #1a1a1a;
-      padding-top: 0.6rem;
-      margin-bottom: 1rem;
-    }
-    .strand-header-num {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-    }
+    .strand-header { border-top: 2px solid #1a1a1a; padding-top: 0.6rem; margin-bottom: 1rem; }
+    .strand-header-num { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; }
     .strand-header-name { font-size: 1rem; font-weight: normal; }
     .concept-row { border-top: 1px solid #eee; padding: 0.85rem 0; }
     .concept-row:last-child { border-bottom: 1px solid #eee; }
-    .concept-top {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 0.25rem;
-      flex-wrap: wrap;
-    }
+    .concept-top { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem; flex-wrap: wrap; }
     .concept-name { font-size: 0.95rem; color: #1a1a1a; }
-    .tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 0.1rem 0.4rem;
-      border: 1px solid #ddd;
-      color: #999;
-    }
+    .tag { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.4rem; border: 1px solid #ddd; color: #999; }
     .tag-designed { border-color: #bbb; color: #777; }
     .tag-hub { border-color: #1a1a1a; color: #1a1a1a; }
     .concept-desc { font-size: 0.82rem; color: #666; margin-bottom: 0.4rem; line-height: 1.55; }
     .edges { font-size: 0.78rem; color: #999; line-height: 1.7; }
-    .edge-type {
-      font-size: 0.68rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #bbb;
-      display: inline-block;
-      width: 3.5rem;
-    }
+    .edge-type { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: #bbb; display: inline-block; width: 3.5rem; }
     .cross { color: #1a1a1a; font-style: italic; }
     .strategies { font-size: 0.78rem; color: #777; margin-top: 0.35rem; }
     .strategies strong { font-weight: normal; color: #1a1a1a; }
     .links-line { font-size: 0.75rem; color: #888; margin-top: 0.25rem; }
     .links-line a { color: #666; }
-    .bridge-note {
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #999;
-      margin-left: 0.5rem;
-    }
-    .sol-section {
-      border-top: 1px solid #ddd;
-      padding-top: 1.5rem;
-      margin-top: 1rem;
-    }
-    .sol-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1rem;
-    }
+    .bridge-note { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; margin-left: 0.5rem; }
+    .sol-section { border-top: 1px solid #ddd; padding-top: 1.5rem; margin-top: 1rem; }
+    .sol-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
     .sol-row { border-top: 1px solid #eee; padding: 0.7rem 0; font-size: 0.82rem; }
     .sol-row:last-child { border-bottom: 1px solid #eee; }
     .sol-name { color: #1a1a1a; }
     .sol-note { color: #777; font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.55; }
-    footer {
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-      margin-top: 3rem;
-      font-size: 0.78rem;
-      color: #999;
-    }
-    @media (max-width: 560px) {
-      body { padding: 1.5rem 1rem 3rem; }
-      h1 { font-size: 1.4rem; }
-      .edge-type { width: 2.75rem; }
-    }
+    footer { border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: #999; }
+    @media (max-width: 560px) { body { padding: 1.5rem 1rem 3rem; } h1 { font-size: 1.4rem; } .edge-type { width: 2.75rem; } }
   </style>
 </head>
 <body>
@@ -175,7 +77,6 @@
   <div id="band-prompt" class="band-prompt">Select a grade band to scope the view.</div>
   <div id="band-note" class="band-note" hidden>Band-specific content for this view not yet in vault.</div>
 
-
   <!-- 5.1 -->
   <div class="strand-section">
     <div class="strand-header">
@@ -184,24 +85,19 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Engagement</span>
-        <span class="tag">live</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Engagement</span><span class="tag">live</span></div>
       <p class="concept-desc">Active investment of attention and effort — what learning requires from a student; not the same as compliance or quiet.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span> · motivation · attention (SoL)</div>
         <div><span class="edge-type">unlocks</span> —</div>
         <div><span class="edge-type">next to</span> behavior &amp; redirections</div>
       </div>
+      <div class="strategies"><strong>Everybody Answers</strong></div>
       <div class="links-line"><a href="https://www.edutopia.org/article/strategies-increasing-student-engagement/">Active-participation routines</a></div>
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Motivation</span>
-        <span class="tag">both</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Motivation</span><span class="tag">both</span></div>
       <p class="concept-desc">Internal and external conditions that sustain or suppress engagement over time; mastery, autonomy, and belonging are the levers.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span></div>
@@ -213,10 +109,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Behavior &amp; Redirections</span>
-        <span class="tag">live</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Behavior &amp; Redirections</span><span class="tag">live</span></div>
       <p class="concept-desc">What redirection looks like when it works — naming the deed, not the doer; the difference between correction and punishment.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> <span class="cross">relationships (→5.3)</span> · expectations &amp; norms</div>
@@ -227,25 +120,18 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Feedback</span>
-        <span class="tag">live</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Feedback</span><span class="tag">live</span></div>
       <p class="concept-desc">How information about performance travels back to a student in ways that actually change what they do next.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> <span class="cross">relationships (→5.3)</span></div>
         <div><span class="edge-type">unlocks</span> —</div>
         <div><span class="edge-type">next to</span> —</div>
       </div>
-      <div class="links-line"><a href="https://www.edutopia.org/article/ensuring-productive-students-feedback/">Third Point Feedback</a></div>
+      <div class="strategies"><strong>Third Point Feedback</strong></div>
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Expectations &amp; Norms</span>
-        <span class="tag">both</span>
-        <span class="bridge-note">bridge 5.1 ↔ 5.3</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Expectations &amp; Norms</span><span class="tag">both</span><span class="bridge-note">bridge 5.1 ↔ 5.3</span></div>
       <p class="concept-desc">Shared agreements that make engagement and culture possible — structural prerequisite for both strands.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> —</div>
@@ -256,7 +142,6 @@
     </div>
   </div>
 
-
   <!-- 5.2 -->
   <div class="strand-section">
     <div class="strand-header">
@@ -265,10 +150,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Transitions</span>
-        <span class="tag">both</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Transitions</span><span class="tag">both</span></div>
       <p class="concept-desc">Movement between activities — when taught as a procedure, reduces extraneous cognitive load to near zero.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> routines · expectations &amp; norms</div>
@@ -280,10 +162,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Routines</span>
-        <span class="tag">both</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Routines</span><span class="tag">both</span></div>
       <p class="concept-desc">Repeated procedures that become automatic, freeing working memory for the actual learning.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> expectations &amp; norms</div>
@@ -295,34 +174,29 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Physical Space</span>
-        <span class="tag tag-designed">designed</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Physical Space</span><span class="tag tag-designed">designed</span></div>
       <p class="concept-desc">The room's arrangement as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> —</div>
         <div><span class="edge-type">unlocks</span> transitions · routines · <span class="cross">belonging (→5.3)</span> · <span class="cross">engagement (→5.1)</span></div>
         <div><span class="edge-type">next to</span> visual supports</div>
       </div>
+      <div class="strategies"><strong>Design the Room Around the Work</strong></div>
       <div class="links-line"><a href="https://www.edutopia.org/article/designing-flexible-seating-students/">Student-designed flexible seating</a></div>
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Visual Supports</span>
-        <span class="tag tag-designed">designed</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Visual Supports</span><span class="tag tag-designed">designed</span></div>
       <p class="concept-desc">Environmental anchors that reduce the need to hold information in working memory — schedules, anchor charts, procedure reminders.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> routines · expectations &amp; norms</div>
         <div><span class="edge-type">unlocks</span> transitions · working memory (SoL) · <span class="cross">belonging (→5.3)</span></div>
         <div><span class="edge-type">next to</span> physical space</div>
       </div>
+      <div class="strategies"><strong>Post What You'd Otherwise Repeat</strong></div>
       <div class="links-line"><a href="https://www.edutopia.org/article/making-most-visual-aids/">Student-created visual aids</a></div>
     </div>
   </div>
-
 
   <!-- 5.3 -->
   <div class="strand-section">
@@ -332,11 +206,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Relationships</span>
-        <span class="tag">live</span>
-        <span class="tag tag-hub">hub</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Relationships</span><span class="tag">live</span><span class="tag tag-hub">hub</span></div>
       <p class="concept-desc">The foundational condition — the channel every correction, feedback, and repair has to travel through to land.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> —</div>
@@ -347,10 +217,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Belonging</span>
-        <span class="tag">both</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Belonging</span><span class="tag">both</span></div>
       <p class="concept-desc">The belief that one has a place in this room and in this community — precondition for engagement, risk-taking, and the willingness to try again.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> relationships</div>
@@ -361,10 +228,7 @@
     </div>
 
     <div class="concept-row">
-      <div class="concept-top">
-        <span class="concept-name">Repair</span>
-        <span class="tag">live</span>
-      </div>
+      <div class="concept-top"><span class="concept-name">Repair</span><span class="tag">live</span></div>
       <p class="concept-desc">What happens after harm — how a classroom community metabolizes conflict and returns to function without removing people from it.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> relationships</div>
@@ -374,7 +238,6 @@
       <div class="strategies"><strong>The Repair Conversation</strong></div>
     </div>
   </div>
-
 
   <!-- SoL layer -->
   <div class="sol-section">
