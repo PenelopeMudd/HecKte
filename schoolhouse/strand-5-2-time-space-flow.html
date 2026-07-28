@@ -75,12 +75,15 @@
       padding-left: 1.25rem;
       margin-bottom: 2.5rem;
     }
-    .band-empty { font-size: 0.82rem; color: #bbb; font-style: italic; }
+    .band-framing { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 0.9rem; }
+    .band-intro { font-size: 0.88rem; line-height: 1.75; color: #444; }
     .concept-list { list-style: none; margin-bottom: 2.5rem; }
     .concept-list li { border-top: 1px solid #ddd; padding: 0.9rem 0; }
     .concept-list li:last-child { border-bottom: 1px solid #ddd; }
     .concept-name { font-size: 0.95rem; color: #1a1a1a; display: block; }
-    .concept-desc { font-size: 0.82rem; color: #777; margin-top: 0.2rem; line-height: 1.5; }
+    .concept-desc { font-size: 0.82rem; color: #777; margin-top: 0.2rem; line-height: 1.5; display: block; }
+    .curated-link { font-size: 0.78rem; color: #777; margin-top: 0.3rem; display: block; }
+    .curated-link a { color: #555; }
     .foundation-ref {
       border-top: 1px solid #ddd;
       padding-top: 1.25rem;
@@ -117,7 +120,7 @@
     <h1>Time, Space &amp; Flow</h1>
   </header>
 
-  <p class="lede">The physical and temporal structure of a classroom is not background — it’s load management. How a room is arranged, how time is marked, how transitions are handled: these are design decisions that either protect the cognitive resources instruction depends on, or quietly spend them before learning begins.</p>
+  <p class="lede">The physical and temporal structure of a classroom is not background — it's load management. How a room is arranged, how time is marked, how transitions are handled: these are design decisions that either protect the cognitive resources instruction depends on, or quietly spend them before learning begins.</p>
 
   <p class="section-label">Choose your grade band</p>
   <div class="band-picker">
@@ -129,13 +132,16 @@
   <div id="band-prompt" class="band-prompt">Select a grade band to scope the view.</div>
 
   <div id="band-k2" class="band-content" hidden>
-    <p class="band-empty">K–2 intro for this strand not yet in vault.</p>
+    <p class="band-framing">The driver underneath: structure starts supplied and gets handed over.</p>
+    <p class="band-intro">Work in <strong>short cycles</strong> and expect to rehearse everything. A transition at this age is a routine you teach — with a song, a signal, a practiced route — not an instruction you give. The room carries a lot of the load: visual schedules, labeled places for materials, a clear picture of what comes next. When the structure is visible, students don't have to hold it in their heads, which leaves room for the actual work. Most “behavior” at the seam here is a young child who genuinely doesn't know the next step yet.</p>
   </div>
   <div id="band-35" class="band-content" hidden>
-    <p class="band-empty">3–5 intro for this strand not yet in vault.</p>
+    <p class="band-framing">The driver underneath: structure starts supplied and gets handed over.</p>
+    <p class="band-intro">Cycles get longer and students start managing their own materials and movement — inside a structure you still set. This is the band where you can hand over the logistics: they retrieve and return their own supplies, move to their group without a narrated route, and know what to do when they finish. Name the next step before the seam, not after the stumble. The design question shifts from <em>did I teach the routine</em> to <em>have I left enough for them to run.</em></p>
   </div>
   <div id="band-68" class="band-content" hidden>
-    <p class="band-empty">6–8 intro for this strand not yet in vault.</p>
+    <p class="band-framing">The driver underneath: structure starts supplied and gets handed over.</p>
+    <p class="band-intro">Students move between formats — discussion to group work to independent — with minimal cueing, if the formats are consistent enough to anticipate. <strong>You design it; they run it.</strong> The lost minutes at this age don't come from chaos, they come from ambiguity: unclear next steps, no defined landing place when work finishes early, materials that require crossing the room. Fix the design and a surprising amount of drift disappears without a single conversation about behavior.</p>
   </div>
 
   <p class="section-label">Concepts inside this strand</p>
@@ -143,18 +149,22 @@
     <li>
       <span class="concept-name">Transitions</span>
       <span class="concept-desc">The movement between activities — predictable transitions reduce extraneous cognitive load; unpredictable ones spend working memory on navigation instead of content.</span>
+      <span class="curated-link"><a href="https://www.edutopia.org/article/strategies-help-students-manage-transitions/">Transition leaders and self-regulation supports</a></span>
     </li>
     <li>
       <span class="concept-name">Routines</span>
       <span class="concept-desc">Repeated procedures that become automatic and free attention for learning; the difference between a procedure a class has been taught and one they are still figuring out.</span>
+      <span class="curated-link"><a href="https://www.edutopia.org/article/classroom-routines-support-students-voice-choice">Voice-and-choice routines</a></span>
     </li>
     <li>
       <span class="concept-name">Physical Space</span>
       <span class="concept-desc">The arrangement of the room as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</span>
+      <span class="curated-link"><a href="https://www.edutopia.org/article/designing-flexible-seating-students/">Student-designed flexible seating</a></span>
     </li>
     <li>
       <span class="concept-name">Visual Supports</span>
       <span class="concept-desc">Anchors in the environment that reduce the need to hold information in working memory — schedules, anchor charts, procedure reminders.</span>
+      <span class="curated-link"><a href="https://www.edutopia.org/article/making-most-visual-aids/">Student-created visual aids</a></span>
     </li>
   </ul>
 
