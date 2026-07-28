@@ -21,7 +21,7 @@
         "next_to": ["engagement"]
       },
       "related": ["belonging", "repair", "feedback", "behavior-and-redirections", "engagement", "transitions"],
-      "strategies_attached": ["greet-students-at-the-door", "2x10"]
+      "strategies_attached": ["greet-students-at-the-door", "restorative-interactions"]
     },
     {
       "id": "belonging",
@@ -41,7 +41,7 @@
         "next_to": ["relationships"]
       },
       "related": ["relationships", "engagement", "motivation"],
-      "strategies_attached": ["greet-students-at-the-door", "co-created-norms"]
+      "strategies_attached": ["greet-students-at-the-door", "restorative-interactions", "co-created-norms"]
     },
     {
       "id": "engagement",
@@ -61,7 +61,14 @@
         "next_to": ["behavior-and-redirections"]
       },
       "related": ["belonging", "motivation", "attention", "behavior-and-redirections"],
-      "strategies_attached": []
+      "strategies_attached": [],
+      "curated_links": [
+        {
+          "label": "Active-participation routines",
+          "url": "https://www.edutopia.org/article/strategies-increasing-student-engagement/",
+          "note": "Low-lift structures that pull students into the work rather than waiting for them to self-start."
+        }
+      ]
     },
     {
       "id": "motivation",
@@ -81,7 +88,14 @@
         "next_to": ["engagement"]
       },
       "related": ["belonging", "relationships", "engagement"],
-      "strategies_attached": ["co-created-norms"]
+      "strategies_attached": ["co-created-norms"],
+      "curated_links": [
+        {
+          "label": "Strategies for student autonomy",
+          "url": "https://www.edutopia.org/article/6-strategies-promoting-student-autonomy/",
+          "note": "Six moves that shift from compliance to investment by giving students real say in how they learn."
+        }
+      ]
     },
     {
       "id": "behavior-and-redirections",
@@ -101,7 +115,7 @@
         "next_to": ["engagement"]
       },
       "related": ["relationships", "repair", "belonging", "expectations-and-norms"],
-      "strategies_attached": ["precorrection"]
+      "strategies_attached": ["restorative-interactions", "the-repair-conversation"]
     },
     {
       "id": "repair",
@@ -120,8 +134,8 @@
         "unlocks": [],
         "next_to": ["behavior-and-redirections"]
       },
-      "related": ["behavior-and-redirections", "relationships", "belonging", "fair-process", "feedback"],
-      "strategies_attached": []
+      "related": ["behavior-and-redirections", "relationships", "belonging", "feedback"],
+      "strategies_attached": ["the-repair-conversation"]
     },
     {
       "id": "expectations-and-norms",
@@ -141,7 +155,7 @@
         "next_to": ["relationships"]
       },
       "related": ["belonging", "routines", "behavior-and-redirections", "relationships", "cognitive-load", "working-memory", "motivation"],
-      "strategies_attached": ["co-created-norms"]
+      "strategies_attached": ["co-created-norms", "greet-students-at-the-door"]
     },
     {
       "id": "transitions",
@@ -161,7 +175,14 @@
         "next_to": ["routines"]
       },
       "related": ["routines", "expectations-and-norms", "attention", "engagement", "relationships", "cognitive-load"],
-      "strategies_attached": []
+      "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
+      "curated_links": [
+        {
+          "label": "Transition leaders and self-regulation supports",
+          "url": "https://www.edutopia.org/article/strategies-help-students-manage-transitions/",
+          "note": "Reads students who struggle at the seam as having a regulation need rather than a compliance problem, and gives them ownership roles plus sensory/predictability supports to manage the shift."
+        }
+      ]
     },
     {
       "id": "routines",
@@ -181,7 +202,14 @@
         "next_to": ["transitions"]
       },
       "related": ["transitions", "expectations-and-norms", "cognitive-load", "working-memory", "attention"],
-      "strategies_attached": []
+      "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
+      "curated_links": [
+        {
+          "label": "Voice-and-choice routines",
+          "url": "https://www.edutopia.org/article/classroom-routines-support-students-voice-choice",
+          "note": "Routines built around student-led activities — self-selected readings, peer feedback, student-posed questions — so predictability comes from structure students help shape rather than top-down direction."
+        }
+      ]
     },
     {
       "id": "feedback",
@@ -202,27 +230,14 @@
         "next_to": []
       },
       "related": ["relationships", "belonging", "engagement", "behavior-and-redirections"],
-      "strategies_attached": []
-    },
-    {
-      "id": "fair-process",
-      "label": "Fair Process",
-      "aliases": ["Fair Process", "fair process"],
-      "strand": "5.3",
-      "strand_label": "Culture & Belonging",
-      "dese_anchor": "derived",
-      "dese_note": "Derived — RP/character-ed concept; how 5.1 behavior response and 5.3 positive culture get enacted fairly",
-      "system_type": "live",
-      "type": "concept",
-      "status": "built",
-      "hub": false,
-      "edges": {
-        "requires": ["relationships", "expectations-and-norms"],
-        "unlocks": ["repair", "belonging"],
-        "next_to": ["repair"]
-      },
-      "related": ["repair", "behavior-and-redirections", "belonging", "relationships", "expectations-and-norms", "cognitive-load"],
-      "strategies_attached": []
+      "strategies_attached": [],
+      "curated_links": [
+        {
+          "label": "Third Point Feedback",
+          "url": "https://www.edutopia.org/article/ensuring-productive-students-feedback/",
+          "note": "Feedback aimed at the work, not the person — directing attention to a shared third object rather than the student's performance as a verdict."
+        }
+      ]
     },
     {
       "id": "physical-space",
@@ -242,7 +257,14 @@
         "next_to": ["visual-supports"]
       },
       "related": ["transitions", "routines", "belonging", "engagement", "visual-supports", "repair"],
-      "strategies_attached": []
+      "strategies_attached": [],
+      "curated_links": [
+        {
+          "label": "Student-designed flexible seating",
+          "url": "https://www.edutopia.org/article/designing-flexible-seating-students/",
+          "note": "Flexible seating designed with students rather than for them — giving students agency over their environment rather than handing down an arrangement."
+        }
+      ]
     },
     {
       "id": "visual-supports",
@@ -262,7 +284,14 @@
         "next_to": ["physical-space"]
       },
       "related": ["routines", "expectations-and-norms", "transitions", "belonging", "working-memory", "physical-space"],
-      "strategies_attached": []
+      "strategies_attached": [],
+      "curated_links": [
+        {
+          "label": "Student-created visual aids",
+          "url": "https://www.edutopia.org/article/making-most-visual-aids/",
+          "note": "Visual aids made by students rather than downloaded — students who build the anchor chart remember what's on it."
+        }
+      ]
     }
   ],
   "sol_supporting": [
@@ -273,7 +302,7 @@
       "type": "sol_support",
       "note": "The mind has a limited workspace; overloading it blocks learning. Predictable structure, clear routines, and one-thing-at-a-time reduce extraneous load so capacity is free for actual learning.",
       "source": "Deans for Impact, SoL 2nd ed. 2026, Q1",
-      "linked_from": ["transitions", "routines", "expectations-and-norms", "fair-process"]
+      "linked_from": ["transitions", "routines", "expectations-and-norms"]
     },
     {
       "id": "working-memory",

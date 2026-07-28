@@ -1,7 +1,7 @@
 {
   "version": "2026-07-28",
   "source": "Vault /Strategies/",
-  "note": "serves_concepts is over-broad in current vault state — reflect as-is; do not build match or ranking logic on it yet. PhD tightening lists.",
+  "note": "Five atoms: Greet Students at the Door · Restorative Interactions (formerly 2x10) · Co-Created Norms · Teach the Transition · The Repair Conversation. serves_concepts reflects vault row attachment, not exhaustive routing.",
   "strategies": [
     {
       "id": "greet-students-at-the-door",
@@ -67,21 +67,20 @@
         "Visual check-in"
       ],
       "sol_connections": ["Predictability", "Attention", "Cognitive Load", "Retrieval through Routine"],
-      "rp_connections": ["Belonging", "Relationship before correction", "Community building", "Fair Process"],
+      "rp_connections": ["Belonging", "Relationship before correction", "Community building"],
       "connected_concepts": ["transitions", "routines", "relationships", "belonging", "expectations-and-norms", "behavior-and-redirections"]
     },
     {
-      "id": "2x10",
-      "label": "2x10",
-      "aliases": ["2x10", "2x10", "two by ten"],
+      "id": "restorative-interactions",
+      "label": "Restorative Interactions",
+      "aliases": ["Restorative Interactions", "restorative interactions", "2x10", "2×10", "two by ten"],
       "layer": "Strategy",
       "system_type": "live",
       "status": "draft",
       "standard": "5.3",
       "topic": "Relationship Building",
       "serves_concepts": ["relationships", "belonging", "behavior-and-redirections"],
-      "summary": "2x10 is two minutes of non-academic conversation with one hard-to-reach student, held for ten school days running. The goal is building a durable relationship with a student who is currently reachable only through the deed, not the person.",
-      "attribution": "Attributed to Raymond Wlodkowski; later popularized in Allen Mendler's Connecting with Students.",
+      "summary": "2×10 is two minutes of non-academic conversation with one hard-to-reach student, held for ten school days running. The goal is not the ten conversations themselves; the goal is building a durable relationship with a student who is currently reachable only through the deed, not the person. Attributed to Raymond Wlodkowski; later popularized in Allen Mendler's Connecting with Students.",
       "solves": [
         "A student who feels unseen or only-seen-when-in-trouble",
         "Redirections that keep spending the bond instead of building it",
@@ -138,71 +137,6 @@
       "sol_connections": ["Belonging conditions motivation", "Feedback received through relationship (SoL Q2/Q4)"],
       "rp_connections": ["Relationship built before trouble is what lets correction land later", "Naming the deed not the doer", "Belonging as mechanism not reward"],
       "connected_concepts": ["relationships", "belonging", "behavior-and-redirections"]
-    },
-    {
-      "id": "precorrection",
-      "label": "Precorrection",
-      "aliases": ["Precorrection", "precorrection", "pre-correction"],
-      "layer": "Strategy",
-      "system_type": "live",
-      "status": "draft",
-      "standard": "5.2",
-      "topic": "Proactive Behavior Support",
-      "serves_concepts": ["transitions", "behavior-and-redirections", "routines"],
-      "summary": "Precorrection is a brief reminder of the expected steps, given right before a predictable challenge point. The goal is to cue the routine at the seam, before things come apart, so the teacher never has to react after.",
-      "solves": [
-        "Predictable off-task moments at transition seams",
-        "Repeated redirection for the same expected step",
-        "Time lost re-establishing order after it breaks",
-        "Students entering a hard task without a clear first move",
-        "A reactive cycle: wait for the misbehavior, then correct it"
-      ],
-      "mechanism": [
-        "The expected step is active in working memory exactly when it is needed — cognitive load drops at the seam",
-        "A specific cue focuses attention on the next action instead of the whole noisy environment",
-        "Reminding the routine rehearses it — each precorrection is a low-stakes retrieval that strengthens the pattern",
-        "Behavior support becomes proactive: the teacher shapes the moment instead of policing it, which keeps relationships out of a correction posture"
-      ],
-      "conditions": [
-        "The routine being cued was explicitly taught and practiced",
-        "The teacher can anticipate which moments predictably go sideways",
-        "The cue is specific and short — the exact next step, not a general reminder to behave",
-        "There is time to deliver it before the demand, not in the middle of it",
-        "Expectations are stable enough that a brief reminder activates them"
-      ],
-      "misconception": {
-        "common": "Precorrection is often heard as warning students or getting ahead of the bad kids.",
-        "principle": "Anticipate the seam, and cue the expected step before the demand arrives."
-      },
-      "implementations": [
-        {
-          "label": "Verbal, whole-group",
-          "description": "Just before a known transition, the teacher names the steps aloud: In a moment we are moving to the carpet. That means push in your chair, walk, and find your spot on the rug. Then the transition begins.",
-          "best_fit": ["Teachers comfortable with clear verbal cues", "Whole-class transitions with a shared next step"]
-        },
-        {
-          "label": "Visual / signal-based",
-          "description": "A posted anchor chart or projected slide shows the steps; the teacher points to it right before the challenge point, letting the visual carry the reminder.",
-          "best_fit": ["Teachers who prefer low-verbal cueing", "Early readers, multilingual classrooms, students who anchor on predictable visuals"]
-        },
-        {
-          "label": "Individual / quiet",
-          "description": "The teacher steps beside a student just before the hard moment and privately previews the next step: When we start independent work, your first move is to open to page 4.",
-          "best_fit": ["Teachers building trust with a student who struggles at a specific seam", "Situations where a public reminder would single someone out"]
-        }
-      ],
-      "adaptations": [
-        "Countdown before a transition",
-        "Pre-task checklist previewed before independent work",
-        "Role assignment stated before group work begins",
-        "What does this look like — quick student rehearsal before the moment",
-        "Precorrective reminder paired with a visual timer",
-        "One-line reminder at the top of the board for the day's known pinch point"
-      ],
-      "evidence_note": "Kounin's work on momentum and withitness (1970) established that smooth classrooms anticipate friction at activity boundaries rather than reacting to it.",
-      "sol_connections": ["Predictability reduces extraneous Cognitive Load", "Specific cue directs Attention to the next action", "Working Memory holds the step because it was just activated"],
-      "rp_connections": ["Correcting before rather than after keeps relationships out of a discipline frame", "Support offered to everyone, not aimed at the usual suspects"],
-      "connected_concepts": ["transitions", "routines", "behavior-and-redirections", "expectations-and-norms"]
     },
     {
       "id": "co-created-norms",
@@ -269,6 +203,132 @@
       "sol_connections": ["Autonomy of authorship feeds Motivation (SoL Q4)", "Predictable expectations reduce extraneous Cognitive Load", "Working Memory freed for learning when the room is predictable"],
       "rp_connections": ["Co-created norms shift compliance to investment (Klevan 2021)", "Belonging through co-authorship", "Shared agreement over imposed rule"],
       "connected_concepts": ["expectations-and-norms", "belonging", "motivation", "relationships"]
+    },
+    {
+      "id": "teach-the-transition",
+      "label": "Teach the Transition",
+      "aliases": ["Teach the Transition", "teach the transition", "rehearse the transition", "teach-and-rehearse"],
+      "layer": "Strategy",
+      "system_type": "both",
+      "status": "draft",
+      "standard": "5.2",
+      "topic": "Transitions",
+      "serves_concepts": ["transitions", "routines"],
+      "summary": "A transition is taught and rehearsed the way content is taught — modeled, practiced, and named — rather than announced once and enforced afterward. The goal is not a quiet move between activities; the goal is a sequence students can run without holding it in their heads.",
+      "solves": [
+        "The seam between activities is where most instructional time leaks — five minutes, five times a day, across a year",
+        "Students stall at the boundary not because they're refusing but because they don't know the next action",
+        "The teacher ends up narrating every move, which makes the class dependent on the narration",
+        "Noise and drift at the seam get read as a behavior tension when the source is structural"
+      ],
+      "mechanism": [
+        "A rehearsed sequence runs from memory rather than being assembled on the spot — working memory is freed for the work waiting on the other side of the move",
+        "Each rehearsal is a low-stakes retrieval of the sequence, which strengthens it — spaced and retrieval-based practice makes it durable",
+        "A known sequence narrows what attention has to track — one next action instead of a whole noisy room",
+        "Teaching the move in advance means the teacher shapes the moment rather than correcting after it, so relationships don't get spent on friction the design created",
+        "When students help build the sequence, they move through a structure they hold rather than one imposed on them"
+      ],
+      "conditions": [
+        "The steps are few and concrete enough to rehearse — the specific next action, not 'transition quietly'",
+        "There is time set aside to practice it when nothing is at stake, early, before it's needed under pressure",
+        "The signal is consistent — a cue that changes weekly has to be re-learned each time",
+        "The room supports it — materials where hands already are, a visible next step",
+        "The sequence gets re-rehearsed after breaks and when it degrades, rather than being re-announced louder"
+      ],
+      "misconception": {
+        "common": "Often presented as getting students to move quickly and quietly.",
+        "principle": "Students can only run a sequence they've practiced. Anything not rehearsed has to be assembled in the moment, and the moment is when there's least room to assemble it."
+      },
+      "implementations": [
+        {
+          "label": "Rehearsed and named",
+          "description": "Walk the sequence with students when nothing is happening: name the steps, model it, run it two or three times, name what made it work. Re-run it briefly after a long weekend.",
+          "best_fit": ["Early elementary", "Any group meeting a new format"]
+        },
+        {
+          "label": "Student-built",
+          "description": "Students draft the sequence themselves — what should this look like, what gets in the way, what's our signal — then rehearse their own version. Slower to install, holds better because they authored it.",
+          "best_fit": ["Upper elementary and middle", "Any room where compliance is the current sticking point"]
+        },
+        {
+          "label": "Role-carried",
+          "description": "Specific students carry the transition: caller, materials lead, timekeeper. The sequence travels through roles rather than through the teacher's voice.",
+          "best_fit": ["Students who struggle most at the seam — the role gives the regulation something to attach to"]
+        }
+      ],
+      "adaptations": [
+        "K–2: attach the sequence to a song, chant, or counted signal; rehearse it as its own activity; pair it with a picture schedule",
+        "3–5: students manage their own materials and route inside the sequence; introduce a visible timer; rehearse the format change rather than each individual step",
+        "6–8: fewer steps, stated once, then handed over; students set the norm for what a clean move looks like; the sequence is between formats, not between tasks",
+        "After a disruption to the schedule — assembly, sub, testing week — rehearse rather than assume; the sequence degrades and re-teaching it is faster than correcting it"
+      ],
+      "evidence_note": "Kounin (1970) established momentum and smoothness — well-managed classrooms anticipate friction at activity boundaries rather than reacting to it. The widely repeated estimate that transitions cost ~75 hours of instructional time per year is practitioner-sourced and illustrative, not a measured finding.",
+      "sol_connections": ["Automaticity frees working memory (SoL Q1)", "Spaced retrieval-based practice makes sequences durable (SoL Q1/Q2)", "Verbal + visual representation of steps outperforms either alone (SoL 2nd ed. 2026)"],
+      "rp_connections": ["Predictable, co-held routines lower the need for correction (Klevan 2021)"],
+      "connected_concepts": ["transitions", "routines", "expectations-and-norms", "physical-space", "visual-supports"]
+    },
+    {
+      "id": "the-repair-conversation",
+      "label": "The Repair Conversation",
+      "aliases": ["The Repair Conversation", "repair conversation", "restorative conversation", "the four questions"],
+      "layer": "Strategy",
+      "system_type": "live",
+      "status": "draft",
+      "standard": "5.3",
+      "topic": "Repair",
+      "serves_concepts": ["repair", "behavior-and-redirections"],
+      "summary": "A short, structured conversation after harm, built on four questions that surface what happened and what would make it right — held with each person separately first, then together when both are ready. The goal is not an apology; the goal is that the student stays inside the community that has to keep working after the incident.",
+      "solves": [
+        "Something happened and the room can't just proceed as if it didn't",
+        "The available responses feel like a choice between letting it go and removing someone — neither addresses the harm",
+        "A forced apology gets produced and nothing about tomorrow is different",
+        "The student who caused harm leaves knowing they're in trouble but not what they'd do differently"
+      ],
+      "mechanism": [
+        "Who does the accounting: in a consequence the adult names the wrong; in a repair conversation the student constructs the account — that's the part that changes behavior",
+        "'What happened?' opens a story; 'Why did you do that?' invites a defense — the wording is doing the work",
+        "Naming who was affected makes the harm concrete and external, so the student looks at an impact rather than defending an identity",
+        "The student stays inside relationships and belonging, which is the channel any future correction has to travel through",
+        "The encounter itself generates the solidarity the agreement rests on — being heard, and hearing the other person (Why RJ Works, 2021)"
+      ],
+      "conditions": [
+        "Relationship is already banked — a repair conversation spends relational credit; if none was deposited, there's nothing to spend",
+        "Both people are regulated enough to talk — held too soon, it becomes a second incident",
+        "Each person is met separately first — the joint conversation only works if both arrive able to hear the other",
+        "The teacher can sit with silence and not fill it — most useful thinking happens in the pause after a question",
+        "The agreement reached is small enough to actually happen and gets followed up on"
+      ],
+      "misconception": {
+        "common": "Often presented as the soft alternative to a consequence — talking it out instead of doing something.",
+        "principle": "Harm is the problem to be addressed, not the person. The response has to keep the student inside the community that has to metabolize what happened."
+      },
+      "implementations": [
+        {
+          "label": "The four questions",
+          "description": "Held one-on-one: What happened? What were you thinking at the time? Who was affected, and how? What would make it right? Then the same four with the other person, then together.",
+          "best_fit": ["The standard case — two students, a clear incident, both able to talk"]
+        },
+        {
+          "label": "Separate-then-together (mediated)",
+          "description": "Teacher works with each student individually first, building perspective-taking before either has to face the other, and only brings them together once both can hold the other's version.",
+          "best_fit": ["Conflicts with real heat in them", "Where one student is much more verbal than the other"]
+        },
+        {
+          "label": "Low-verbal / written",
+          "description": "Same four questions on paper or drawn, or answered one at a time across a day rather than in one sitting. Student responds in writing and teacher responds in writing back.",
+          "best_fit": ["Students who shut down under face-to-face questioning", "Younger students", "Anyone who needs processing time"]
+        }
+      ],
+      "adaptations": [
+        "K–2: two questions, not four — what happened and what would help. Concrete restitution the child can physically do. A designated peace corner where the conversation happens.",
+        "3–5: all four questions, teacher-facilitated. Introduce the apology-of-action — doing something rather than saying something. Students begin holding these with light support.",
+        "6–8: students can facilitate for peers once they've been through several. Privacy matters more at this age — a repair conversation held where peers can watch will fail on audience alone.",
+        "Teacher-and-student repair: the same four questions when the rupture is between you and a student, including your own account. This is the version teachers skip and the one students remember."
+      ],
+      "evidence_note": "Exclusionary discipline is associated with increased future misbehavior and dropout risk (Klevan 2021). Strongest caution in this literature is about fidelity, not efficacy: a restorative conversation run once after a blowup is not the same intervention as a practice running all year.",
+      "sol_connections": ["Feedback received through the relationship — the same words land as help or threat depending on what's already between teacher and student (SoL Q2)", "Belonging conditions motivation; a student removed from community loses the precondition for engaging with the work (SoL Q4)"],
+      "rp_connections": ["Harm met by restoring the relationship and preserving community, not by removal (Klevan 2021)", "Why RJ Works (2021) — mechanism is the encounter itself: solidarity and emotional energy generated by being heard"],
+      "connected_concepts": ["repair", "behavior-and-redirections", "relationships", "belonging"]
     }
   ]
 }
