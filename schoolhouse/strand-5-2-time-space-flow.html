@@ -42,11 +42,7 @@
       color: #999;
       margin-bottom: 0.5rem;
     }
-    h1 {
-      font-size: 1.75rem;
-      font-weight: normal;
-      line-height: 1.3;
-    }
+    h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
     .lede {
       font-size: 1rem;
       line-height: 1.75;
@@ -60,11 +56,7 @@
       color: #999;
       margin-bottom: 1rem;
     }
-    .band-picker {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
+    .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
     .band-btn {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 0.78rem;
@@ -76,52 +68,19 @@
       cursor: pointer;
       color: #1a1a1a;
     }
-    .band-btn.active {
-      background: #1a1a1a;
-      color: #fff;
-    }
-    .band-prompt {
-      font-size: 0.82rem;
-      color: #999;
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
+    .band-btn.active { background: #1a1a1a; color: #fff; }
+    .band-prompt { font-size: 0.82rem; color: #999; margin-bottom: 2rem; font-style: italic; }
     .band-content {
-      border-left: 3px solid #1a1a1a;
+      border-left: 3px solid #eee;
       padding-left: 1.25rem;
       margin-bottom: 2.5rem;
     }
-    .band-lede {
-      font-size: 0.92rem;
-      color: #333;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .strategy-line {
-      font-size: 0.82rem;
-      color: #777;
-    }
-    .strategy-line strong { color: #1a1a1a; font-weight: normal; font-style: italic; }
-    .concept-list {
-      list-style: none;
-      margin-bottom: 2.5rem;
-    }
-    .concept-list li {
-      border-top: 1px solid #ddd;
-      padding: 0.9rem 0;
-    }
+    .band-empty { font-size: 0.82rem; color: #bbb; font-style: italic; }
+    .concept-list { list-style: none; margin-bottom: 2.5rem; }
+    .concept-list li { border-top: 1px solid #ddd; padding: 0.9rem 0; }
     .concept-list li:last-child { border-bottom: 1px solid #ddd; }
-    .concept-name {
-      font-size: 0.95rem;
-      color: #1a1a1a;
-      display: block;
-    }
-    .concept-desc {
-      font-size: 0.82rem;
-      color: #777;
-      margin-top: 0.2rem;
-      line-height: 1.5;
-    }
+    .concept-name { font-size: 0.95rem; color: #1a1a1a; display: block; }
+    .concept-desc { font-size: 0.82rem; color: #777; margin-top: 0.2rem; line-height: 1.5; }
     .foundation-ref {
       border-top: 1px solid #ddd;
       padding-top: 1.25rem;
@@ -167,21 +126,16 @@
     <button class="band-btn" data-band="68" onclick="selectBand('68')">6–8</button>
   </div>
 
-  <div id="band-prompt" class="band-prompt">Select a grade band to see what this strand looks like in your room.</div>
+  <div id="band-prompt" class="band-prompt">Select a grade band to scope the view.</div>
 
   <div id="band-k2" class="band-content" hidden>
-    <p class="band-lede">Every transition is a procedure to be explicitly taught, not managed in the moment. The younger the students, the more scaffolded the signal — visual schedules, physical cues, practiced sequences. Transitions are not interruptions to learning; they’re the first thing to teach.</p>
-    <p class="strategy-line">Highest-leverage practices: <strong>Greet at the Door</strong> (as transition anchor), <strong>Precorrection</strong></p>
+    <p class="band-empty">K–2 intro for this strand not yet in vault.</p>
   </div>
-
   <div id="band-35" class="band-content" hidden>
-    <p class="band-lede">Students can manage more of the transition themselves if the routine has been explicitly taught. Student roles in procedures — materials manager, timekeeper — reduce teacher load and build ownership. The transition is an opportunity to transfer responsibility.</p>
-    <p class="strategy-line">Highest-leverage practices: <strong>Precorrection</strong>, routines with student roles</p>
+    <p class="band-empty">3–5 intro for this strand not yet in vault.</p>
   </div>
-
   <div id="band-68" class="band-content" hidden>
-    <p class="band-lede">Efficiency is the frame adolescents respond to — “here’s why this procedure exists.” Bell work that starts the moment they enter removes the transition cost almost entirely. The fewer directions needed per transition, the more time and attention stay on the content.</p>
-    <p class="strategy-line">Highest-leverage practices: <strong>Precorrection</strong>, <strong>Greet at the Door</strong> (as relationship anchor at the threshold)</p>
+    <p class="band-empty">6–8 intro for this strand not yet in vault.</p>
   </div>
 
   <p class="section-label">Concepts inside this strand</p>
@@ -208,9 +162,7 @@
     Level 1 foundation for this strand: <a href="foundations/schoolhouse-foundation-2-science-of-learning.html">Science of Learning Basics</a>
   </div>
 
-  <footer>
-    <p>SchoolHouse · an unreliable translator</p>
-  </footer>
+  <footer><p>SchoolHouse · an unreliable translator</p></footer>
 
   <script>
     function selectBand(band) {

@@ -42,22 +42,14 @@
       color: #999;
       margin-bottom: 0.5rem;
     }
-    h1 {
-      font-size: 1.75rem;
-      font-weight: normal;
-      line-height: 1.3;
-    }
+    h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
     .lede {
       font-size: 0.92rem;
       line-height: 1.75;
       color: #555;
       margin-bottom: 2rem;
     }
-    .band-picker {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
+    .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
     .band-btn {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 0.78rem;
@@ -70,17 +62,13 @@
       color: #1a1a1a;
     }
     .band-btn.active { background: #1a1a1a; color: #fff; }
-    .band-prompt {
-      font-size: 0.82rem;
-      color: #999;
-      font-style: italic;
-      margin-bottom: 2rem;
-    }
+    .band-prompt { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 2rem; }
+    .band-note { font-size: 0.82rem; color: #bbb; font-style: italic; margin-bottom: 2rem; }
     .strand-section { margin-bottom: 3rem; }
     .strand-header {
       border-top: 2px solid #1a1a1a;
       padding-top: 0.6rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 1rem;
     }
     .strand-header-num {
       font-size: 0.68rem;
@@ -88,22 +76,8 @@
       text-transform: uppercase;
       color: #999;
     }
-    .strand-header-name {
-      font-size: 1rem;
-      font-weight: normal;
-    }
-    .band-frame {
-      font-size: 0.85rem;
-      color: #555;
-      line-height: 1.65;
-      border-left: 2px solid #ddd;
-      padding-left: 1rem;
-      margin: 0.75rem 0 1.25rem;
-    }
-    .concept-row {
-      border-top: 1px solid #eee;
-      padding: 0.85rem 0;
-    }
+    .strand-header-name { font-size: 1rem; font-weight: normal; }
+    .concept-row { border-top: 1px solid #eee; padding: 0.85rem 0; }
     .concept-row:last-child { border-bottom: 1px solid #eee; }
     .concept-top {
       display: flex;
@@ -112,10 +86,7 @@
       margin-bottom: 0.25rem;
       flex-wrap: wrap;
     }
-    .concept-name {
-      font-size: 0.95rem;
-      color: #1a1a1a;
-    }
+    .concept-name { font-size: 0.95rem; color: #1a1a1a; }
     .tag {
       font-size: 0.65rem;
       letter-spacing: 0.07em;
@@ -126,17 +97,8 @@
     }
     .tag-designed { border-color: #bbb; color: #777; }
     .tag-hub { border-color: #1a1a1a; color: #1a1a1a; }
-    .concept-desc {
-      font-size: 0.82rem;
-      color: #666;
-      margin-bottom: 0.4rem;
-      line-height: 1.55;
-    }
-    .edges {
-      font-size: 0.78rem;
-      color: #999;
-      line-height: 1.7;
-    }
+    .concept-desc { font-size: 0.82rem; color: #666; margin-bottom: 0.4rem; line-height: 1.55; }
+    .edges { font-size: 0.78rem; color: #999; line-height: 1.7; }
     .edge-type {
       font-size: 0.68rem;
       letter-spacing: 0.07em;
@@ -146,11 +108,7 @@
       width: 3.5rem;
     }
     .cross { color: #1a1a1a; font-style: italic; }
-    .strategies {
-      font-size: 0.78rem;
-      color: #777;
-      margin-top: 0.35rem;
-    }
+    .strategies { font-size: 0.78rem; color: #777; margin-top: 0.35rem; }
     .strategies strong { font-weight: normal; color: #1a1a1a; }
     .bridge-note {
       font-size: 0.75rem;
@@ -171,11 +129,7 @@
       color: #999;
       margin-bottom: 1rem;
     }
-    .sol-row {
-      border-top: 1px solid #eee;
-      padding: 0.7rem 0;
-      font-size: 0.82rem;
-    }
+    .sol-row { border-top: 1px solid #eee; padding: 0.7rem 0; font-size: 0.82rem; }
     .sol-row:last-child { border-bottom: 1px solid #eee; }
     .sol-name { color: #1a1a1a; }
     .sol-note { color: #777; font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.55; }
@@ -217,6 +171,7 @@
     <button class="band-btn" data-band="68" onclick="selectBand('68')">6–8</button>
   </div>
   <div id="band-prompt" class="band-prompt">Select a grade band to scope the view.</div>
+  <div id="band-note" class="band-note" hidden>Band-specific content for this view not yet in vault.</div>
 
 
   <!-- 5.1 -->
@@ -226,10 +181,6 @@
       <div class="strand-header-name">Behavior &amp; Engagement</div>
     </div>
 
-    <div class="band-frame" id="bf51-k2" hidden>At K–2, behavior and engagement are about structure and relationship — not skill deficits. Students are learning what school is. Procedures practiced in September are the engagement strategy for June.</div>
-    <div class="band-frame" id="bf51-35" hidden>Students have learned school’s rhythms but are developing academic identity. Engagement dips when the work feels pointless or the social stakes feel high. Choice, relevance, and effort-focused feedback are the main levers.</div>
-    <div class="band-frame" id="bf51-68" hidden>Adolescents are calibrating authenticity — watching whether the adult means what they say. Behavior problems in middle school are almost always belonging or autonomy problems in disguise.</div>
-
     <div class="concept-row">
       <div class="concept-top">
         <span class="concept-name">Engagement</span>
@@ -237,7 +188,7 @@
       </div>
       <p class="concept-desc">Active investment of attention and effort — what learning requires from a student; not the same as compliance or quiet.</p>
       <div class="edges">
-        <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span> · <span class="cross">motivation</span> · <span class="cross">attention (SoL)</span></div>
+        <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span> · motivation · attention (SoL)</div>
         <div><span class="edge-type">unlocks</span> —</div>
         <div><span class="edge-type">next to</span> behavior &amp; redirections</div>
       </div>
@@ -290,7 +241,7 @@
         <span class="tag">both</span>
         <span class="bridge-note">bridge 5.1 ↔ 5.3</span>
       </div>
-      <p class="concept-desc">Shared agreements that make engagement and culture possible — the structural prerequisite for both strands.</p>
+      <p class="concept-desc">Shared agreements that make engagement and culture possible — structural prerequisite for both strands.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> —</div>
         <div><span class="edge-type">unlocks</span> behavior &amp; redirections · <span class="cross">routines (→5.2)</span> · <span class="cross">belonging (→5.3)</span></div>
@@ -307,10 +258,6 @@
       <div class="strand-header-num">5.2</div>
       <div class="strand-header-name">Time, Space &amp; Flow</div>
     </div>
-
-    <div class="band-frame" id="bf52-k2" hidden>Every transition is a procedure to be explicitly taught, not managed. The younger the students, the more scaffolded the signal — visual schedules, physical cues, practiced sequences.</div>
-    <div class="band-frame" id="bf52-35" hidden>Students can manage more of the transition themselves if the routine has been explicitly taught. Student roles in procedures reduce teacher load and build ownership.</div>
-    <div class="band-frame" id="bf52-68" hidden>Efficiency is the frame adolescents respond to. Bell work that starts the moment they enter removes the transition cost almost entirely.</div>
 
     <div class="concept-row">
       <div class="concept-top">
@@ -372,10 +319,6 @@
       <div class="strand-header-num">5.3</div>
       <div class="strand-header-name">Culture &amp; Belonging</div>
     </div>
-
-    <div class="band-frame" id="bf53-k2" hidden>Belonging at K–2 is physical and immediate — am I seen? do I have a role? Greeting by name, classroom jobs, and consistent routines are the belonging infrastructure. Culture is built before November or not at all.</div>
-    <div class="band-frame" id="bf53-35" hidden>Peer relationships become primary at 3–5. Belonging is about having a place in the peer group, not just with the teacher. Class meetings and collaborative structures that make student contributions visible are the culture-building work.</div>
-    <div class="band-frame" id="bf53-68" hidden>Identity is the frame at 6–8. Adolescents need to know their presence matters and that the teacher sees them as a person, not a behavior profile. 2x10 is the highest-leverage single practice at this band.</div>
 
     <div class="concept-row">
       <div class="concept-top">
@@ -439,7 +382,7 @@
     <p class="sol-label">Science of Learning — supporting nodes</p>
     <div class="sol-row">
       <span class="sol-name">Cognitive Load</span>
-      <p class="sol-note">The mind’s workspace is limited; extraneous load (from confusion, unpredictable routines, unclear instructions) crowds out the germane load that is the actual learning. Linked from: transitions, routines, expectations &amp; norms, fair process.</p>
+      <p class="sol-note">The mind’s workspace is limited; extraneous load crowds out the germane load that is the actual learning. Linked from: transitions, routines, expectations &amp; norms, fair process.</p>
     </div>
     <div class="sol-row">
       <span class="sol-name">Working Memory</span>
@@ -447,31 +390,20 @@
     </div>
     <div class="sol-row">
       <span class="sol-name">Attention</span>
-      <p class="sol-note">Finite and easily captured by whatever is most salient — not always the lesson. Protected by clean transitions and low load; sustaining it is what engagement depends on. Linked from: transitions, engagement.</p>
+      <p class="sol-note">Finite and easily captured by whatever is most salient. Protected by clean transitions and low load. Linked from: transitions, engagement.</p>
     </div>
   </div>
 
-  <footer>
-    <p>SchoolHouse · an unreliable translator</p>
-  </footer>
+  <footer><p>SchoolHouse · an unreliable translator</p></footer>
 
   <script>
-    var BANDS = ['k2','35','68'];
-    var STRANDS = ['51','52','53'];
     function selectBand(band) {
-      BANDS.forEach(function(b) {
+      ['k2','35','68'].forEach(function(b) {
         document.querySelector('[data-band="' + b + '"]').classList.remove('active');
-        STRANDS.forEach(function(s) {
-          var el = document.getElementById('bf' + s + '-' + b);
-          if (el) el.hidden = true;
-        });
       });
       document.querySelector('[data-band="' + band + '"]').classList.add('active');
-      STRANDS.forEach(function(s) {
-        var el = document.getElementById('bf' + s + '-' + band);
-        if (el) el.hidden = false;
-      });
       document.getElementById('band-prompt').hidden = true;
+      document.getElementById('band-note').hidden = false;
     }
   </script>
 
