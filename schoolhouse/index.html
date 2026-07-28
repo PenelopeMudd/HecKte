@@ -3,516 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SchoolHouse &mdash; Positive Classroom Environment</title>
-  <meta name="description" content="Missouri Standard 5 &mdash; a positive classroom environment for learning. Three strands, each with its source.">
+  <title>SchoolHouse — Standard 5</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Georgia, serif; background: #faf9f7; color: #1a1a1a; line-height: 1.6; }
-
-    nav { padding: 24px 40px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e0dbd4; }
-    .wordmark { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: #1a1a1a; text-decoration: none; }
-    .wordmark span { color: #7a5c3e; }
-    nav .crumb { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem; color: #888; letter-spacing: 0.06em; text-transform: uppercase; }
-
-    hr.divider { border: none; border-top: 1px solid #e0dbd4; margin: 0 40px; }
-
-    /* entry */
-    .entry { padding: 60px 40px 52px; max-width: 700px; }
-    .entry .kicker { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #7a5c3e; margin-bottom: 28px; }
-    .entry-p { font-size: 1.04rem; color: #3a3530; line-height: 1.74; margin-bottom: 20px; max-width: 580px; }
-    .entry-q { font-size: 1.04rem; font-weight: bold; color: #1a1a1a; margin-bottom: 22px; margin-top: 10px; max-width: 580px; }
-    .entry-doors { list-style: none; padding: 0; margin: 0; max-width: 600px; counter-reset: door; }
-    .entry-doors li { counter-increment: door; border-top: 1px solid #e8e3db; }
-    .entry-doors li:last-child { border-bottom: 1px solid #e8e3db; }
-    .entry-doors li a { display: flex; align-items: baseline; gap: 14px; padding: 17px 0; text-decoration: none; color: #3a3530; font-size: 0.97rem; line-height: 1.5; transition: color 0.1s; }
-    .entry-doors li a::before { content: counter(door) "."; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; color: #c4a882; min-width: 14px; flex-shrink: 0; padding-top: 1px; }
-    .entry-doors li a:hover { color: #7a5c3e; }
-    .door-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; color: #c4a882; margin-left: auto; padding-left: 20px; flex-shrink: 0; letter-spacing: 0.06em; }
-
-    /* band picker */
-    .band-picker { padding: 20px 40px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #efeae3; background: #fdfcf9; }
-    .band-picker-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #888; letter-spacing: 0.04em; }
-    .band-btn { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; padding: 6px 16px; border: 1px solid #d8cdbb; border-radius: 2px; background: white; color: #6a6358; cursor: pointer; transition: all 0.1s; }
-    .band-btn:hover { border-color: #7a5c3e; color: #1a1a1a; }
-    .band-btn.active { background: #7a5c3e; border-color: #7a5c3e; color: white; }
-    .band-btn-clear { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; background: none; border: none; cursor: pointer; padding: 4px 8px; }
-    .band-btn-clear:hover { color: #888; }
-
-    /* band context */
-    .band-context { padding: 22px 40px 26px; max-width: 820px; border-bottom: 1px solid #efeae3; background: #faf8f4; }
-    .band-context-driver { font-size: 0.97rem; color: #3a3530; font-style: italic; margin-bottom: 16px; max-width: 620px; line-height: 1.6; }
-    .band-context-strands { list-style: none; padding: 0; margin: 0; max-width: 660px; }
-    .band-context-strands li { display: flex; gap: 12px; font-size: 0.88rem; color: #555; padding: 8px 0; border-top: 1px solid #ede8e0; line-height: 1.55; }
-    .band-context-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; font-weight: 700; color: #c4a882; min-width: 26px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em; }
-
-    /* strand list */
-    .strand-list { padding: 8px 40px 40px; max-width: 820px; }
-
-    .prompt { background: #f4f1ec; border: 1px solid #e6e0d6; border-radius: 3px; padding: 18px 20px; margin: 12px 0 4px; }
-    .prompt .q { font-size: 0.98rem; color: #4a453d; margin-bottom: 6px; }
-    .prompt textarea { width: 100%; margin-top: 10px; border: 1px solid #e0dbd4; border-radius: 3px; padding: 10px 12px; font-family: Georgia, serif; font-size: 0.95rem; color: #333; background: #fffdf9; resize: vertical; min-height: 60px; }
-    .prompt textarea:focus { outline: none; border-color: #c4a882; }
-
-    details.capacity { background: white; border: 1px solid #e0dbd4; border-radius: 3px; margin-bottom: 16px; overflow: hidden; }
-    details.capacity > summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: baseline; gap: 12px; }
-    details.capacity > summary::-webkit-details-marker { display: none; }
-    details.capacity > summary::before { content: "\2192"; color: #c4a882; font-size: 1rem; }
-    details.capacity[open] > summary::before { content: "\2193"; }
-    details.capacity > summary h2 { font-size: 1.2rem; font-weight: normal; color: #111; display: inline; }
-    details.capacity > summary .peek { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: #b0a894; text-transform: uppercase; letter-spacing: 0.08em; margin-left: auto; white-space: nowrap; }
-    .cap-body { padding: 0 26px 22px; }
-    .cap-desc { font-size: 0.9rem; color: #777; margin-bottom: 18px; max-width: 620px; }
-
-    .claim { padding: 16px 0; border-top: 1px solid #efeae3; }
-    .claim:first-of-type { border-top: none; }
-    .claim-statement { font-size: 1rem; color: #1a1a1a; margin-bottom: 8px; }
-
-    details.receipt { margin-top: 6px; }
-    details.receipt > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
-    details.receipt > summary::-webkit-details-marker { display: none; }
-    details.receipt > summary::before { content: "\25B8"; font-size: 0.7rem; color: #c4a882; }
-    details.receipt[open] > summary::before { content: "\25BE"; }
-    details.receipt > summary:hover { color: #1a1a1a; }
-    .receipt-body { margin-top: 8px; padding: 12px 14px; background: #faf8f4; border: 1px solid #eee7dc; border-radius: 3px; font-size: 0.86rem; color: #555; }
-    .receipt-body .src-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 6px; }
-    .receipt-body .src-name a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
-    .receipt-body .excerpt { font-style: italic; color: #444; border-left: 2px solid #d8cdbb; padding-left: 12px; margin-top: 6px; }
-    .receipt-body .rel { color: #999; font-size: 0.78rem; margin-top: 6px; }
-
-    .unit { padding: 14px 0; border-top: 1px solid #efeae3; }
-    .unit:first-child { border-top: none; }
-    .unit-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
-    .unit-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: #c4a882; min-width: 28px; flex-shrink: 0; }
-    .unit-title { font-size: 0.98rem; color: #111; }
-    .unit-title a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
-    .unit-title a:hover { border-bottom-color: #c4a882; color: #7a5c3e; }
-    .unit-desc { font-size: 0.88rem; color: #666; padding-left: 38px; margin-bottom: 4px; }
-    .unit-band-text { font-size: 0.86rem; color: #555; padding-left: 38px; margin-top: 4px; }
-    details.bands { margin-left: 38px; margin-top: 2px; }
-    details.bands > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: #7a5c3e; display: inline-flex; align-items: center; gap: 5px; }
-    details.bands > summary::-webkit-details-marker { display: none; }
-    details.bands > summary::before { content: "\25B8"; font-size: 0.7rem; color: #c4a882; }
-    details.bands[open] > summary::before { content: "\25BE"; }
-    .band-grid { margin-top: 8px; display: grid; gap: 8px; }
-    .band-row { display: flex; gap: 10px; font-size: 0.86rem; }
-    .band-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.72rem; color: #7a5c3e; min-width: 30px; flex-shrink: 0; padding-top: 1px; }
-    .band-text { color: #555; }
-    .strand-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #c4a882; margin-right: 6px; }
-
-    /* unit page */
-    .unit-page { padding: 0 40px 40px; max-width: 820px; }
-    .unit-breadcrumb { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: #aaa; margin-bottom: 36px; padding-top: 8px; }
-    .unit-breadcrumb a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
-    .unit-page-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #c4a882; margin-bottom: 10px; }
-    .unit-page-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: normal; color: #111; margin-bottom: 28px; line-height: 1.25; }
-
-    .unit-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 32px; }
-    .unit-split-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b0a894; margin-bottom: 14px; }
-    .unit-split-text { font-size: 1rem; color: #3a3530; line-height: 1.7; }
-    .unit-split-enactment { font-size: 1rem; color: #4a453d; line-height: 1.68; }
-    .unit-split-prompt { font-size: 0.88rem; color: #c4a882; font-style: italic; line-height: 1.6; }
-
-    .unit-page-bands { margin-bottom: 0; }
-    .unit-page-band { display: flex; gap: 12px; padding: 8px 0; border-top: 1px solid #efeae3; font-size: 0.88rem; }
-    .unit-page-band-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 0.7rem; color: #7a5c3e; min-width: 32px; flex-shrink: 0; padding-top: 2px; }
-    .unit-page-band-text { color: #555; line-height: 1.6; }
-
-    /* band-specific link in unit right column */
-    .unit-band-link { display: inline-block; margin-top: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.85rem; color: #7a5c3e; text-decoration: none; }
-    .unit-band-link::before { content: "\2192\00a0"; }
-    .unit-band-link:hover { color: #1a1a1a; text-decoration: underline; }
-
-    /* going deeper section */
-    .unit-deeper { border-top: 1px solid #efeae3; padding-top: 24px; margin-bottom: 8px; }
-    .unit-deeper-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b0a894; margin-bottom: 14px; }
-
-    .unit-resource-list { list-style: none; padding: 0; margin: 0 0 20px 0; }
-    .unit-resource-list li { padding: 8px 0; border-top: 1px solid #efeae3; font-size: 0.9rem; }
-    .unit-resource-list li:first-child { border-top: none; }
-    .unit-resource-list a { color: #3a3530; text-decoration: none; }
-    .unit-resource-list a::before { content: "\2192\00a0"; color: #c4a882; font-size: 0.82rem; }
-    .unit-resource-list a:hover { color: #7a5c3e; }
-
-    /* DESE continuum */
-    details.continuum { margin-bottom: 20px; }
-    details.continuum > summary { list-style: none; cursor: pointer; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.82rem; color: #7a5c3e; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; }
-    details.continuum > summary::-webkit-details-marker { display: none; }
-    details.continuum > summary::before { content: "\25B8"; font-size: 0.7rem; color: #c4a882; }
-    details.continuum[open] > summary::before { content: "\25BE"; }
-    details.continuum > summary:hover { color: #1a1a1a; }
-    .continuum-steps { margin-top: 12px; max-width: 640px; }
-    .continuum-step { display: flex; gap: 14px; padding: 9px 0; border-top: 1px solid #efeae3; }
-    .continuum-code { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; font-weight: 700; color: #c4a882; min-width: 34px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em; }
-    .continuum-text { font-size: 0.87rem; color: #555; line-height: 1.55; }
-
-    /* key sources */
-    .unit-sources-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b0a894; margin-bottom: 8px; }
-    .unit-sources-list { list-style: none; padding: 0; margin: 0; }
-    .unit-sources-list li { font-size: 0.82rem; color: #888; padding: 4px 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
-    .unit-sources-list a { color: #7a5c3e; text-decoration: none; border-bottom: 1px solid #c4a882; }
-    .unit-sources-list a:hover { color: #1a1a1a; }
-
-    .unit-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid #e0dbd4; margin-top: 8px; gap: 16px; }
-    .unit-nav a { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88rem; color: #7a5c3e; text-decoration: none; }
-    .unit-nav a:hover { color: #1a1a1a; }
-    .unit-nav-center { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; text-align: center; white-space: nowrap; }
-    .unit-nav-center a { color: #aaa; text-decoration: none; }
-    .unit-nav-center a:hover { color: #7a5c3e; }
-
-    .status { padding: 40px; max-width: 820px; color: #888; font-size: 0.95rem; }
-    .status code { background: #efeae3; padding: 2px 6px; border-radius: 3px; font-size: 0.85rem; }
-    .status a { color: #7a5c3e; }
-
-    footer { border-top: 1px solid #e0dbd4; padding: 28px 40px; margin-top: 40px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: #bbb; }
-
-    @media (max-width: 620px) {
-      .unit-split { grid-template-columns: 1fr; gap: 28px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.8;
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .lede {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #444;
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+    .divider {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 0 0 2rem;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1.25rem;
+    }
+    .doors {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .door {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 0.75rem;
+    }
+    .door-num {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.35rem;
+    }
+    .door-title {
+      font-size: 0.95rem;
+      font-weight: normal;
+      line-height: 1.35;
+      color: #1a1a1a;
+    }
+    .door-desc {
+      font-size: 0.82rem;
+      color: #777;
+      margin-top: 0.5rem;
+      line-height: 1.55;
+    }
+    .foundations-list {
+      list-style: none;
+      margin-bottom: 3.5rem;
+    }
+    .foundations-list li {
+      border-top: 1px solid #ddd;
+      padding: 0.85rem 0;
+    }
+    .foundations-list li:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+    .foundations-list a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .foundations-list a:hover { text-decoration: underline; }
+    .foundations-list .sub {
+      font-size: 0.78rem;
+      color: #999;
+      margin-top: 0.2rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      font-size: 0.78rem;
+      color: #999;
     }
     @media (max-width: 560px) {
-      nav { padding: 20px 24px; }
-      .entry { padding: 44px 24px 40px; }
-      hr.divider { margin: 0 24px; }
-      .strand-list { padding: 8px 24px 32px; }
-      footer { padding: 24px; }
-      details.capacity > summary { flex-wrap: wrap; }
-      .cap-body { padding: 0 24px 20px; }
-      .unit-page { padding: 0 24px 32px; }
-      .band-picker { padding: 16px 24px; }
-      .band-context { padding: 18px 24px 20px; }
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+      .doors { grid-template-columns: 1fr; gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/HecKte/" class="wordmark">Hec<span>K</span>te</a>
-  <div class="crumb">SchoolHouse</div>
-</nav>
+  <p class="eyebrow">Missouri DESE · Standard 5</p>
+  <h1>SchoolHouse</h1>
+  <p class="lede">A system for building a positive classroom environment for learning — relational, structural, and cognitive. Three strands. One room.</p>
 
-<div id="band-bar"></div>
-<div id="band-context"></div>
+  <hr class="divider">
 
-<hr class="divider">
+  <p class="section-label">The three strand doors</p>
+  <div class="doors">
+    <div class="door">
+      <p class="door-num">5.1</p>
+      <p class="door-title">Behavior &amp; Engagement</p>
+      <p class="door-desc">Motivation, expectations, feedback, redirections.</p>
+    </div>
+    <div class="door">
+      <p class="door-num">5.2</p>
+      <p class="door-title">Time, Space &amp; Flow</p>
+      <p class="door-desc">Transitions, routines, physical space, visual supports.</p>
+    </div>
+    <div class="door">
+      <p class="door-num">5.3</p>
+      <p class="door-title">Culture &amp; Belonging</p>
+      <p class="door-desc">Relationships, belonging, repair, shared norms.</p>
+    </div>
+  </div>
 
-<div id="app">
-  <div class="status" id="status">Opening the shelf&hellip;</div>
-</div>
+  <hr class="divider">
 
-<footer>&copy; Kim Starkey &middot; HecKte &middot; SchoolHouse &mdash; sourced, read-only, non-extractive.</footer>
+  <p class="section-label">Level 1 — Foundations</p>
+  <p style="font-size:0.85rem; color:#777; margin-bottom:1.25rem;">Read these if you want the why before you walk through a door.</p>
+  <ul class="foundations-list">
+    <li>
+      <a href="foundations/schoolhouse-foundation-1-classroom-management.html">What This System Means by Classroom Management</a>
+      <p class="sub">A working definition — before anything else</p>
+    </li>
+    <li>
+      <a href="foundations/schoolhouse-foundation-2-science-of-learning.html">Science of Learning Basics</a>
+      <p class="sub">The substrate under 5.1 and 5.2</p>
+    </li>
+    <li>
+      <a href="foundations/schoolhouse-foundation-3-restorative-practices.html">Restorative Practices Basics</a>
+      <p class="sub">The substrate under 5.3</p>
+    </li>
+    <li>
+      <a href="foundations/schoolhouse-foundation-4-growth-mindset.html">Growth vs. Fixed Mindset Basics</a>
+      <p class="sub">The stance underneath every strand</p>
+    </li>
+  </ul>
 
-<script>
-  var WORLD = new URLSearchParams(location.search).get("world") || "workshop";
-
-  var BANDS = [
-    { key: "k2",       label: "K–2" },
-    { key: "grades35", label: "3–5" },
-    { key: "grades68", label: "6–8" }
-  ];
-
-  var esc = function(s) {
-    return (s == null ? "" : String(s).replace(/[&<>"']/g, function(c) {
-      return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]);
-    }));
-  };
-
-  function getBand() {
-    try { return localStorage.getItem("sh_band") || null; } catch(e) { return null; }
-  }
-  function setBand(key) {
-    try { if (key) localStorage.setItem("sh_band", key); else localStorage.removeItem("sh_band"); } catch(e) {}
-  }
-
-  function renderBandBar() {
-    var current = getBand();
-    var bar = document.getElementById("band-bar");
-    if (!bar) return;
-    var html = "<div class=\"band-picker\"><span class=\"band-picker-label\">I teach</span>";
-    BANDS.forEach(function(b) {
-      html += "<button class=\"band-btn" + (current === b.key ? " active" : "") + "\" data-band=\"" + b.key + "\">" + b.label + "</button>";
-    });
-    if (current) html += "<button class=\"band-btn-clear\" data-band-clear>change</button>";
-    html += "</div>";
-    bar.innerHTML = html;
-    bar.querySelectorAll(".band-btn").forEach(function(btn) {
-      btn.addEventListener("click", function() {
-        setBand(btn.dataset.band);
-        render();
-      });
-    });
-    var clr = bar.querySelector("[data-band-clear]");
-    if (clr) clr.addEventListener("click", function() { setBand(null); render(); });
-  }
-
-  function renderBandContext(shelf) {
-    var ctx = document.getElementById("band-context");
-    if (!ctx) return;
-    var band = getBand();
-    if (!band || !shelf || !shelf.bands) { ctx.innerHTML = ""; return; }
-    var b = null;
-    (shelf.bands || []).forEach(function(x) { if (x.key === band) b = x; });
-    if (!b) { ctx.innerHTML = ""; return; }
-    var strandKeys = Object.keys(b.strands || {});
-    var rows = strandKeys.map(function(code) {
-      return "<li><span class=\"band-context-code\">" + esc(code) + "</span>" + esc(b.strands[code]) + "</li>";
-    }).join("");
-    ctx.innerHTML = "<div class=\"band-context\">" +
-      "<div class=\"band-context-driver\">" + esc(b.driver) + "</div>" +
-      "<ul class=\"band-context-strands\">" + rows + "</ul>" +
-    "</div>";
-  }
-
-  async function fetchShelf() {
-    var res = await fetch("./data/classroom-management.json");
-    if (!res.ok) throw new Error("Could not load shelf data (" + res.status + ")");
-    return res.json();
-  }
-
-  function receiptHTML(s) {
-    var name = s.url
-      ? "<a href=\"" + esc(s.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(s.authority || s.title) + "</a>"
-      : esc(s.authority || s.title);
-    var body = "<div class=\"src-name\">" + name + "</div><div>" + esc(s.title) + "</div>";
-    if (s.excerpt)      body += "<div class=\"excerpt\">&ldquo;" + esc(s.excerpt) + "&rdquo;</div>";
-    if (s.relationship) body += "<div class=\"rel\">relationship: " + esc(s.relationship) + "</div>";
-    return "<details class=\"receipt\"><summary>source</summary><div class=\"receipt-body\">" + body + "</div></details>";
-  }
-
-  function claimHTML(claim) {
-    var receipts = (claim.sources || []).map(receiptHTML).join("");
-    return "<div class=\"claim\"><div class=\"claim-statement\">" + esc(claim.statement) + "</div>" + receipts + "</div>";
-  }
-
-  function enactmentHTML(unit, band, forUnitPage) {
-    var e = unit.enactment || {};
-    if (band) {
-      var text = e[band];
-      if (!text) return "";
-      if (forUnitPage) {
-        return "<div class=\"unit-split-enactment\">" + esc(text) + "</div>";
-      }
-      return "<div class=\"unit-band-text\">" + esc(text) + "</div>";
-    }
-    var rows = BANDS.filter(function(b) { return e[b.key]; }).map(function(b) {
-      if (forUnitPage) {
-        return "<div class=\"unit-page-band\"><span class=\"unit-page-band-label\">" + esc(b.label) + "</span><span class=\"unit-page-band-text\">" + esc(e[b.key]) + "</span></div>";
-      }
-      return "<div class=\"band-row\"><span class=\"band-label\">" + esc(b.label) + "</span><span class=\"band-text\">" + esc(e[b.key]) + "</span></div>";
-    }).join("");
-    if (!rows) return "";
-    if (forUnitPage) {
-      return "<div class=\"unit-page-bands\">" + rows + "</div>";
-    }
-    return "<details class=\"bands\"><summary>Grade-band enactment</summary><div class=\"band-grid\">" + rows + "</div></details>";
-  }
-
-  function unitHTML(unit, strandCode) {
-    var band = getBand();
-    var unitKey = strandCode ? esc(strandCode + "." + unit.id) : null;
-    var titleEl = unitKey
-      ? "<a href=\"?unit=" + unitKey + "\">" + esc(unit.title) + "</a>"
-      : esc(unit.title);
-    return "<div class=\"unit\">" +
-      "<div class=\"unit-header\">" +
-        "<span class=\"unit-num\">" + esc(unit.id) + "</span>" +
-        "<span class=\"unit-title\">" + titleEl + "</span>" +
-      "</div>" +
-      "<div class=\"unit-desc\">" + esc(unit.description) + "</div>" +
-      enactmentHTML(unit, band, false) +
-    "</div>";
-  }
-
-  function buildUnitList(strands) {
-    var list = [];
-    (strands || []).forEach(function(strand) {
-      (strand.units || []).forEach(function(unit) {
-        list.push({ strand: strand, unit: unit });
-      });
-    });
-    return list;
-  }
-
-  function unitViewHTML(shelf, unitParam) {
-    var list = buildUnitList(shelf.strands);
-    var idx = -1;
-    list.forEach(function(item, i) {
-      if ((item.strand.dese_code + "." + item.unit.id) === unitParam) idx = i;
-    });
-    if (idx < 0) return "<div class=\"status\">Unit not found. <a href=\"?\">Back to all strands.</a></div>";
-
-    var item   = list[idx];
-    var strand = item.strand;
-    var unit   = item.unit;
-    var prev   = idx > 0 ? list[idx - 1] : null;
-    var next   = idx < list.length - 1 ? list[idx + 1] : null;
-    var band   = getBand();
-
-    var position = (idx + 1) + " of " + list.length;
-    var prevLink = prev
-      ? "<a href=\"?unit=" + esc(prev.strand.dese_code + "." + prev.unit.id) + "\">&larr; " + esc(prev.unit.title) + "</a>"
-      : "<span></span>";
-    var nextLink = next
-      ? "<a href=\"?unit=" + esc(next.strand.dese_code + "." + next.unit.id) + "\">" + esc(next.unit.title) + " &rarr;</a>"
-      : "<span></span>";
-
-    var bandLink = "";
-    if (band && strand.band_links && strand.band_links[band]) {
-      var bl = strand.band_links[band];
-      bandLink = "<a class=\"unit-band-link\" href=\"" + esc(bl.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(bl.label) + "</a>";
-    }
-
-    var rightCol = band
-      ? enactmentHTML(unit, band, true) + bandLink
-      : "<div class=\"unit-split-prompt\">Select your grade band above to see what this looks like in your classroom.</div>";
-
-    var continuumHTML = "";
-    if (strand.continuum && strand.continuum.length) {
-      var steps = strand.continuum.map(function(step) {
-        return "<div class=\"continuum-step\">" +
-          "<span class=\"continuum-code\">" + esc(step.code) + "</span>" +
-          "<span class=\"continuum-text\">" + esc(step.text) + "</span>" +
-        "</div>";
-      }).join("");
-      continuumHTML = "<details class=\"continuum\"><summary>DESE growth continuum</summary>" +
-        "<div class=\"continuum-steps\">" + steps + "</div>" +
-      "</details>";
-    }
-
-    var resourcesHTML = "";
-    if (strand.resources && strand.resources.length) {
-      var resItems = strand.resources.map(function(r) {
-        return "<li><a href=\"" + esc(r.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(r.label) + "</a></li>";
-      }).join("");
-      resourcesHTML = "<ul class=\"unit-resource-list\">" + resItems + "</ul>";
-    }
-
-    var sourcesHTML = "";
-    if (strand.sources && strand.sources.length) {
-      var srcItems = strand.sources.map(function(s) {
-        return "<li>" + (s.url
-          ? "<a href=\"" + esc(s.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(s.label) + "</a>"
-          : esc(s.label)) + "</li>";
-      }).join("");
-      sourcesHTML = "<div class=\"unit-sources-label\" style=\"margin-top:18px;\">Key sources</div>" +
-        "<ul class=\"unit-sources-list\">" + srcItems + "</ul>";
-    }
-
-    var deeperHTML = (resourcesHTML || continuumHTML || sourcesHTML)
-      ? "<div class=\"unit-deeper\">" +
-          (resourcesHTML ? "<div class=\"unit-deeper-label\">Resources</div>" + resourcesHTML : "") +
-          continuumHTML +
-          sourcesHTML +
-        "</div>"
-      : "";
-
-    return "<div class=\"unit-page\">" +
-      "<div class=\"unit-breadcrumb\"><a href=\"?\">All strands</a> &rsaquo; " + esc(strand.dese_code) + " " + esc(strand.title) + "</div>" +
-      "<div class=\"unit-page-label\">" + esc(strand.dese_code) + " &middot; " + esc(strand.subtitle) + "</div>" +
-      "<h2 class=\"unit-page-title\">" + esc(unit.title) + "</h2>" +
-      "<div class=\"unit-split\">" +
-        "<div>" +
-          "<div class=\"unit-split-label\">The standard</div>" +
-          "<div class=\"unit-split-text\">" + esc(unit.description) + "</div>" +
-        "</div>" +
-        "<div>" +
-          "<div class=\"unit-split-label\">In your classroom</div>" +
-          rightCol +
-        "</div>" +
-      "</div>" +
-      deeperHTML +
-      "<div class=\"unit-nav\">" +
-        prevLink +
-        "<span class=\"unit-nav-center\"><a href=\"?\">" + position + "</a></span>" +
-        nextLink +
-      "</div>" +
-    "</div>";
-  }
-
-  var WORLDS = {
-    workshop: function(shelf) {
-      var strands = shelf.strands;
-      var html = "";
-
-      html += "<div class=\"entry\">" +
-        "<div class=\"kicker\">SchoolHouse · Missouri</div>" +
-        "<p class=\"entry-p\">You&#39;re here because something has your attention. Maybe a student, maybe a transition, maybe just a feeling that the class hasn&#39;t found its footing yet.</p>" +
-        "<p class=\"entry-p\">Missouri calls it Standard 5. A positive classroom environment for learning. The state names three strands — and knowing which one you&#39;re in shapes where you look.</p>" +
-        "<p class=\"entry-q\">Where is your attention right now?</p>" +
-        "<ol class=\"entry-doors\">" +
-          "<li><a href=\"#strand-5-1\">Engagement and behavior — the people, in the moment <span class=\"door-code\">5.1</span></a></li>" +
-          "<li><a href=\"#strand-5-2\">Transitions, routines, the room itself <span class=\"door-code\">5.2</span></a></li>" +
-          "<li><a href=\"#strand-5-3\">Whether students belong here, trust each other, and want to be here <span class=\"door-code\">5.3</span></a></li>" +
-        "</ol>" +
-      "</div>";
-
-      html += "<div class=\"strand-list\">";
-      (strands || []).forEach(function(strand) {
-        var strandId = "strand-" + strand.dese_code.replace(".", "-");
-        var units = strand.units || [];
-        html += "<details class=\"capacity\" id=\"" + strandId + "\">" +
-          "<summary>" +
-            "<span>" +
-              "<span class=\"strand-code\">" + esc(strand.dese_code) + "</span>" +
-              "<h2 style=\"display:inline\">" + esc(strand.title) + "</h2>" +
-            "</span>" +
-            "<span class=\"peek\">" + units.length + " unit" + (units.length === 1 ? "" : "s") + "</span>" +
-          "</summary>" +
-          "<div class=\"cap-body\">" +
-            "<div class=\"cap-desc\"><em>" + esc(strand.subtitle) + "</em> " + esc(strand.description) + "</div>" +
-            units.map(function(u) { return unitHTML(u, strand.dese_code); }).join("") +
-            "<div class=\"prompt\" style=\"margin-top:18px;\">" +
-              "<div class=\"q\">What would you take from this strand to your classroom on Monday?</div>" +
-              "<textarea placeholder=\"A line for you. Not saved, not sent.\"></textarea>" +
-            "</div>" +
-          "</div>" +
-        "</details>";
-      });
-      html += "</div>";
-
-      return html;
-    }
-  };
-
-  function wireInteractions() {
-    document.querySelectorAll(".entry-doors a").forEach(function(a) {
-      a.addEventListener("click", function(e) {
-        e.preventDefault();
-        var id = a.getAttribute("href").slice(1);
-        var el = document.getElementById(id);
-        if (el) {
-          el.open = true;
-          setTimeout(function() { el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 20);
-        }
-      });
-    });
-  }
-
-  var _shelf = null;
-
-  function render() {
-    if (!_shelf) return;
-    renderBandBar();
-    renderBandContext(_shelf);
-    var unitParam = new URLSearchParams(location.search).get("unit");
-    if (unitParam) {
-      document.getElementById("app").innerHTML = unitViewHTML(_shelf, unitParam);
-    } else {
-      var world = WORLDS[WORLD] || WORLDS.workshop;
-      document.getElementById("app").innerHTML = world(_shelf);
-      wireInteractions();
-    }
-  }
-
-  async function boot() {
-    try {
-      _shelf = await fetchShelf();
-      render();
-    } catch (err) {
-      document.getElementById("status").innerHTML =
-        "Could not open the shelf. <code>" + esc(err.message) + "</code>";
-    }
-  }
-  boot();
-</script>
+  <footer>
+    <p>SchoolHouse · an unreliable translator</p>
+  </footer>
 
 </body>
 </html>
