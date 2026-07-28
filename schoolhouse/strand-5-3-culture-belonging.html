@@ -29,7 +29,6 @@
     .strand-nav a { color: #999; text-decoration: none; }
     .strand-nav a:hover { color: #555; }
     .strand-nav .active { color: #1a1a1a; }
-    .strand-nav .home { color: #999; }
     .strand-nav .sep { color: #ddd; }
     header {
       border-bottom: 2px solid #1a1a1a;
@@ -52,7 +51,7 @@
       font-size: 1rem;
       line-height: 1.75;
       color: #444;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .section-label {
       font-size: 0.72rem;
@@ -61,6 +60,48 @@
       color: #999;
       margin-bottom: 1rem;
     }
+    .band-picker {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .band-btn {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid #1a1a1a;
+      background: none;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      color: #1a1a1a;
+    }
+    .band-btn.active {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .band-prompt {
+      font-size: 0.82rem;
+      color: #999;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .band-content {
+      border-left: 3px solid #1a1a1a;
+      padding-left: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .band-lede {
+      font-size: 0.92rem;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .strategy-line {
+      font-size: 0.82rem;
+      color: #777;
+    }
+    .strategy-line strong { color: #1a1a1a; font-weight: normal; font-style: italic; }
     .concept-list {
       list-style: none;
       margin-bottom: 2.5rem;
@@ -105,7 +146,7 @@
 <body>
 
   <nav class="strand-nav">
-    <a href="index.html" class="home">SchoolHouse</a>
+    <a href="index.html">SchoolHouse</a>
     <span class="sep">/</span>
     <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a>
     <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a>
@@ -118,6 +159,30 @@
   </header>
 
   <p class="lede">A classroom’s culture is the sum of what students believe is true about whether they belong there, whether the teacher believes in them, and whether making a mistake is survivable. That culture is built or eroded by every interaction — not just the big ones.</p>
+
+  <p class="section-label">Choose your grade band</p>
+  <div class="band-picker">
+    <button class="band-btn" data-band="k2" onclick="selectBand('k2')">K–2</button>
+    <button class="band-btn" data-band="35" onclick="selectBand('35')">3–5</button>
+    <button class="band-btn" data-band="68" onclick="selectBand('68')">6–8</button>
+  </div>
+
+  <div id="band-prompt" class="band-prompt">Select a grade band to see what this strand looks like in your room.</div>
+
+  <div id="band-k2" class="band-content" hidden>
+    <p class="band-lede">Belonging at this level is physical and immediate — am I seen? do I have a role? do I know where I fit? Greeting by name, classroom jobs, and consistent routines are the belonging infrastructure. Culture is built before November or not at all.</p>
+    <p class="strategy-line">Highest-leverage practices: <strong>Greet at the Door</strong>, <strong>Co-Created Norms</strong> (teacher-scaffolded)</p>
+  </div>
+
+  <div id="band-35" class="band-content" hidden>
+    <p class="band-lede">Peer relationships become primary. Belonging is about having a place in the peer group, not just with the teacher. Class meetings and collaborative structures that make student contributions visible are the culture-building work.</p>
+    <p class="strategy-line">Highest-leverage practices: <strong>Co-Created Norms</strong>, <strong>2x10</strong>, <strong>Greet at the Door</strong></p>
+  </div>
+
+  <div id="band-68" class="band-content" hidden>
+    <p class="band-lede">Identity is the frame. Adolescents need to know their presence matters and that the teacher sees them as a person, not a behavior profile. 2x10 is the highest-leverage single practice at this band — two minutes a day for ten consecutive days changes the relationship.</p>
+    <p class="strategy-line">Highest-leverage practices: <strong>2x10</strong>, <strong>Co-Created Norms</strong>, repair conversations</p>
+  </div>
 
   <p class="section-label">Concepts inside this strand</p>
   <ul class="concept-list">
@@ -146,6 +211,18 @@
   <footer>
     <p>SchoolHouse · an unreliable translator</p>
   </footer>
+
+  <script>
+    function selectBand(band) {
+      ['k2','35','68'].forEach(function(b) {
+        document.getElementById('band-' + b).hidden = true;
+        document.querySelector('[data-band="' + b + '"]').classList.remove('active');
+      });
+      document.getElementById('band-' + band).hidden = false;
+      document.querySelector('[data-band="' + band + '"]').classList.add('active');
+      document.getElementById('band-prompt').hidden = true;
+    }
+  </script>
 
 </body>
 </html>
