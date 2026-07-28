@@ -1,0 +1,297 @@
+{
+  "version": "2026-07-28",
+  "source": "DESE Standard 5 · Vault /Matrix/ · _Catalog — Standard 5 (SchoolHouse)",
+  "frame_note": "Three strand doors only on the surface. Concepts are depth inside strands and internal routing scaffolding — not a nav layer. Typed edges (requires/unlocks/next_to) from Catalog edge table only. related[] from concept row wikilinks filtered to concept targets.",
+  "concepts": [
+    {
+      "id": "relationships",
+      "label": "Relationships",
+      "aliases": ["Relationships", "relationship", "relationships", "relationship building"],
+      "strand": "5.3",
+      "strand_label": "Culture & Belonging",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.3 — 'the influence of classroom, school, and community culture on student relationships'; 'Develops a positive culture... to positively affect student relationships and learning'",
+      "system_type": "live",
+      "type": "concept",
+      "status": "built",
+      "hub": true,
+      "edges": {
+        "requires": [],
+        "unlocks": ["belonging", "repair", "feedback", "behavior-and-redirections"],
+        "next_to": ["engagement"]
+      },
+      "related": ["belonging", "repair", "feedback", "behavior-and-redirections", "engagement", "transitions"],
+      "strategies_attached": ["greet-students-at-the-door", "2x10"]
+    },
+    {
+      "id": "belonging",
+      "label": "Belonging",
+      "aliases": ["Belonging", "belonging", "sense of belonging"],
+      "strand": "5.3",
+      "strand_label": "Culture & Belonging",
+      "dese_anchor": "derived",
+      "dese_note": "Derived from 5.3 'positive social interaction' and culture language",
+      "system_type": "both",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["relationships"],
+        "unlocks": ["engagement", "motivation"],
+        "next_to": ["relationships"]
+      },
+      "related": ["relationships", "engagement", "motivation"],
+      "strategies_attached": ["greet-students-at-the-door", "co-created-norms"]
+    },
+    {
+      "id": "engagement",
+      "label": "Engagement",
+      "aliases": ["Engagement", "engagement", "student engagement"],
+      "strand": "5.1",
+      "strand_label": "Behavior & Engagement",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.1 title — 'Classroom Management, Motivation and Engagement'",
+      "system_type": "live",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["belonging", "motivation", "attention"],
+        "unlocks": [],
+        "next_to": ["behavior-and-redirections"]
+      },
+      "related": ["belonging", "motivation", "attention", "behavior-and-redirections"],
+      "strategies_attached": []
+    },
+    {
+      "id": "motivation",
+      "label": "Motivation",
+      "aliases": ["Motivation", "motivation", "motivate", "motivated"],
+      "strand": "5.1",
+      "strand_label": "Behavior & Engagement",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.1 names 'self-motivation' as a goal",
+      "system_type": "both",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["belonging"],
+        "unlocks": ["engagement"],
+        "next_to": ["engagement"]
+      },
+      "related": ["belonging", "relationships", "engagement"],
+      "strategies_attached": ["co-created-norms"]
+    },
+    {
+      "id": "behavior-and-redirections",
+      "label": "Behavior & Redirections",
+      "aliases": ["Behavior & Redirections", "Redirections", "behavior", "behaviors", "redirection", "redirections", "redirect"],
+      "strand": "5.1",
+      "strand_label": "Behavior & Engagement",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.1 — 'addresses misbehavior... with the least disruption of instruction'",
+      "system_type": "live",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["relationships", "expectations-and-norms"],
+        "unlocks": ["repair"],
+        "next_to": ["engagement"]
+      },
+      "related": ["relationships", "repair", "belonging", "expectations-and-norms"],
+      "strategies_attached": ["precorrection"]
+    },
+    {
+      "id": "repair",
+      "label": "Repair",
+      "aliases": ["Repair", "repair", "restorative repair"],
+      "strand": "5.3",
+      "strand_label": "Culture & Belonging",
+      "dese_anchor": "derived",
+      "dese_note": "Derived from 5.3 'positive culture... student relationships' — RP mechanism for keeping students in community after harm",
+      "system_type": "live",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["relationships"],
+        "unlocks": [],
+        "next_to": ["behavior-and-redirections"]
+      },
+      "related": ["behavior-and-redirections", "relationships", "belonging", "fair-process", "feedback"],
+      "strategies_attached": []
+    },
+    {
+      "id": "expectations-and-norms",
+      "label": "Expectations & Norms",
+      "aliases": ["Expectations & Norms", "Expectations", "expectation", "expectations", "norm", "norms"],
+      "strand": "5.1-5.3",
+      "strand_label": "bridges Behavior & Engagement and Culture & Belonging",
+      "dese_anchor": "derived",
+      "dese_note": "Derived — 'expectations' not verbatim in Std 5 but management techniques (5.1) and positive culture (5.3) rest on shared taught expectations",
+      "system_type": "both",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": [],
+        "unlocks": ["routines", "behavior-and-redirections", "belonging"],
+        "next_to": ["relationships"]
+      },
+      "related": ["belonging", "routines", "behavior-and-redirections", "relationships", "cognitive-load", "working-memory", "motivation"],
+      "strategies_attached": ["co-created-norms"]
+    },
+    {
+      "id": "transitions",
+      "label": "Transitions",
+      "aliases": ["Transitions", "transition", "transitions"],
+      "strand": "5.2",
+      "strand_label": "Time, Space & Flow",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.2 — 'management of time, space, transitions and activities'",
+      "system_type": "both",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["routines", "expectations-and-norms"],
+        "unlocks": ["attention", "engagement"],
+        "next_to": ["routines"]
+      },
+      "related": ["routines", "expectations-and-norms", "attention", "engagement", "relationships", "cognitive-load"],
+      "strategies_attached": []
+    },
+    {
+      "id": "routines",
+      "label": "Routines",
+      "aliases": ["Routines", "routine", "routines"],
+      "strand": "5.2",
+      "strand_label": "Time, Space & Flow",
+      "dese_anchor": "derived",
+      "dese_note": "Derived from 5.2 scope — repeatable structures that make transitions and activities run",
+      "system_type": "both",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["expectations-and-norms"],
+        "unlocks": ["transitions", "working-memory"],
+        "next_to": ["transitions"]
+      },
+      "related": ["transitions", "expectations-and-norms", "cognitive-load", "working-memory", "attention"],
+      "strategies_attached": []
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback",
+      "aliases": ["Feedback", "feedback"],
+      "strand": "5.1",
+      "strand_label": "Behavior & Engagement",
+      "dese_anchor": "derived",
+      "dese_note": "Supporting node — cross-standard (SoL/Std 7); feedback lands on the relationship channel",
+      "system_type": "live",
+      "type": "concept",
+      "subtype": "supporting",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["relationships"],
+        "unlocks": [],
+        "next_to": []
+      },
+      "related": ["relationships", "belonging", "engagement", "behavior-and-redirections"],
+      "strategies_attached": []
+    },
+    {
+      "id": "fair-process",
+      "label": "Fair Process",
+      "aliases": ["Fair Process", "fair process"],
+      "strand": "5.3",
+      "strand_label": "Culture & Belonging",
+      "dese_anchor": "derived",
+      "dese_note": "Derived — RP/character-ed concept; how 5.1 behavior response and 5.3 positive culture get enacted fairly",
+      "system_type": "live",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["relationships", "expectations-and-norms"],
+        "unlocks": ["repair", "belonging"],
+        "next_to": ["repair"]
+      },
+      "related": ["repair", "behavior-and-redirections", "belonging", "relationships", "expectations-and-norms", "cognitive-load"],
+      "strategies_attached": []
+    },
+    {
+      "id": "physical-space",
+      "label": "Physical Space",
+      "aliases": ["Physical Space", "physical space", "layout", "physical layout", "seating", "traffic flow"],
+      "strand": "5.2",
+      "strand_label": "Time, Space & Flow",
+      "dese_anchor": "verbatim",
+      "dese_note": "QI 5.2 — 'Management of Time, Space, Transitions, and Activities' — DESE names space directly",
+      "system_type": "designed",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": [],
+        "unlocks": ["transitions", "routines", "belonging", "engagement"],
+        "next_to": ["visual-supports"]
+      },
+      "related": ["transitions", "routines", "belonging", "engagement", "visual-supports", "repair"],
+      "strategies_attached": []
+    },
+    {
+      "id": "visual-supports",
+      "label": "Visual Supports",
+      "aliases": ["Visual Supports", "visual supports", "anchor chart", "anchor charts", "visual schedule", "posted supports"],
+      "strand": "5.2",
+      "strand_label": "Time, Space & Flow",
+      "dese_anchor": "derived",
+      "dese_note": "QI 5.2 (Space) + 5.1 — visual schedules, anchor charts, posted cues are designed information the room carries so the teacher does not have to say it every time",
+      "system_type": "designed",
+      "type": "concept",
+      "status": "built",
+      "hub": false,
+      "edges": {
+        "requires": ["routines", "expectations-and-norms"],
+        "unlocks": ["transitions", "working-memory", "belonging"],
+        "next_to": ["physical-space"]
+      },
+      "related": ["routines", "expectations-and-norms", "transitions", "belonging", "working-memory", "physical-space"],
+      "strategies_attached": []
+    }
+  ],
+  "sol_supporting": [
+    {
+      "id": "cognitive-load",
+      "label": "Cognitive Load",
+      "aliases": ["Cognitive Load", "cognitive load"],
+      "type": "sol_support",
+      "note": "The mind has a limited workspace; overloading it blocks learning. Predictable structure, clear routines, and one-thing-at-a-time reduce extraneous load so capacity is free for actual learning.",
+      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1",
+      "linked_from": ["transitions", "routines", "expectations-and-norms", "fair-process"]
+    },
+    {
+      "id": "working-memory",
+      "label": "Working Memory",
+      "aliases": ["Working Memory", "working memory"],
+      "type": "sol_support",
+      "note": "The small, limited store where active thinking happens. Automaticity from rehearsed routines frees it for complex work.",
+      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1/Q2",
+      "linked_from": ["routines", "visual-supports", "expectations-and-norms"]
+    },
+    {
+      "id": "attention",
+      "label": "Attention",
+      "aliases": ["Attention", "attention"],
+      "type": "sol_support",
+      "note": "Finite and easily pulled away. Protected by clean transitions and low load; sustaining it is what engagement depends on.",
+      "source": "Deans for Impact, SoL 2nd ed. 2026, Q1",
+      "linked_from": ["transitions", "engagement"]
+    }
+  ]
+}

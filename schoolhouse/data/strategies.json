@@ -1,0 +1,274 @@
+{
+  "version": "2026-07-28",
+  "source": "Vault /Strategies/",
+  "note": "serves_concepts is over-broad in current vault state — reflect as-is; do not build match or ranking logic on it yet. PhD tightening lists.",
+  "strategies": [
+    {
+      "id": "greet-students-at-the-door",
+      "label": "Greet Students at the Door",
+      "aliases": ["Greet Students at the Door", "Greeting at the Door", "Greet at the Door"],
+      "layer": "Strategy",
+      "system_type": "both",
+      "status": "draft",
+      "standard": "5.1",
+      "topic": "Entry Routine",
+      "serves_concepts": ["transitions", "relationships", "belonging", "routines", "behavior-and-redirections", "expectations-and-norms"],
+      "summary": "Greeting students at the door is one example of an effective entry routine. The goal is not the greeting itself; the goal is creating a predictable transition from the hallway into learning.",
+      "solves": [
+        "Unstructured transition time",
+        "Difficulty beginning class",
+        "Limited teacher-student connection",
+        "Lost instructional minutes",
+        "Lack of predictability"
+      ],
+      "mechanism": [
+        "Predictable routines reduce uncertainty — cognitive load drops",
+        "Students receive an immediate cue that learning has begun — attention shifts in",
+        "Teachers gather quick information before instruction",
+        "Positive interactions strengthen relationships and belonging",
+        "Entry becomes intentional rather than accidental"
+      ],
+      "conditions": [
+        "Students know what to do immediately after entering — routine taught",
+        "Bell work or an opening task is already prepared",
+        "Materials are accessible",
+        "Classroom expectations have been explicitly taught",
+        "Teacher can monitor both hallway and classroom"
+      ],
+      "misconception": {
+        "common": "Standing at the door is often presented as best practice.",
+        "principle": "Create a predictable, personal transition into learning."
+      },
+      "implementations": [
+        {
+          "label": "Relational",
+          "description": "Teacher greets every student by name and briefly checks in before directing them to the opening task.",
+          "best_fit": ["Teachers who enjoy conversation", "Smaller classes"]
+        },
+        {
+          "label": "Procedural",
+          "description": "Teacher greets students while directing them to begin a posted bell ringer.",
+          "best_fit": ["Teachers emphasizing efficient transitions", "Larger classes"]
+        },
+        {
+          "label": "Low-Verbal",
+          "description": "Teacher stands near the entrance, makes eye contact, smiles or nods, while students independently begin the entry routine.",
+          "best_fit": ["Teachers with quieter personalities", "Students who thrive on predictable routines"]
+        }
+      ],
+      "adaptations": [
+        "Morning meeting",
+        "Advisory",
+        "Secondary block schedule",
+        "Kindergarten welcome song",
+        "Student greeters",
+        "Digital check-in",
+        "Mood meter",
+        "Visual check-in"
+      ],
+      "sol_connections": ["Predictability", "Attention", "Cognitive Load", "Retrieval through Routine"],
+      "rp_connections": ["Belonging", "Relationship before correction", "Community building", "Fair Process"],
+      "connected_concepts": ["transitions", "routines", "relationships", "belonging", "expectations-and-norms", "behavior-and-redirections"]
+    },
+    {
+      "id": "2x10",
+      "label": "2x10",
+      "aliases": ["2x10", "2x10", "two by ten"],
+      "layer": "Strategy",
+      "system_type": "live",
+      "status": "draft",
+      "standard": "5.3",
+      "topic": "Relationship Building",
+      "serves_concepts": ["relationships", "belonging", "behavior-and-redirections"],
+      "summary": "2x10 is two minutes of non-academic conversation with one hard-to-reach student, held for ten school days running. The goal is building a durable relationship with a student who is currently reachable only through the deed, not the person.",
+      "attribution": "Attributed to Raymond Wlodkowski; later popularized in Allen Mendler's Connecting with Students.",
+      "solves": [
+        "A student who feels unseen or only-seen-when-in-trouble",
+        "Redirections that keep spending the bond instead of building it",
+        "A relationship that starts and stays in the negative",
+        "Escalating behavior with no relational channel to reach through",
+        "Limited one-on-one connection during a full teaching day"
+      ],
+      "mechanism": [
+        "Ten consecutive days signals reliability — the student learns the adult keeps coming back",
+        "Non-academic content means the interaction is not about compliance",
+        "Repeated positive contact builds relationship before the next hard moment",
+        "A felt sense of belonging conditions motivation",
+        "The channel engagement and feedback travel on gets stronger"
+      ],
+      "conditions": [
+        "The conversations stay genuinely non-academic — no schoolwork, no behavior talk",
+        "The teacher can protect two low-stakes minutes daily",
+        "Consistency across all ten days — a broken streak resets the signal",
+        "The teacher is curious about this student, not gathering leverage",
+        "The student is not put on the spot publicly"
+      ],
+      "misconception": {
+        "common": "2x10 is often presented as a behavior-fix trick.",
+        "principle": "Build the relationship before you need it, on the student's terms, not the classroom's."
+      },
+      "implementations": [
+        {
+          "label": "Conversational",
+          "description": "Teacher initiates a brief, genuine chat about the student's interests — a game, a show, a weekend — following the student's lead each day.",
+          "best_fit": ["Teachers who connect easily through talk", "Students who warm to verbal attention"]
+        },
+        {
+          "label": "Low-Verbal",
+          "description": "Teacher uses short, repeated micro-contacts: noticing a shirt, a quick shared joke, a saved seat. Two minutes spread across small moments rather than one sit-down.",
+          "best_fit": ["Teachers with quieter styles", "Students who find direct one-on-one talk intense"]
+        },
+        {
+          "label": "Interest-Anchored",
+          "description": "Teacher opens with something from an interest survey or an observed hobby, and returns to that thread daily so the student sees continuity from one day to the next.",
+          "best_fit": ["Teachers who prefer a concrete starting point", "Students who take time to trust that attention is real"]
+        }
+      ],
+      "adaptations": [
+        "Split the two minutes across two staff who share the student",
+        "Advisory or homeroom slot",
+        "Written back-and-forth for students who prefer text to talk",
+        "Interest survey as a launch point",
+        "Extend past ten days when momentum is building",
+        "Team version: several teachers each run 2x10 with different students",
+        "Elementary morning check-in",
+        "Secondary hallway or transition contact"
+      ],
+      "evidence_note": "Wlodkowski's 85% improvement figure is practitioner-reported and illustrative, not a measured finding.",
+      "sol_connections": ["Belonging conditions motivation", "Feedback received through relationship (SoL Q2/Q4)"],
+      "rp_connections": ["Relationship built before trouble is what lets correction land later", "Naming the deed not the doer", "Belonging as mechanism not reward"],
+      "connected_concepts": ["relationships", "belonging", "behavior-and-redirections"]
+    },
+    {
+      "id": "precorrection",
+      "label": "Precorrection",
+      "aliases": ["Precorrection", "precorrection", "pre-correction"],
+      "layer": "Strategy",
+      "system_type": "live",
+      "status": "draft",
+      "standard": "5.2",
+      "topic": "Proactive Behavior Support",
+      "serves_concepts": ["transitions", "behavior-and-redirections", "routines"],
+      "summary": "Precorrection is a brief reminder of the expected steps, given right before a predictable challenge point. The goal is to cue the routine at the seam, before things come apart, so the teacher never has to react after.",
+      "solves": [
+        "Predictable off-task moments at transition seams",
+        "Repeated redirection for the same expected step",
+        "Time lost re-establishing order after it breaks",
+        "Students entering a hard task without a clear first move",
+        "A reactive cycle: wait for the misbehavior, then correct it"
+      ],
+      "mechanism": [
+        "The expected step is active in working memory exactly when it is needed — cognitive load drops at the seam",
+        "A specific cue focuses attention on the next action instead of the whole noisy environment",
+        "Reminding the routine rehearses it — each precorrection is a low-stakes retrieval that strengthens the pattern",
+        "Behavior support becomes proactive: the teacher shapes the moment instead of policing it, which keeps relationships out of a correction posture"
+      ],
+      "conditions": [
+        "The routine being cued was explicitly taught and practiced",
+        "The teacher can anticipate which moments predictably go sideways",
+        "The cue is specific and short — the exact next step, not a general reminder to behave",
+        "There is time to deliver it before the demand, not in the middle of it",
+        "Expectations are stable enough that a brief reminder activates them"
+      ],
+      "misconception": {
+        "common": "Precorrection is often heard as warning students or getting ahead of the bad kids.",
+        "principle": "Anticipate the seam, and cue the expected step before the demand arrives."
+      },
+      "implementations": [
+        {
+          "label": "Verbal, whole-group",
+          "description": "Just before a known transition, the teacher names the steps aloud: In a moment we are moving to the carpet. That means push in your chair, walk, and find your spot on the rug. Then the transition begins.",
+          "best_fit": ["Teachers comfortable with clear verbal cues", "Whole-class transitions with a shared next step"]
+        },
+        {
+          "label": "Visual / signal-based",
+          "description": "A posted anchor chart or projected slide shows the steps; the teacher points to it right before the challenge point, letting the visual carry the reminder.",
+          "best_fit": ["Teachers who prefer low-verbal cueing", "Early readers, multilingual classrooms, students who anchor on predictable visuals"]
+        },
+        {
+          "label": "Individual / quiet",
+          "description": "The teacher steps beside a student just before the hard moment and privately previews the next step: When we start independent work, your first move is to open to page 4.",
+          "best_fit": ["Teachers building trust with a student who struggles at a specific seam", "Situations where a public reminder would single someone out"]
+        }
+      ],
+      "adaptations": [
+        "Countdown before a transition",
+        "Pre-task checklist previewed before independent work",
+        "Role assignment stated before group work begins",
+        "What does this look like — quick student rehearsal before the moment",
+        "Precorrective reminder paired with a visual timer",
+        "One-line reminder at the top of the board for the day's known pinch point"
+      ],
+      "evidence_note": "Kounin's work on momentum and withitness (1970) established that smooth classrooms anticipate friction at activity boundaries rather than reacting to it.",
+      "sol_connections": ["Predictability reduces extraneous Cognitive Load", "Specific cue directs Attention to the next action", "Working Memory holds the step because it was just activated"],
+      "rp_connections": ["Correcting before rather than after keeps relationships out of a discipline frame", "Support offered to everyone, not aimed at the usual suspects"],
+      "connected_concepts": ["transitions", "routines", "behavior-and-redirections", "expectations-and-norms"]
+    },
+    {
+      "id": "co-created-norms",
+      "label": "Co-Created Norms",
+      "aliases": ["Co-Created Norms", "co-created norms", "class agreement", "classroom norms"],
+      "layer": "Strategy",
+      "system_type": "both",
+      "status": "draft",
+      "standard": "5.1",
+      "topic": "Expectations & Norms",
+      "serves_concepts": ["expectations-and-norms", "belonging", "motivation"],
+      "summary": "Co-created norms are a class agreement authored with students. The goal is not the list on the wall; the goal is authorship. Students who help write the norms hold them, because they own them. This is where investment replaces compliance.",
+      "solves": [
+        "Expectations that students follow but do not believe",
+        "Rules that feel imposed rather than shared",
+        "Weak buy-in when a teacher hands down a posted list",
+        "Norms that get ignored the moment the teacher looks away",
+        "A thin sense of belonging in the room's culture"
+      ],
+      "mechanism": [
+        "Authorship creates ownership — students hold norms they helped write",
+        "Investment replaces compliance: the agreement is theirs, so following it is self-consistency rather than obedience",
+        "Autonomy of authorship feeds motivation — voice in the rules raises the will to keep them (SoL Q4)",
+        "Shared, predictable expectations reduce extraneous cognitive load — students are not guessing what is allowed",
+        "Co-authorship is a pathway to belonging — helping name how the room treats each other is a way of belonging to it"
+      ],
+      "conditions": [
+        "Student voice is real, not decorative — their words actually make it onto the wall",
+        "Norms are few, simple, and positively stated",
+        "The agreement is revisited and revised, not signed once and forgotten",
+        "Enough relational trust exists that students will speak honestly",
+        "The teacher is willing to be bound by the agreement too"
+      ],
+      "misconception": {
+        "common": "Let the students make the rules is often presented as the practice.",
+        "principle": "Authorship creates ownership — students hold the norms they helped write."
+      },
+      "implementations": [
+        {
+          "label": "K-2: Read-Aloud to Values",
+          "description": "Teacher reads a picture book about friendship or fairness, then asks how the class wants the room to feel. Student answers become a short anchor chart, illustrated and signed.",
+          "best_fit": ["Early elementary", "Teachers who anchor culture in story and image"]
+        },
+        {
+          "label": "Upper Elementary: Co-Drafted Agreement",
+          "description": "Students brainstorm in small groups, the class clusters ideas into shared expectations, and everyone drafts and signs the agreement. Posted and revisited regularly.",
+          "best_fit": ["Grades 3-5", "Teachers who want a durable, student-owned document"]
+        },
+        {
+          "label": "Middle School: Discussion of Why",
+          "description": "Before writing anything, students discuss why norms matter — what a good room feels like, what erodes it. From that conversation they co-create and commit to the agreement.",
+          "best_fit": ["Grades 6-8", "Teachers building motivation through reasoning and voice"]
+        }
+      ],
+      "adaptations": [
+        "Advisory or morning meeting norm-setting",
+        "Group-work agreements for a single project",
+        "Digital collaborative draft",
+        "Norm revisit after a rough week",
+        "Student-facilitated norm review",
+        "Restorative circle to author or renew the agreement",
+        "Family or home input into the class values"
+      ],
+      "sol_connections": ["Autonomy of authorship feeds Motivation (SoL Q4)", "Predictable expectations reduce extraneous Cognitive Load", "Working Memory freed for learning when the room is predictable"],
+      "rp_connections": ["Co-created norms shift compliance to investment (Klevan 2021)", "Belonging through co-authorship", "Shared agreement over imposed rule"],
+      "connected_concepts": ["expectations-and-norms", "belonging", "motivation", "relationships"]
+    }
+  ]
+}
