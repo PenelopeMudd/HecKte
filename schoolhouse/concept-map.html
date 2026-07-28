@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept Map — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.8;
+    }
+    .strand-nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #999;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .strand-nav a { color: #999; text-decoration: none; }
+    .strand-nav a:hover { color: #555; }
+    .strand-nav .active { color: #1a1a1a; }
+    .strand-nav .sep { color: #ddd; }
+    header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: normal;
+      line-height: 1.3;
+    }
+    .lede {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .band-picker {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .band-btn {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid #1a1a1a;
+      background: none;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      color: #1a1a1a;
+    }
+    .band-btn.active { background: #1a1a1a; color: #fff; }
+    .band-prompt {
+      font-size: 0.82rem;
+      color: #999;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .strand-section { margin-bottom: 3rem; }
+    .strand-header {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 0.6rem;
+      margin-bottom: 0.25rem;
+    }
+    .strand-header-num {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    .strand-header-name {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    .band-frame {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.65;
+      border-left: 2px solid #ddd;
+      padding-left: 1rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .concept-row {
+      border-top: 1px solid #eee;
+      padding: 0.85rem 0;
+    }
+    .concept-row:last-child { border-bottom: 1px solid #eee; }
+    .concept-top {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .concept-name {
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid #ddd;
+      color: #999;
+    }
+    .tag-designed { border-color: #bbb; color: #777; }
+    .tag-hub { border-color: #1a1a1a; color: #1a1a1a; }
+    .concept-desc {
+      font-size: 0.82rem;
+      color: #666;
+      margin-bottom: 0.4rem;
+      line-height: 1.55;
+    }
+    .edges {
+      font-size: 0.78rem;
+      color: #999;
+      line-height: 1.7;
+    }
+    .edge-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #bbb;
+      display: inline-block;
+      width: 3.5rem;
+    }
+    .cross { color: #1a1a1a; font-style: italic; }
+    .strategies {
+      font-size: 0.78rem;
+      color: #777;
+      margin-top: 0.35rem;
+    }
+    .strategies strong { font-weight: normal; color: #1a1a1a; }
+    .bridge-note {
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #999;
+      margin-left: 0.5rem;
+    }
+    .sol-section {
+      border-top: 1px solid #ddd;
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+    }
+    .sol-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+    .sol-row {
+      border-top: 1px solid #eee;
+      padding: 0.7rem 0;
+      font-size: 0.82rem;
+    }
+    .sol-row:last-child { border-bottom: 1px solid #eee; }
+    .sol-name { color: #1a1a1a; }
+    .sol-note { color: #777; font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.55; }
+    footer {
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: #999;
+    }
+    @media (max-width: 560px) {
+      body { padding: 1.5rem 1rem 3rem; }
+      h1 { font-size: 1.4rem; }
+      .edge-type { width: 2.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="strand-nav">
+    <a href="index.html">SchoolHouse</a>
+    <span class="sep">/</span>
+    <a href="strand-5-1-behavior-engagement.html">5.1</a>
+    <a href="strand-5-2-time-space-flow.html">5.2</a>
+    <a href="strand-5-3-culture-belonging.html">5.3</a>
+    <span class="active">Concept Map</span>
+  </nav>
+
+  <header>
+    <p class="eyebrow">Standard 5 · 13 concepts · typed edges</p>
+    <h1>Concept Map</h1>
+  </header>
+
+  <p class="lede">All 13 concepts behind Standard 5, organized by strand. Edges show how concepts connect — including across strands. <em class="cross">Italicized edges</em> cross into a different strand; those crossings are the core routing mechanic.</p>
+
+  <div class="band-picker">
+    <button class="band-btn" data-band="k2" onclick="selectBand('k2')">K–2</button>
+    <button class="band-btn" data-band="35" onclick="selectBand('35')">3–5</button>
+    <button class="band-btn" data-band="68" onclick="selectBand('68')">6–8</button>
+  </div>
+  <div id="band-prompt" class="band-prompt">Select a grade band to scope the view.</div>
+
+
+  <!-- 5.1 -->
+  <div class="strand-section">
+    <div class="strand-header">
+      <div class="strand-header-num">5.1</div>
+      <div class="strand-header-name">Behavior &amp; Engagement</div>
+    </div>
+
+    <div class="band-frame" id="bf51-k2" hidden>At K–2, behavior and engagement are about structure and relationship — not skill deficits. Students are learning what school is. Procedures practiced in September are the engagement strategy for June.</div>
+    <div class="band-frame" id="bf51-35" hidden>Students have learned school’s rhythms but are developing academic identity. Engagement dips when the work feels pointless or the social stakes feel high. Choice, relevance, and effort-focused feedback are the main levers.</div>
+    <div class="band-frame" id="bf51-68" hidden>Adolescents are calibrating authenticity — watching whether the adult means what they say. Behavior problems in middle school are almost always belonging or autonomy problems in disguise.</div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Engagement</span>
+        <span class="tag">live</span>
+      </div>
+      <p class="concept-desc">Active investment of attention and effort — what learning requires from a student; not the same as compliance or quiet.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span> · <span class="cross">motivation</span> · <span class="cross">attention (SoL)</span></div>
+        <div><span class="edge-type">unlocks</span> —</div>
+        <div><span class="edge-type">next to</span> behavior &amp; redirections</div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Motivation</span>
+        <span class="tag">both</span>
+      </div>
+      <p class="concept-desc">Internal and external conditions that sustain or suppress engagement over time; mastery, autonomy, and belonging are the levers.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> <span class="cross">belonging (→5.3)</span></div>
+        <div><span class="edge-type">unlocks</span> engagement</div>
+        <div><span class="edge-type">next to</span> engagement</div>
+      </div>
+      <div class="strategies"><strong>Co-Created Norms</strong></div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Behavior &amp; Redirections</span>
+        <span class="tag">live</span>
+      </div>
+      <p class="concept-desc">What redirection looks like when it works — naming the deed, not the doer; the difference between correction and punishment.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> <span class="cross">relationships (→5.3)</span> · expectations &amp; norms</div>
+        <div><span class="edge-type">unlocks</span> <span class="cross">repair (→5.3)</span></div>
+        <div><span class="edge-type">next to</span> engagement</div>
+      </div>
+      <div class="strategies"><strong>Precorrection</strong></div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Feedback</span>
+        <span class="tag">live</span>
+      </div>
+      <p class="concept-desc">How information about performance travels back to a student in ways that actually change what they do next.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> <span class="cross">relationships (→5.3)</span></div>
+        <div><span class="edge-type">unlocks</span> —</div>
+        <div><span class="edge-type">next to</span> —</div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Expectations &amp; Norms</span>
+        <span class="tag">both</span>
+        <span class="bridge-note">bridge 5.1 ↔ 5.3</span>
+      </div>
+      <p class="concept-desc">Shared agreements that make engagement and culture possible — the structural prerequisite for both strands.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> —</div>
+        <div><span class="edge-type">unlocks</span> behavior &amp; redirections · <span class="cross">routines (→5.2)</span> · <span class="cross">belonging (→5.3)</span></div>
+        <div><span class="edge-type">next to</span> <span class="cross">relationships (→5.3)</span></div>
+      </div>
+      <div class="strategies"><strong>Co-Created Norms</strong></div>
+    </div>
+  </div>
+
+
+  <!-- 5.2 -->
+  <div class="strand-section">
+    <div class="strand-header">
+      <div class="strand-header-num">5.2</div>
+      <div class="strand-header-name">Time, Space &amp; Flow</div>
+    </div>
+
+    <div class="band-frame" id="bf52-k2" hidden>Every transition is a procedure to be explicitly taught, not managed. The younger the students, the more scaffolded the signal — visual schedules, physical cues, practiced sequences.</div>
+    <div class="band-frame" id="bf52-35" hidden>Students can manage more of the transition themselves if the routine has been explicitly taught. Student roles in procedures reduce teacher load and build ownership.</div>
+    <div class="band-frame" id="bf52-68" hidden>Efficiency is the frame adolescents respond to. Bell work that starts the moment they enter removes the transition cost almost entirely.</div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Transitions</span>
+        <span class="tag">both</span>
+      </div>
+      <p class="concept-desc">Movement between activities — when taught as a procedure, reduces extraneous cognitive load to near zero.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> routines · expectations &amp; norms</div>
+        <div><span class="edge-type">unlocks</span> attention (SoL) · <span class="cross">engagement (→5.1)</span></div>
+        <div><span class="edge-type">next to</span> routines</div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Routines</span>
+        <span class="tag">both</span>
+      </div>
+      <p class="concept-desc">Repeated procedures that become automatic, freeing working memory for the actual learning.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> expectations &amp; norms</div>
+        <div><span class="edge-type">unlocks</span> transitions · working memory (SoL)</div>
+        <div><span class="edge-type">next to</span> transitions</div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Physical Space</span>
+        <span class="tag tag-designed">designed</span>
+      </div>
+      <p class="concept-desc">The room’s arrangement as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> —</div>
+        <div><span class="edge-type">unlocks</span> transitions · routines · <span class="cross">belonging (→5.3)</span> · <span class="cross">engagement (→5.1)</span></div>
+        <div><span class="edge-type">next to</span> visual supports</div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Visual Supports</span>
+        <span class="tag tag-designed">designed</span>
+      </div>
+      <p class="concept-desc">Environmental anchors that reduce the need to hold information in working memory — schedules, anchor charts, procedure reminders.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> routines · expectations &amp; norms</div>
+        <div><span class="edge-type">unlocks</span> transitions · working memory (SoL) · <span class="cross">belonging (→5.3)</span></div>
+        <div><span class="edge-type">next to</span> physical space</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5.3 -->
+  <div class="strand-section">
+    <div class="strand-header">
+      <div class="strand-header-num">5.3</div>
+      <div class="strand-header-name">Culture &amp; Belonging</div>
+    </div>
+
+    <div class="band-frame" id="bf53-k2" hidden>Belonging at K–2 is physical and immediate — am I seen? do I have a role? Greeting by name, classroom jobs, and consistent routines are the belonging infrastructure. Culture is built before November or not at all.</div>
+    <div class="band-frame" id="bf53-35" hidden>Peer relationships become primary at 3–5. Belonging is about having a place in the peer group, not just with the teacher. Class meetings and collaborative structures that make student contributions visible are the culture-building work.</div>
+    <div class="band-frame" id="bf53-68" hidden>Identity is the frame at 6–8. Adolescents need to know their presence matters and that the teacher sees them as a person, not a behavior profile. 2x10 is the highest-leverage single practice at this band.</div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Relationships</span>
+        <span class="tag">live</span>
+        <span class="tag tag-hub">hub</span>
+      </div>
+      <p class="concept-desc">The foundational condition — the channel every correction, feedback, and repair has to travel through to land.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> —</div>
+        <div><span class="edge-type">unlocks</span> belonging · repair · <span class="cross">feedback (→5.1)</span> · <span class="cross">behavior &amp; redirections (→5.1)</span></div>
+        <div><span class="edge-type">next to</span> <span class="cross">engagement (→5.1)</span></div>
+      </div>
+      <div class="strategies"><strong>Greet at the Door</strong> · <strong>2x10</strong></div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Belonging</span>
+        <span class="tag">both</span>
+      </div>
+      <p class="concept-desc">The belief that one has a place in this room and in this community — precondition for engagement, risk-taking, and the willingness to try again.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> relationships</div>
+        <div><span class="edge-type">unlocks</span> <span class="cross">engagement (→5.1)</span> · <span class="cross">motivation (→5.1)</span></div>
+        <div><span class="edge-type">next to</span> relationships</div>
+      </div>
+      <div class="strategies"><strong>Greet at the Door</strong> · <strong>Co-Created Norms</strong></div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Repair</span>
+        <span class="tag">live</span>
+      </div>
+      <p class="concept-desc">What happens after harm — how a classroom community metabolizes conflict and returns to function without removing people from it.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> relationships</div>
+        <div><span class="edge-type">unlocks</span> —</div>
+        <div><span class="edge-type">next to</span> <span class="cross">behavior &amp; redirections (→5.1)</span></div>
+      </div>
+    </div>
+
+    <div class="concept-row">
+      <div class="concept-top">
+        <span class="concept-name">Fair Process</span>
+        <span class="tag">live</span>
+      </div>
+      <p class="concept-desc">How decisions get made and corrections get enacted in ways students experience as just — especially important where power is unequal.</p>
+      <div class="edges">
+        <div><span class="edge-type">requires</span> relationships · expectations &amp; norms</div>
+        <div><span class="edge-type">unlocks</span> repair · belonging</div>
+        <div><span class="edge-type">next to</span> repair</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SoL layer -->
+  <div class="sol-section">
+    <p class="sol-label">Science of Learning — supporting nodes</p>
+    <div class="sol-row">
+      <span class="sol-name">Cognitive Load</span>
+      <p class="sol-note">The mind’s workspace is limited; extraneous load (from confusion, unpredictable routines, unclear instructions) crowds out the germane load that is the actual learning. Linked from: transitions, routines, expectations &amp; norms, fair process.</p>
+    </div>
+    <div class="sol-row">
+      <span class="sol-name">Working Memory</span>
+      <p class="sol-note">The small, active store where thinking happens. Automaticity from rehearsed routines frees it for complex work. Linked from: routines, visual supports, expectations &amp; norms.</p>
+    </div>
+    <div class="sol-row">
+      <span class="sol-name">Attention</span>
+      <p class="sol-note">Finite and easily captured by whatever is most salient — not always the lesson. Protected by clean transitions and low load; sustaining it is what engagement depends on. Linked from: transitions, engagement.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>SchoolHouse · an unreliable translator</p>
+  </footer>
+
+  <script>
+    var BANDS = ['k2','35','68'];
+    var STRANDS = ['51','52','53'];
+    function selectBand(band) {
+      BANDS.forEach(function(b) {
+        document.querySelector('[data-band="' + b + '"]').classList.remove('active');
+        STRANDS.forEach(function(s) {
+          var el = document.getElementById('bf' + s + '-' + b);
+          if (el) el.hidden = true;
+        });
+      });
+      document.querySelector('[data-band="' + band + '"]').classList.add('active');
+      STRANDS.forEach(function(s) {
+        var el = document.getElementById('bf' + s + '-' + band);
+        if (el) el.hidden = false;
+      });
+      document.getElementById('band-prompt').hidden = true;
+    }
+  </script>
+
+</body>
+</html>
