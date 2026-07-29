@@ -1,7 +1,7 @@
 {
   "version": "2026-07-28",
   "source": "DESE Standard 5 · Vault /Matrix/ · _Catalog — Standard 5 (SchoolHouse)",
-  "frame_note": "Three strand doors only on the surface. Concepts are depth inside strands and internal routing scaffolding — not a nav layer. Typed edges (requires/unlocks/next_to) from Catalog edge table only. related[] from concept row wikilinks filtered to concept targets. strategies_attached from Catalog build-status table (programmatically regenerated).",
+  "frame_note": "Three strand doors only on the surface. Concepts are depth inside strands and internal routing scaffolding — not a nav layer. Typed edges (requires/unlocks/next_to) from Catalog edge table only. related[] from concept row wikilinks filtered to concept targets. strategies_attached from Catalog build-status table. curated_links.bands from _Concept × Band Grid (PhD, 2026-07-28): tagged where Edutopia carries a grade tag; [] where untagged (untagged ≠ cross-grade).",
   "concepts": [
     {
       "id": "relationships",
@@ -51,7 +51,7 @@
       "related": ["belonging", "motivation", "attention", "behavior-and-redirections"],
       "strategies_attached": ["everybody-answers"],
       "curated_links": [
-        { "label": "Active-participation routines", "url": "https://www.edutopia.org/article/strategies-increasing-student-engagement/", "note": "Low-lift structures that pull students into the work rather than waiting for them to self-start." }
+        { "label": "Active-participation routines", "url": "https://www.edutopia.org/article/strategies-increasing-student-engagement/", "note": "Low-lift structures that pull students into the work rather than waiting for them to self-start.", "bands": ["k2", "35"] }
       ]
     },
     {
@@ -70,7 +70,7 @@
       "related": ["belonging", "relationships", "engagement"],
       "strategies_attached": ["co-created-norms"],
       "curated_links": [
-        { "label": "Strategies for student autonomy", "url": "https://www.edutopia.org/article/6-strategies-promoting-student-autonomy/", "note": "Six moves that shift from compliance to investment by giving students real say in how they learn." }
+        { "label": "Strategies for student autonomy", "url": "https://www.edutopia.org/article/6-strategies-promoting-student-autonomy/", "note": "Six moves that shift from compliance to investment by giving students real say in how they learn.", "bands": [] }
       ]
     },
     {
@@ -137,7 +137,7 @@
       "related": ["routines", "expectations-and-norms", "attention", "engagement", "relationships", "cognitive-load"],
       "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
       "curated_links": [
-        { "label": "Transition leaders and self-regulation supports", "url": "https://www.edutopia.org/article/strategies-help-students-manage-transitions/", "note": "Reads students who struggle at the seam as having a regulation need rather than a compliance problem, and gives them ownership roles plus sensory/predictability supports to manage the shift." }
+        { "label": "Transition leaders and self-regulation supports", "url": "https://www.edutopia.org/article/strategies-help-students-manage-transitions/", "note": "Reads students who struggle at the seam as having a regulation need rather than a compliance problem, and gives them ownership roles plus sensory/predictability supports to manage the shift.", "bands": [] }
       ]
     },
     {
@@ -156,7 +156,7 @@
       "related": ["transitions", "expectations-and-norms", "cognitive-load", "working-memory", "attention"],
       "strategies_attached": ["teach-the-transition", "greet-students-at-the-door"],
       "curated_links": [
-        { "label": "Voice-and-choice routines", "url": "https://www.edutopia.org/article/classroom-routines-support-students-voice-choice", "note": "Routines built around student-led activities so predictability comes from structure students help shape rather than top-down direction." }
+        { "label": "Voice-and-choice routines", "url": "https://www.edutopia.org/article/classroom-routines-support-students-voice-choice", "note": "Routines built around student-led activities so predictability comes from structure students help shape rather than top-down direction.", "bands": ["68"] }
       ]
     },
     {
@@ -192,7 +192,7 @@
       "related": ["transitions", "routines", "belonging", "engagement", "visual-supports", "repair"],
       "strategies_attached": ["design-the-room-around-the-work"],
       "curated_links": [
-        { "label": "Student-designed flexible seating", "url": "https://www.edutopia.org/article/designing-flexible-seating-students/", "note": "Flexible seating designed with students rather than for them." }
+        { "label": "Student-designed flexible seating", "url": "https://www.edutopia.org/article/designing-flexible-seating-students/", "note": "Flexible seating designed with students rather than for them.", "bands": ["k2", "35"] }
       ]
     },
     {
@@ -211,7 +211,7 @@
       "related": ["routines", "expectations-and-norms", "transitions", "belonging", "working-memory", "physical-space"],
       "strategies_attached": ["post-what-youd-otherwise-repeat"],
       "curated_links": [
-        { "label": "Student-created visual aids", "url": "https://www.edutopia.org/article/making-most-visual-aids/", "note": "Visual aids made by students rather than downloaded — students who build the anchor chart remember what's on it." }
+        { "label": "Student-created visual aids", "url": "https://www.edutopia.org/article/making-most-visual-aids/", "note": "Visual aids made by students rather than downloaded — students who build the anchor chart remember what's on it.", "bands": [] }
       ]
     }
   ],
