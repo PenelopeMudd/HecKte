@@ -1,7 +1,7 @@
 {
   "version": "2026-07-28",
   "source": "Vault /Strategies/",
-  "note": "Nine atoms. serves_concepts reflects vault row attachment per Catalog build-status.",
+  "note": "Nine atoms. band_adaptations from vault K-2/3-5/6-8 sections. Greet and Restorative marked pending — vault not yet band-sorted for those two.",
   "strategies": [
     {
       "id": "greet-students-at-the-door",
@@ -13,20 +13,15 @@
       "standard": "5.1",
       "topic": "Entry Routine",
       "serves_concepts": ["transitions", "relationships", "belonging", "routines", "behavior-and-redirections", "expectations-and-norms"],
+      "band_adaptations": {
+        "k2": "Welcome song, morning meeting, or start-of-day ritual. (Band notes in progress.)",
+        "35": "By-name greeting at the door; bell work begins immediately inside. (Band notes in progress.)",
+        "68": "Hallway contact during transition; advisory check-in. (Band notes in progress.)"
+      },
       "summary": "Greeting students at the door is one example of an effective entry routine. The goal is not the greeting itself; the goal is creating a predictable transition from the hallway into learning.",
       "solves": ["Unstructured transition time", "Difficulty beginning class", "Limited teacher-student connection", "Lost instructional minutes", "Lack of predictability"],
-      "mechanism": ["Predictable routines reduce uncertainty — cognitive load drops", "Students receive an immediate cue that learning has begun — attention shifts in", "Teachers gather quick information before instruction", "Positive interactions strengthen relationships and belonging", "Entry becomes intentional rather than accidental"],
-      "conditions": ["Students know what to do immediately after entering — routine taught", "Bell work or an opening task is already prepared", "Materials are accessible", "Classroom expectations have been explicitly taught", "Teacher can monitor both hallway and classroom"],
-      "misconception": { "common": "Standing at the door is often presented as best practice.", "principle": "Create a predictable, personal transition into learning." },
-      "implementations": [
-        { "label": "Relational", "description": "Teacher greets every student by name and briefly checks in before directing them to the opening task.", "best_fit": ["Teachers who enjoy conversation", "Smaller classes"] },
-        { "label": "Procedural", "description": "Teacher greets students while directing them to begin a posted bell ringer.", "best_fit": ["Teachers emphasizing efficient transitions", "Larger classes"] },
-        { "label": "Low-Verbal", "description": "Teacher stands near the entrance, makes eye contact, smiles or nods, while students independently begin the entry routine.", "best_fit": ["Teachers with quieter personalities", "Students who thrive on predictable routines"] }
-      ],
-      "adaptations": ["Morning meeting", "Advisory", "Secondary block schedule", "Kindergarten welcome song", "Student greeters", "Digital check-in", "Mood meter", "Visual check-in"],
-      "evidence_note": "Cook et al. (2018) found positive greetings raised academic engagement ~20 percentage points and reduced disruptive behavior ~9 points. Scope: individual, personal greetings — not any warm gesture.",
-      "sol_connections": ["Predictability", "Attention", "Cognitive Load", "Retrieval through Routine"],
-      "rp_connections": ["Belonging", "Relationship before correction", "Community building"],
+      "mechanism": ["Predictable routines reduce uncertainty — cognitive load drops", "Students receive an immediate cue that learning has begun", "Teachers gather quick information before instruction", "Positive interactions strengthen relationships and belonging", "Entry becomes intentional rather than accidental"],
+      "evidence_note": "Cook et al. (2018) found positive greetings raised academic engagement ~20 percentage points and reduced disruptive behavior ~9 points.",
       "connected_concepts": ["transitions", "routines", "relationships", "belonging", "expectations-and-norms", "behavior-and-redirections"]
     },
     {
@@ -39,20 +34,15 @@
       "standard": "5.3",
       "topic": "Relationship Building",
       "serves_concepts": ["relationships", "belonging", "behavior-and-redirections"],
-      "summary": "2×10 is two minutes of non-academic conversation with one hard-to-reach student, held for ten school days running. The goal is not the ten conversations themselves; the goal is building a durable relationship with a student who is currently reachable only through the deed, not the person. Attributed to Raymond Wlodkowski; later popularized in Allen Mendler's Connecting with Students.",
-      "solves": ["A student who feels unseen or only-seen-when-in-trouble", "Redirections that keep spending the bond instead of building it", "A relationship that starts and stays in the negative", "Escalating behavior with no relational channel to reach through", "Limited one-on-one connection during a full teaching day"],
-      "mechanism": ["Ten consecutive days signals reliability — the student learns the adult keeps coming back", "Non-academic content means the interaction is not about compliance", "Repeated positive contact builds relationship before the next hard moment", "A felt sense of belonging conditions motivation", "The channel engagement and feedback travel on gets stronger"],
-      "conditions": ["The conversations stay genuinely non-academic — no schoolwork, no behavior talk", "The teacher can protect two low-stakes minutes daily", "Consistency across all ten days — a broken streak resets the signal", "The teacher is curious about this student, not gathering leverage", "The student is not put on the spot publicly"],
-      "misconception": { "common": "2x10 is often presented as a behavior-fix trick.", "principle": "Build the relationship before you need it, on the student's terms, not the classroom's." },
-      "implementations": [
-        { "label": "Conversational", "description": "Teacher initiates a brief, genuine chat about the student's interests — a game, a show, a weekend — following the student's lead each day.", "best_fit": ["Teachers who connect easily through talk", "Students who warm to verbal attention"] },
-        { "label": "Low-Verbal", "description": "Teacher uses short, repeated micro-contacts: noticing a shirt, a quick shared joke, a saved seat. Two minutes spread across small moments rather than one sit-down.", "best_fit": ["Teachers with quieter styles", "Students who find direct one-on-one talk intense"] },
-        { "label": "Interest-Anchored", "description": "Teacher opens with something from an interest survey or an observed hobby, and returns to that thread daily so the student sees continuity from one day to the next.", "best_fit": ["Teachers who prefer a concrete starting point", "Students who take time to trust that attention is real"] }
-      ],
-      "adaptations": ["Split the two minutes across two staff who share the student", "Advisory or homeroom slot", "Written back-and-forth for students who prefer text to talk", "Interest survey as a launch point", "Extend past ten days when momentum is building", "Team version: several teachers each run 2x10 with different students", "Elementary morning check-in", "Secondary hallway or transition contact"],
+      "band_adaptations": {
+        "k2": "More frequent, shorter contacts; built into morning circle or check-in ritual. (Band notes in progress.)",
+        "35": "Two minutes during independent work or transition; interest surveys as a starting point. (Band notes in progress.)",
+        "68": "Hallway or transition contact; text-based back-and-forth for students who prefer it over talk. (Band notes in progress.)"
+      },
+      "summary": "Two minutes of non-academic conversation with one hard-to-reach student, held for ten consecutive school days. The goal is building a durable relationship with a student who is currently reachable only through the deed, not the person.",
+      "solves": ["A student who feels unseen or only-seen-when-in-trouble", "Redirections that keep spending the bond instead of building it", "A relationship that starts and stays in the negative", "Escalating behavior with no relational channel to reach through"],
+      "mechanism": ["Ten consecutive days signals reliability — the student learns the adult keeps coming back", "Non-academic content means the interaction is not about compliance", "Repeated positive contact builds relationship before the next hard moment"],
       "evidence_note": "Wlodkowski's 85% improvement figure is practitioner-reported and illustrative, not a measured finding.",
-      "sol_connections": ["Belonging conditions motivation", "Feedback received through relationship (SoL Q2/Q4)"],
-      "rp_connections": ["Relationship built before trouble is what lets correction land later", "Naming the deed not the doer", "Belonging as mechanism not reward"],
       "connected_concepts": ["relationships", "belonging", "behavior-and-redirections"]
     },
     {
@@ -65,20 +55,15 @@
       "standard": "5.1",
       "topic": "Expectations & Norms",
       "serves_concepts": ["expectations-and-norms", "belonging", "motivation"],
-      "summary": "Co-created norms are a class agreement authored with students. The goal is not the list on the wall; the goal is authorship. Students who help write the norms hold them, because they own them. This is where investment replaces compliance.",
-      "solves": ["Expectations that students follow but do not believe", "Rules that feel imposed rather than shared", "Weak buy-in when a teacher hands down a posted list", "Norms that get ignored the moment the teacher looks away", "A thin sense of belonging in the room's culture"],
-      "mechanism": ["Authorship creates ownership — students hold norms they helped write", "Investment replaces compliance: the agreement is theirs, so following it is self-consistency rather than obedience", "Autonomy of authorship feeds motivation — voice in the rules raises the will to keep them (SoL Q4)", "Shared, predictable expectations reduce extraneous cognitive load — students are not guessing what is allowed", "Co-authorship is a pathway to belonging — helping name how the room treats each other is a way of belonging to it"],
-      "conditions": ["Student voice is real, not decorative — their words actually make it onto the wall", "Norms are few, simple, and positively stated", "The agreement is revisited and revised, not signed once and forgotten", "Enough relational trust exists that students will speak honestly", "The teacher is willing to be bound by the agreement too"],
-      "misconception": { "common": "Let the students make the rules is often presented as the practice.", "principle": "Authorship creates ownership — students hold the norms they helped write." },
-      "implementations": [
-        { "label": "K-2: Read-Aloud to Values", "description": "Teacher reads a picture book about friendship or fairness, then asks how the class wants the room to feel. Student answers become a short anchor chart, illustrated and signed.", "best_fit": ["Early elementary", "Teachers who anchor culture in story and image"] },
-        { "label": "Upper Elementary: Co-Drafted Agreement", "description": "Students brainstorm in small groups, the class clusters ideas into shared expectations, and everyone drafts and signs the agreement. Posted and revisited regularly.", "best_fit": ["Grades 3-5", "Teachers who want a durable, student-owned document"] },
-        { "label": "Middle School: Discussion of Why", "description": "Before writing anything, students discuss why norms matter — what a good room feels like, what erodes it. From that conversation they co-create and commit to the agreement.", "best_fit": ["Grades 6-8", "Teachers building motivation through reasoning and voice"] }
-      ],
-      "adaptations": ["Advisory or morning meeting norm-setting", "Group-work agreements for a single project", "Digital collaborative draft", "Norm revisit after a rough week", "Student-facilitated norm review", "Restorative circle to author or renew the agreement", "Family or home input into the class values"],
-      "evidence_note": "No head-to-head study of co-created vs. teacher-set norms exists. Grounded in autonomy mechanisms (SoL Q4) and belonging-through-co-authorship (Klevan 2021). The effect is on investment, not necessarily rule-following frequency.",
-      "sol_connections": ["Autonomy of authorship feeds Motivation (SoL Q4)", "Predictable expectations reduce extraneous Cognitive Load", "Working Memory freed for learning when the room is predictable"],
-      "rp_connections": ["Co-created norms shift compliance to investment (Klevan 2021)", "Belonging through co-authorship", "Shared agreement over imposed rule"],
+      "band_adaptations": {
+        "k2": "Read-aloud to values — picture book about friendship or fairness, then 'how do we want our room to feel?' Answers become an illustrated anchor chart, signed.",
+        "35": "Students draft in small groups, cluster ideas into shared expectations, and sign the agreement. Posted and revisited regularly.",
+        "68": "Discuss why norms matter first — what a good room feels like, what erodes it — then co-write and commit."
+      },
+      "summary": "A class agreement authored with students. The goal is not the list on the wall; the goal is authorship. Students who help write the norms hold them, because they own them.",
+      "solves": ["Expectations that students follow but do not believe", "Rules that feel imposed rather than shared", "Weak buy-in when a teacher hands down a posted list"],
+      "mechanism": ["Authorship creates ownership — students hold norms they helped write", "Autonomy of authorship feeds motivation (SoL Q4)", "Shared expectations reduce extraneous cognitive load"],
+      "evidence_note": "Grounded in autonomy mechanisms (SoL Q4) and belonging-through-co-authorship (Klevan 2021).",
       "connected_concepts": ["expectations-and-norms", "belonging", "motivation", "relationships"]
     },
     {
@@ -91,20 +76,15 @@
       "standard": "5.2",
       "topic": "Transitions",
       "serves_concepts": ["transitions", "routines"],
-      "summary": "A transition is taught and rehearsed the way content is taught — modeled, practiced, and named — rather than announced once and enforced afterward. The goal is not a quiet move between activities; the goal is a sequence students can run without holding it in their heads.",
-      "solves": ["The seam between activities is where most instructional time leaks", "Students stall at the boundary not because they're refusing but because they don't know the next action", "The teacher ends up narrating every move, which makes the class dependent on the narration", "Noise and drift at the seam get read as a behavior tension when the source is structural"],
-      "mechanism": ["A rehearsed sequence runs from memory rather than being assembled on the spot — working memory is freed for the work waiting on the other side of the move", "Each rehearsal is a low-stakes retrieval of the sequence, which strengthens it — spaced and retrieval-based practice makes it durable", "A known sequence narrows what attention has to track — one next action instead of a whole noisy room", "Teaching the move in advance means the teacher shapes the moment rather than correcting after it", "When students help build the sequence, they move through a structure they hold rather than one imposed on them"],
-      "conditions": ["The steps are few and concrete enough to rehearse", "There is time set aside to practice it early, before it's needed under pressure", "The signal is consistent — a cue that changes weekly has to be re-learned each time", "The room supports it — materials where hands already are, a visible next step", "The sequence gets re-rehearsed after breaks and when it degrades"],
-      "misconception": { "common": "Often presented as getting students to move quickly and quietly.", "principle": "Students can only run a sequence they've practiced. Anything not rehearsed has to be assembled in the moment, and the moment is when there's least room to assemble it." },
-      "implementations": [
-        { "label": "Rehearsed and named", "description": "Walk the sequence with students when nothing is happening: name the steps, model it, run it two or three times, name what made it work.", "best_fit": ["Early elementary", "Any group meeting a new format"] },
-        { "label": "Student-built", "description": "Students draft the sequence themselves — what should this look like, what gets in the way, what's our signal — then rehearse their own version.", "best_fit": ["Upper elementary and middle", "Any room where compliance is the current sticking point"] },
-        { "label": "Role-carried", "description": "Specific students carry the transition: caller, materials lead, timekeeper. The sequence travels through roles rather than through the teacher's voice.", "best_fit": ["Students who struggle most at the seam — the role gives the regulation something to attach to"] }
-      ],
-      "adaptations": ["K–2: attach the sequence to a song, chant, or counted signal; pair it with a picture schedule", "3–5: students manage their own materials inside the sequence; introduce a visible timer", "6–8: fewer steps, stated once, then handed over; students set the norm for what a clean move looks like", "After a disruption — sub, assembly, testing week — rehearse rather than assume; the sequence degrades"],
+      "band_adaptations": {
+        "k2": "Attach the sequence to a song, chant, or counted signal; pair it with a picture schedule.",
+        "35": "Students manage their own materials inside the sequence; introduce a visible timer.",
+        "68": "Fewer steps, stated once, then handed over — students set the norm for what a clean move looks like."
+      },
+      "summary": "A transition is taught and rehearsed the way content is taught — modeled, practiced, and named — rather than announced once and enforced afterward.",
+      "solves": ["The seam between activities is where most instructional time leaks", "Students stall at the boundary not because they're refusing but because they don't know the next action", "The teacher ends up narrating every move, which makes the class dependent on the narration"],
+      "mechanism": ["A rehearsed sequence runs from memory rather than being assembled on the spot — working memory is freed", "Each rehearsal is a low-stakes retrieval of the sequence (SoL Q1)", "Teaching the move in advance means the teacher shapes the moment rather than correcting after it"],
       "evidence_note": "Kounin (1970) established momentum and smoothness — well-managed classrooms anticipate friction at activity boundaries rather than reacting to it.",
-      "sol_connections": ["Automaticity frees working memory (SoL Q1)", "Spaced retrieval-based practice makes sequences durable", "Verbal + visual representation outperforms either alone"],
-      "rp_connections": ["Predictable, co-held routines lower the need for correction (Klevan 2021)"],
       "connected_concepts": ["transitions", "routines", "expectations-and-norms", "physical-space", "visual-supports"]
     },
     {
@@ -117,20 +97,15 @@
       "standard": "5.3",
       "topic": "Repair",
       "serves_concepts": ["repair", "behavior-and-redirections"],
-      "summary": "A short, structured conversation after harm, built on four questions that surface what happened and what would make it right — held with each person separately first, then together when both are ready. The goal is not an apology; the goal is that the student stays inside the community that has to keep working after the incident.",
-      "solves": ["Something happened and the room can't just proceed as if it didn't", "The available responses feel like a choice between letting it go and removing someone", "A forced apology gets produced and nothing about tomorrow is different", "The student who caused harm leaves knowing they're in trouble but not what they'd do differently"],
-      "mechanism": ["Who does the accounting: in a consequence the adult names the wrong; in a repair conversation the student constructs the account — that's the part that changes behavior", "'What happened?' opens a story; 'Why did you do that?' invites a defense — the wording is doing the work", "Naming who was affected makes the harm concrete and external", "The student stays inside relationships and belonging, which is the channel any future correction has to travel through", "The encounter itself generates the solidarity the agreement rests on (Why RJ Works, 2021)"],
-      "conditions": ["Relationship is already banked", "Both people are regulated enough to talk", "Each person is met separately first", "The teacher can sit with silence and not fill it", "The agreement reached is small enough to actually happen and gets followed up on"],
-      "misconception": { "common": "Often presented as the soft alternative to a consequence.", "principle": "Harm is the problem to be addressed, not the person. The response has to keep the student inside the community that has to metabolize what happened." },
-      "implementations": [
-        { "label": "The four questions", "description": "What happened? What were you thinking at the time? Who was affected, and how? What would make it right? Then the same four with the other person, then together.", "best_fit": ["The standard case — two students, a clear incident, both able to talk"] },
-        { "label": "Separate-then-together (mediated)", "description": "Teacher works with each student individually first, building perspective-taking before either has to face the other.", "best_fit": ["Conflicts with real heat", "Where one student is much more verbal than the other"] },
-        { "label": "Low-verbal / written", "description": "Same four questions on paper or drawn, or answered one at a time across a day rather than in one sitting.", "best_fit": ["Students who shut down under face-to-face questioning", "Anyone who needs processing time"] }
-      ],
-      "adaptations": ["K–2: two questions, not four — what happened and what would help. Concrete restitution the child can physically do.", "3–5: all four questions, teacher-facilitated. Introduce the apology-of-action.", "6–8: students can facilitate for peers. Privacy matters most at this age.", "Teacher-and-student repair: the same four questions when the rupture is between you and a student. This is the version teachers skip and the one students remember."],
-      "evidence_note": "Exclusionary discipline is associated with increased future misbehavior and dropout risk (Klevan 2021). Strongest caution: fidelity, not efficacy — a conversation run once after a blowup is not the same intervention as a practice running all year.",
-      "sol_connections": ["Feedback received through the relationship (SoL Q2)", "Belonging conditions motivation (SoL Q4)"],
-      "rp_connections": ["Harm met by restoring the relationship and preserving community (Klevan 2021)", "Why RJ Works (2021) — mechanism is the encounter itself"],
+      "band_adaptations": {
+        "k2": "Two questions only: what happened, what would help. Concrete restitution the child can physically do.",
+        "35": "All four questions, teacher-facilitated. Introduce the apology-of-action.",
+        "68": "Students can facilitate for peers. Privacy matters most at this age."
+      },
+      "summary": "A short, structured conversation after harm, built on four questions that surface what happened and what would make it right. The goal is not an apology; the goal is that the student stays inside the community that has to keep working after the incident.",
+      "solves": ["Something happened and the room can't just proceed as if it didn't", "The available responses feel like a choice between letting it go and removing someone", "A forced apology gets produced and nothing about tomorrow is different"],
+      "mechanism": ["Who does the accounting: in a repair conversation the student constructs the account", "Naming who was affected makes the harm concrete and external", "The student stays inside relationships and belonging, which is the channel any future correction has to travel through"],
+      "evidence_note": "Exclusionary discipline is associated with increased future misbehavior and dropout risk (Klevan 2021).",
       "connected_concepts": ["repair", "behavior-and-redirections", "relationships", "belonging"]
     },
     {
@@ -143,19 +118,15 @@
       "standard": "5.2",
       "topic": "Physical Space",
       "serves_concepts": ["physical-space", "transitions"],
-      "summary": "Arrange furniture, materials, and traffic paths around what students actually do in the room — where hands work, where bodies move, what has to be seen. The goal is not a tidy room; the goal is that the easiest physical action is also the one the lesson needs.",
-      "solves": ["Minutes disappear into retrieving, distributing, and returning materials", "The same two spots generate friction every day and it reads as behavior", "Moving between formats takes long enough that teachers stop doing it", "Students can't reach materials without crossing the room or disturbing others"],
-      "mechanism": ["Friction reduced at the point of action — a student whose materials are where their hands already are doesn't have to cross the room or interrupt the work", "Traffic flow designed in advance means the room itself guides behavior without narration", "Transitions between formats (desks → circle → groups) are faster when the room is built for the moves the day requires", "Physical arrangement sets cognitive conditions — a room that enables the work is a room where learning load stays on the learning"],
-      "conditions": ["The room is arranged before students arrive, not improvised in the moment", "Materials live at the point of use, not in a central storage spot that requires a trip", "Traffic paths are tested — the teacher walks the most common routes before students do", "The arrangement anticipates the full range of formats the day will use"],
-      "misconception": { "common": "Room design is often treated as an aesthetic choice or a one-time setup.", "principle": "The room is infrastructure. Its arrangement either enables the work or competes with it." },
-      "implementations": [
-        { "label": "Materials at the point of use", "description": "Station materials at each table or group rather than at a central location. Students retrieve and return within their own area.", "best_fit": ["Any room with frequent small-group work"] },
-        { "label": "Traffic path design", "description": "Map the three most common routes in the room and clear them of friction points before the year starts.", "best_fit": ["Rooms where student movement is frequent"] },
-        { "label": "Format-based arrangement", "description": "Set up for the first format of the day and stage the next format's materials so transitions between them take under two minutes.", "best_fit": ["Secondary block schedules", "Elementary classrooms with multiple instructional formats"] }
-      ],
-      "adaptations": ["K–2: low shelves labeled with pictures; materials in baskets at each table; a clear visual path to the meeting area", "3–5: student jobs include materials setup and return; groups know their supply location", "6–8: arrangements shift by unit rather than day; students help configure the room for a new format"],
-      "sol_connections": ["Physical environment as cognitive scaffold — external structure reduces load on working memory", "Reducing extraneous friction preserves attention for the work"],
-      "rp_connections": ["Room design that enables movement without surveillance supports student agency"],
+      "band_adaptations": {
+        "k2": "Clearly defined areas, wide clear paths, materials at child height, deliberately low visual clutter.",
+        "35": "Flexible groupings inside a set structure; student materials jobs; a designated gather space.",
+        "68": "Configurations that flex from rows to groups to circle with minimal disruption — the reconfiguration itself is a rehearsed move."
+      },
+      "summary": "Arrange furniture, materials, and traffic paths around what students actually do in the room. The goal is not a tidy room; the goal is that the easiest physical action is also the one the lesson needs.",
+      "solves": ["Minutes disappear into retrieving, distributing, and returning materials", "The same two spots generate friction every day and it reads as behavior", "Moving between formats takes long enough that teachers stop doing it"],
+      "mechanism": ["Materials placed where the work happens remove a whole class of interruptions before they occur", "A room that can become a circle makes community and repair structurally possible", "Equitable sightlines and access say every student is included by default"],
+      "evidence_note": "The strong claims are about mechanisms — attention capture, load, access — rather than any particular furniture arrangement.",
       "connected_concepts": ["physical-space", "transitions", "routines", "visual-supports"]
     },
     {
@@ -168,19 +139,15 @@
       "standard": "5.2",
       "topic": "Visual Supports",
       "serves_concepts": ["visual-supports", "routines"],
-      "summary": "Make visible the information students would otherwise have to hold in their heads or ask you for — the sequence, the schedule, the steps, the criteria. The goal is not a decorated wall; the goal is that the room carries the information so working memory doesn't have to.",
-      "solves": ["The same question gets asked five times an hour about something already said", "Students who missed the verbal instruction have no way to recover it except asking", "A multi-step task stalls halfway because the middle steps have fallen out of memory", "Transitions require the teacher to narrate what's next, every time"],
-      "mechanism": ["A posted sequence is external memory — the steps are read rather than recalled, which returns working memory to the actual task (SoL Q1)", "Information presented both visually and verbally is better supported than either alone", "A visible schedule activates prior knowledge and makes the day anticipatable, which frees attention rather than spending it on uncertainty", "Predictability is a safety condition — a student who can see what's coming isn't managing threat, and a student who lost the thread can recover without a public admission"],
-      "conditions": ["The posted information is current — an outdated schedule is worse than none", "The visual is at student eye level and in a consistent location", "Students have been shown how to use it, not just that it exists", "What's posted matches what the teacher says — contradictions breed uncertainty"],
-      "misconception": { "common": "Posted displays are often treated as decoration or compliance signals.", "principle": "Post what you'd otherwise have to repeat. If you'd say it again anyway, it belongs on the wall." },
-      "implementations": [
-        { "label": "The daily schedule", "description": "Post the sequence of the day in a fixed location. Update it before students arrive. Students check it rather than ask.", "best_fit": ["Elementary classrooms", "Any room where the daily structure isn't self-evident"] },
-        { "label": "The task anchor chart", "description": "Before releasing students to work, post the steps of the task. Leave it up while they work.", "best_fit": ["Multi-step tasks", "Independent work periods where the teacher circulates"] },
-        { "label": "The rubric or criteria", "description": "Post success criteria before the work starts and leave them visible during revision. Students self-assess against a shared reference rather than against the teacher's judgment.", "best_fit": ["Writing or project-based work", "Any context where quality is the target"] }
-      ],
-      "adaptations": ["K–2: picture-based schedules alongside words; icons on anchor charts; the posted sequence matched to the song or chant used to teach it", "3–5: students maintain the task chart as a job; posted criteria become a self-check before turning in", "6–8: criteria posted as student-generated success markers; the teacher replaces the daily schedule with a period agenda students can see on entry"],
-      "sol_connections": ["External memory reduces working memory load (SoL Q1)", "Dual-channel representation (visual + verbal) supports learning better than either alone", "Activating prior knowledge via visible schedule prepares attention"],
-      "rp_connections": ["Predictability as a belonging mechanism — a student who knows what's coming is not managing uncertainty"],
+      "band_adaptations": {
+        "k2": "Picture schedules and icon cues at child eye level — the image is the instruction, not a caption.",
+        "35": "Anchor charts co-built with students during the lesson; posted step sequences for multi-step tasks.",
+        "68": "Objectives and agenda posted on entry; reference charts students consult independently without being told to."
+      },
+      "summary": "Make visible the information students would otherwise have to hold in their heads or ask you for. The goal is not a decorated wall; the goal is that the room carries the information so working memory doesn't have to.",
+      "solves": ["The same question gets asked five times an hour about something already said", "A multi-step task stalls halfway because the middle steps have fallen out of memory", "Transitions require the teacher to narrate what's next, every time"],
+      "mechanism": ["A posted sequence is external memory — steps are read rather than recalled (SoL Q1)", "Dual-channel representation (visual + verbal) supports learning better than either alone", "Predictability is a safety condition — a student who can see what's coming isn't managing threat"],
+      "evidence_note": "The honest claim is narrow: a specific visual, referencing taught content, available at the moment of need, reduces load.",
       "connected_concepts": ["visual-supports", "routines", "transitions", "physical-space"]
     },
     {
@@ -193,20 +160,15 @@
       "standard": "5.1",
       "topic": "Feedback",
       "serves_concepts": ["feedback", "relationships"],
-      "summary": "Aim the feedback at a shared external reference — a rubric, a model, the criteria, the work itself — rather than at the student. Teacher and student sit on the same side looking at a third thing. The goal is not softer criticism; the goal is that the student can evaluate the work without defending themselves.",
-      "solves": ["Accurate feedback gets rejected — the student hears a judgment about them and stops listening", "A conference turns into reassurance because the honest version would feel like an attack", "Students can't tell the difference between 'this draft isn't there yet' and 'you aren't good at this'", "Revision doesn't happen because accepting the feedback would mean accepting the verdict that came with it"],
-      "mechanism": ["Ego-threat feedback is rejected regardless of accuracy — being right isn't sufficient; the feedback has to be receivable (SoL Q2)", "Feedback travels on relationships — the same words land as help or as threat depending on what's already between teacher and student", "The third point gives the student goal, current position, and next step — the three things effective feedback supplies (Hattie & Timperley, 2007)", "Same structure as naming the deed, not the doer — the person stays separable from what's being evaluated"],
-      "conditions": ["The third point exists and is visible — a rubric the student helped write, a model worth comparing to, the actual criteria", "The feedback names the gap between the work and the reference, not between the student and your expectations", "The student has enough relationship with the teacher that the conversation is safe to have", "Time exists for the student to act on it — feedback without a revision opportunity is informational at best"],
-      "misconception": { "common": "Third point is often heard as 'be nicer' or 'don't criticize directly.'", "principle": "The point is not to soften the feedback. It's to redirect where the student's attention is during the exchange — away from their standing and toward the work." },
-      "implementations": [
-        { "label": "Rubric-anchored conference", "description": "Place the rubric between you and the student. Point to specific criteria. 'Here's where the work is; here's where the criteria put it.'", "best_fit": ["Writing conferences", "Project review"] },
-        { "label": "Model comparison", "description": "Place a strong example alongside the student's work. Ask the student to name what's different. The student does the comparison.", "best_fit": ["Any task with a clear quality bar", "Students who shut down under direct feedback"] },
-        { "label": "Self-assessment first", "description": "Student rates the work against the criteria before the teacher does. Conference begins with 'where do you think it is?' rather than the teacher's verdict.", "best_fit": ["Upper elementary and middle", "Any room building toward independent revision"] }
-      ],
-      "adaptations": ["K–2: the 'third point' is a physical exemplar or drawing — 'this one is all the way done; what does yours still need?'", "3–5: student-generated criteria make the third point something they own before the feedback starts", "6–8: peer feedback structured around a shared rubric is third-point feedback without the teacher as the source"],
-      "evidence_note": "Hattie & Timperley (2007) identified three elements of effective feedback: goal, current position, next step. SoL Q2 (Deans for Impact, 2026): ego-threat feedback is rejected regardless of accuracy.",
-      "sol_connections": ["Ego-threat feedback rejected regardless of accuracy (SoL Q2)", "Feedback effective when it specifies goal, current position, next step (Hattie & Timperley)"],
-      "rp_connections": ["Naming the deed not the doer — the person stays separable from what's being evaluated"],
+      "band_adaptations": {
+        "k2": "The third point is concrete — the actual paper, a picture of 'finished,' a two-item checklist. Acknowledge the process pointed at the work.",
+        "35": "Peer feedback with stems aimed at criteria rather than each other — 'here's what you did, why it matters, you might try.'",
+        "68": "Student self-assesses against criteria first; the conference compares two readings. Feedback delivered privately — peers hearing it re-introduces the ego threat."
+      },
+      "summary": "Aim the feedback at a shared external reference — a rubric, a model, the criteria, the work itself — rather than at the student. The goal is not softer criticism; the goal is that the student can evaluate the work without defending themselves.",
+      "solves": ["Accurate feedback gets rejected — the student hears a judgment about them and stops listening", "A conference turns into reassurance because the honest version would feel like an attack", "Revision doesn't happen because accepting the feedback would mean accepting the verdict that came with it"],
+      "mechanism": ["Ego-threat feedback is rejected regardless of accuracy (SoL Q2)", "Feedback gives the student goal, current position, and next step (Hattie & Timperley, 2007)", "Same structure as naming the deed, not the doer"],
+      "evidence_note": "'Third point' is a practitioner framing. What's evidence-backed is the mechanism: ego threat blocks uptake, and task-focused feedback outperforms person-focused feedback.",
       "connected_concepts": ["feedback", "relationships", "belonging", "behavior-and-redirections"]
     },
     {
@@ -219,20 +181,15 @@
       "standard": "5.1",
       "topic": "Engagement",
       "serves_concepts": ["engagement", "belonging"],
-      "summary": "Structure the question so every student produces an answer — on paper, to a partner, with a signal — before anyone shares aloud. The goal is not more hands up; the goal is that every student has actually retrieved something, because retrieval is where the learning happens and a raised hand only tells you about the one person raising it.",
-      "solves": ["The same four students answer everything, and the room reads as engaged because they are", "You can't tell who's with you — quiet is doing double duty as thinking and checked out", "A student who's lost has no low-risk way to try, so they wait it out", "The lesson runs on the student most willing to talk, not on whether the class has the concept"],
-      "mechanism": ["Every student retrieves — the learning is in the retrieval, not in the answer given aloud (SoL Q1/Q2)", "Writing or signaling before sharing gives processing time to students who need it, which is a competence condition for belonging — you belong in a room where you can participate", "The teacher gets information about the whole class, not just the hand-raisers", "Low-risk formats (whiteboards, written, partner) lower the stakes of being wrong, which is a prerequisite for trying"],
-      "conditions": ["The format is genuinely low-risk — partner answers, written responses, whiteboards that face down until the signal", "The question is worth thinking about — Everybody Answers on a recall question produces compliance, not retrieval", "Answers aren't graded or judged in the moment — the point is that everyone tries, not that everyone is right", "The move is used often enough that it's expected, so students aren't performing for a novel format"],
-      "misconception": { "common": "Often presented as an engagement management technique, grounded in response rate.", "principle": "The mechanism is retrieval practice, not participation frequency. A student who produces an answer — even a wrong one — has done the cognitive work that changes what they remember. A student who watches someone else answer hasn't." },
-      "implementations": [
-        { "label": "Think-write-share", "description": "Pose the question. Students write an answer. Then pairs share. Then the class discusses. The writing step is non-optional.", "best_fit": ["Any question worth thinking about", "Classes where verbal confidence varies widely"] },
-        { "label": "Whiteboard / signal response", "description": "Students write on mini-whiteboards or hold up a card and show at a signal. Teacher scans the room rather than calling on one student.", "best_fit": ["Checks for understanding", "Factual retrieval", "Rooms where quick feedback matters"] },
-        { "label": "Partner-then-group", "description": "Every student answers to a partner first; then pairs share with a group; then groups share with the class. The answer is already formed before it reaches public air.", "best_fit": ["Complex questions", "Any room where public risk is high"] }
-      ],
-      "adaptations": ["K–2: thumbs up/thumbs down, stands up/sits down, or a picture card — every student responds physically before the answer comes out", "3–5: response cards, partner-writes, quick-writes — the written step is the retrieval", "6–8: the written step matters more, not less — adolescents are more risk-averse publicly; the pre-write or partner step is the condition that makes participation safe"],
-      "evidence_note": "Grounded in retrieval practice (SoL Q1/Q2 — Deans for Impact, 2026) and competence-before-buy-in. Not grounded in response rate or Opportunities to Respond (OTR) literature. The OTR framing optimizes for frequency and produces fast shallow questioning, which is the opposite of this move.",
-      "sol_connections": ["Retrieval practice strengthens memory — every student retrieving is the mechanism (SoL Q1/Q2)", "Processing time before sharing is a competence condition"],
-      "rp_connections": ["Belonging requires the ability to participate — low-risk formats are a belonging mechanism, not just an engagement one"],
+      "band_adaptations": {
+        "k2": "Whole-body and signal responses — thumbs, cards, hand on head — before anyone speaks. Response cards. Partner talk in short bursts.",
+        "35": "Sticky-note responses, think-then-all-hands, students teaching a strategy to a partner. Introduce the norm that everyone answers something before anyone answers aloud.",
+        "68": "Written commitment before discussion; structured protocols where each person has a turn. At this age, cold-calling without the pre-answer step costs face and the cost is remembered."
+      },
+      "summary": "Structure the question so every student produces an answer — on paper, to a partner, with a signal — before anyone shares aloud. The goal is not more hands up; the goal is that every student has actually retrieved something, because retrieval is where the learning happens.",
+      "solves": ["The same four students answer everything, and the room reads as engaged because they are", "A student who's lost has no low-risk way to try, so they wait it out", "The lesson runs on the student most willing to talk"],
+      "mechanism": ["Every student retrieves — the learning is in the retrieval, not in the answer given aloud (SoL Q1/Q2)", "Low-risk formats lower the stakes of being wrong, which is a prerequisite for trying", "A structure where every voice is expected is a belonging condition"],
+      "evidence_note": "Grounded in retrieval practice (SoL Q1/Q2) and competence-before-buy-in. NOT grounded in response rate or OTR literature — a response-rate framing optimizes for frequency and produces fast shallow questioning.",
       "connected_concepts": ["engagement", "belonging", "motivation", "relationships"]
     }
   ]
