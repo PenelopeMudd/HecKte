@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design the Room Around the Work — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; Design the Room Around the Work</nav>
+
+<p class="section-label">Missouri Standard 5.2 &middot; Physical Space</p>
+<h1>Design the Room Around the Work</h1>
+<p class="summary">Arrange furniture, materials, and traffic paths around what students actually do in the room. The goal is not a tidy room; the goal is that the easiest physical action is also the one the lesson needs.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>Minutes disappear into retrieving, distributing, and returning materials.</li>
+<li>The same two spots generate friction every day &mdash; the pencil sharpener, the door, the turn-in bin &mdash; and it reads as behavior.</li>
+<li>Moving from one format to another takes long enough that teachers stop doing it.</li>
+<li>Some students can't see, can't reach, or can't get where they need to go without crossing the whole room.</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effect comes from <em>what the room makes easy</em>, not from rules about how to move through it. A layout is a standing decision that plays out hundreds of times a day without anyone deciding again. Potential mechanisms include:</p>
+<ul>
+<li>Materials placed where the work happens remove a whole class of interruptions before they occur &mdash; no request, no wait, no correction. The friction was never a behavior; it was a distance.</li>
+<li>Sightlines and low visual clutter reduce competing demands on attention, which is captured rather than commanded. A wall of stimuli competes with the lesson for the same gate. <em>(SoL Q1.)</em></li>
+<li>A room that can become a circle makes community and repair structurally possible. One arranged only for one-way delivery quietly signals compliance; one arranged for facing each other signals community &mdash; and students read the arrangement before anyone explains it. <em>(Klevan 2021.)</em></li>
+<li>Equitable sightlines and access say <em>every student is included by default</em> &mdash; the belonging claim made in furniture rather than in a poster.</li>
+<li>Predictable placement means students hold less in working memory about where things live, returning that capacity to the work.</li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<ul>
+<li>You know what students actually <em>do</em> in the room &mdash; a layout designed for the lesson you imagine rather than the one you teach will fight you all year.</li>
+<li>Materials are genuinely student-accessible, not just visible: reachable at their height, returnable without a request.</li>
+<li>The arrangement can be changed. A room that can only be one configuration will eventually be the wrong one.</li>
+<li>The design gets revisited when the work changes.</li>
+<li>Anything posted survives the clutter test: if everything on the walls is important, nothing on them is legible.</li>
+</ul>
+<p>The common misconception is that this is a decorating question or flexible seating for its own sake. The actual design principle: <strong>you can't redesign a child. You can redesign where the turn-in bin goes.</strong></p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>Clearly defined areas (carpet, centers), wide clear paths, materials at child height, deliberately low visual clutter &mdash; young students are least able to filter competing stimuli.</p></div>
+<div id="band-35" class="band-content" hidden><p>Flexible groupings inside a set structure; a designated gather space; supplies students retrieve and return without asking.</p></div>
+<div id="band-68" class="band-content" hidden><p>Configurations that flex from rows to groups to circle with minimal disruption &mdash; the reconfiguration itself should be a rehearsed move. (See Teach the Transition.)</p></div>
+
+<h3>Other situations</h3>
+<p><strong>A room you don't control</strong> (shared space, cart teaching): the portable version is materials placement and what you carry &mdash; the same principle at the scale you actually own.</p>
+
+<hr>
+
+<h2>Evidence</h2>
+<p>This sits in the designed half of the classroom system, and that's the honest framing for the evidence too. <strong>The strong claims are about mechanisms &mdash; attention capture, load, access &mdash; rather than about any particular furniture arrangement. There is no research finding that one seating configuration outperforms another across contexts</strong>, and claims that there is should be treated skeptically.</p>
+<p>What holds: the room is a standing decision that executes constantly without further effort, which makes it high-leverage regardless of which specific arrangement you choose. Layout is an attention and cognitive load decision, not d&eacute;cor: sightlines reduce competing demands; low-clutter walls keep working memory free for the work. <em>(Deans for Impact, SoL 2nd ed. 2026, Q1.)</em></p>
+<p>Space also determines whether community structures are physically possible. A room that can circle can do restorative work; a room that can't, can't &mdash; regardless of the teacher's intent. <em>(Klevan 2021.)</em></p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often hear "classroom design" as an aesthetic project with a budget &mdash; flexible seating, themed d&eacute;cor, a reading nook. The mechanism has nothing to do with how the room looks. It's about what the arrangement makes easy and what it makes hard, and the cheapest version of this move (moving the bin, clearing a wall) usually outperforms the expensive one.</p>
+<p>The second misread is treating it as a one-time August task. The room is a design that gets tested every day by real use; the useful habit is watching where friction actually shows up and moving that one thing.</p>
+<p class="tell-line">The tell that it's working isn't a room that looks good in a photo. It's that nobody has to ask you where anything is.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Physical Space</span>
+<span class="chip">Transitions</span>
+<span class="chip">Routines</span>
+<span class="chip">Visual Supports</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>

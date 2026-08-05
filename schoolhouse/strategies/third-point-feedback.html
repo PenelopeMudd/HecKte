@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Third Point Feedback — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; Third Point Feedback</nav>
+
+<p class="section-label">Missouri Standard 5.1 &middot; Feedback</p>
+<h1>Third Point Feedback</h1>
+<p class="summary">Aim the feedback at a shared external reference &mdash; a rubric, a model, the criteria, the work itself &mdash; rather than at the student. The goal is not softer criticism; the goal is that the student can evaluate the work without defending themselves.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>Accurate feedback gets rejected &mdash; the student hears a judgment about them and stops listening before the useful part.</li>
+<li>A conference turns into reassurance because the honest version would feel like an attack.</li>
+<li>Students can't tell the difference between "this draft isn't there yet" and "you aren't good at this."</li>
+<li>Revision doesn't happen, because accepting the feedback would mean accepting the verdict that came with it.</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effect comes from <em>where the student's attention is pointed</em> during the exchange. Feedback aimed at a person requires them to hold their own standing while processing information. Feedback aimed at a shared object doesn't. Potential mechanisms include:</p>
+<ul>
+<li><strong>Ego-threat feedback is rejected regardless of accuracy.</strong> Being right isn't sufficient; the feedback has to be receivable. <em>(SoL Q2.)</em></li>
+<li>Feedback travels on relationships &mdash; the same words land as help or as threat depending on what's already between teacher and student. The third point lowers what the relationship has to carry.</li>
+<li>Naming the gap between the work and a visible criterion gives the student <strong>goal, current position, and next step</strong> &mdash; the three things effective feedback supplies. <em>(Hattie &amp; Timperley, 2007.)</em></li>
+<li>It's the same structure as naming the deed, not the doer &mdash; the person stays separable from the thing being evaluated, which is what keeps them reachable.</li>
+<li>Looking at a shared object together positions the teacher <em>beside</em> the student rather than across from them, which changes what the exchange feels like before anything is said.</li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<ul>
+<li>The criterion exists and the student can see it. Without a visible standard there is no third point &mdash; you're just describing your opinion at a distance.</li>
+<li>The criterion is specific enough to point at. "Good writing" isn't a third point; "the claim appears in the first paragraph" is.</li>
+<li>There's a real chance to act on it. Feedback with no revision opportunity is a verdict with extra steps.</li>
+<li>Enough relationship exists to be honest. The third point reduces threat; it doesn't eliminate the need for trust.</li>
+</ul>
+<p>The common misconception is that this is a gentler way to deliver criticism &mdash; a softening technique. The actual design principle: <strong>feedback is only useful if it can be received. Point at the work, not the person, so the student can look at it without defending themselves.</strong></p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>The third point is concrete and physical &mdash; the actual paper, a picture of what "finished" looks like, a two-item checklist. Acknowledge the process out loud, pointed at the work: "look what happened when you kept going."</p></div>
+<div id="band-35" class="band-content" hidden><p>Peer feedback with stems, aimed at criteria rather than at each other &mdash; here's what you did &middot; why it matters &middot; you might try. The stems are what keep it third-point.</p></div>
+<div id="band-68" class="band-content" hidden><p>Students self-assess against the criteria first, then the conference compares the two readings. Privacy matters &mdash; feedback delivered where peers can hear it re-introduces the ego threat the move exists to remove.</p></div>
+
+<h3>Other situations</h3>
+<p>When the feedback is <strong>behavioral rather than academic</strong>: the third point is the agreement or the norm the class authored. "Let's look at what we said about work time." (See Co-Created Norms.)</p>
+
+<hr>
+
+<h2>Evidence</h2>
+<p>Feedback is among the highest-leverage moves available to a teacher, and also one of the most variable &mdash; the same feedback produces gains or does nothing depending on how it's received. <em>(Hattie &amp; Timperley, 2007.)</em> That variability is the reason this atom exists: <strong>the delivery isn't a nicety layered on top of the content, it's part of whether the content functions at all.</strong></p>
+<p>Worth naming honestly: <strong>"third point" is a practitioner framing rather than a named research construct.</strong> What's evidence-backed is the mechanism underneath &mdash; ego threat blocks uptake, and task-focused feedback outperforms person-focused feedback. The third point is a reliable way to get there, not a studied intervention in its own right.</p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often hear this as a politeness protocol &mdash; say it about the work, not the kid, and you've been kind. The mechanism isn't kindness. It's that a student defending their standing has no capacity left to evaluate their draft, and the third point is what frees it up. Being gentle without a shared criterion doesn't accomplish this; being direct <em>with</em> one usually does.</p>
+<p>The related misread is that third-point feedback should be softer. It can be considerably more direct than person-aimed feedback, because there's nothing to soften &mdash; the gap between the work and the standard is just information.</p>
+<p class="tell-line">The tell that it's working isn't agreement. It's the student looking at the work instead of at your face.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Feedback</span>
+<span class="chip">Relationships</span>
+<span class="chip">Belonging</span>
+<span class="chip">Behavior &amp; Redirections</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>
