@@ -1,0 +1,27 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1a1a;--bg:#fff;--muted:#666;--rule:#dedede}
+@media(prefers-color-scheme:dark){:root{--ink:#e2e2e2;--bg:#181818;--muted:#888;--rule:#2e2e2e}}
+:root[data-theme=dark]{--ink:#e2e2e2;--bg:#181818;--muted:#888;--rule:#2e2e2e}
+:root[data-theme=light]{--ink:#1a1a1a;--bg:#fff;--muted:#666;--rule:#dedede}
+body{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.7;color:var(--ink);background:var(--bg);max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+a{color:var(--ink)}
+.strand-nav{font-family:-apple-system,Arial,sans-serif;font-size:13px;color:var(--muted);margin-bottom:2.5rem}
+.strand-nav a{color:var(--muted);text-decoration:none}
+.strand-nav a:hover{text-decoration:underline}
+.section-label{font-family:-apple-system,Arial,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+h1{font-size:2rem;font-weight:normal;line-height:1.2;margin-bottom:1.5rem;text-wrap:balance}
+h2{font-size:.85rem;font-weight:bold;font-family:-apple-system,Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;margin:2rem 0 .5rem;color:var(--muted)}
+p{margin-bottom:1rem}
+ul{list-style:none;padding:0;margin-bottom:1rem}
+li{padding:.2rem 0}
+hr{border:none;border-top:1px solid var(--rule);margin:2.5rem 0}
+.summary{font-style:italic;color:var(--muted);margin-bottom:1.5rem;font-size:1.05rem}
+.cross-label{font-family:-apple-system,Arial,sans-serif;font-size:.7rem;color:var(--muted);letter-spacing:.04em;margin-left:.35rem}
+.sol-tag{font-family:-apple-system,Arial,sans-serif;font-size:.7rem;color:var(--muted);letter-spacing:.04em;margin-left:.35rem}
+.edge-none{color:var(--muted);font-style:italic;font-size:.9rem}
+.strategy-links{margin:.25rem 0 1rem}
+.strategy-links a{display:block;font-family:-apple-system,Arial,sans-serif;font-size:.9rem;color:var(--muted);text-decoration:none;padding:.25rem 0;border-bottom:1px solid var(--rule)}
+.strategy-links a:last-child{border-bottom:none}
+.strategy-links a:hover{color:var(--ink);text-decoration:underline}
+.site-footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-family:-apple-system,Arial,sans-serif;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.site-footer a{color:var(--muted);text-decoration:none}
