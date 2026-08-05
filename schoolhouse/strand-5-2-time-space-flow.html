@@ -6,75 +6,22 @@
   <title>5.2 Time, Space &amp; Flow — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-      color: #1a1a1a;
-      background: #ffffff;
-      line-height: 1.8;
-    }
-    .strand-nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #999;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: #1a1a1a; background: #ffffff; line-height: 1.8; }
+    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; flex-wrap: wrap; align-items: center; }
     .strand-nav a { color: #999; text-decoration: none; }
     .strand-nav a:hover { color: #555; }
     .strand-nav .active { color: #1a1a1a; }
     .strand-nav .sep { color: #ddd; }
-    header {
-      border-bottom: 2px solid #1a1a1a;
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .strand-num {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 0.5rem;
-    }
+    header { border-bottom: 2px solid #1a1a1a; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .strand-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.5rem; }
     h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
-    .lede {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: #444;
-      margin-bottom: 2rem;
-    }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1rem;
-    }
+    .lede { font-size: 1rem; line-height: 1.75; color: #444; margin-bottom: 2rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
     .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .band-btn {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid #1a1a1a;
-      background: none;
-      padding: 0.4rem 0.9rem;
-      cursor: pointer;
-      color: #1a1a1a;
-    }
+    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid #1a1a1a; background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: #1a1a1a; }
     .band-btn.active { background: #1a1a1a; color: #fff; }
     .band-prompt { font-size: 0.82rem; color: #999; margin-bottom: 2rem; font-style: italic; }
-    .band-content {
-      border-left: 3px solid #eee;
-      padding-left: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
+    .band-content { border-left: 3px solid #eee; padding-left: 1.25rem; margin-bottom: 2.5rem; }
     .band-framing { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 0.9rem; }
     .band-intro { font-size: 0.88rem; line-height: 1.75; color: #444; }
     .concept-list { list-style: none; margin-bottom: 2.5rem; }
@@ -84,25 +31,12 @@
     .concept-desc { font-size: 0.82rem; color: #777; margin-top: 0.2rem; line-height: 1.5; display: block; }
     .curated-link { font-size: 0.78rem; color: #777; margin-top: 0.3rem; display: block; }
     .curated-link a { color: #555; }
-    .foundation-ref {
-      border-top: 1px solid #ddd;
-      padding-top: 1.25rem;
-      margin-top: 0.5rem;
-      font-size: 0.82rem;
-      color: #777;
-    }
+    .strategy-name { font-size: 0.95rem; color: #555; display: block; text-decoration: none; }
+    .strategy-name:hover { color: #1a1a1a; text-decoration: underline; }
+    .foundation-ref { border-top: 1px solid #ddd; padding-top: 1.25rem; margin-top: 0.5rem; font-size: 0.82rem; color: #777; }
     .foundation-ref a { color: #555; }
-    footer {
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-      margin-top: 3rem;
-      font-size: 0.78rem;
-      color: #999;
-    }
-    @media (max-width: 560px) {
-      body { padding: 1.5rem 1rem 3rem; }
-      h1 { font-size: 1.4rem; }
-    }
+    footer { border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: #999; }
+    @media (max-width: 560px) { body { padding: 1.5rem 1rem 3rem; } h1 { font-size: 1.4rem; } }
   </style>
 </head>
 <body>
@@ -165,6 +99,22 @@
       <span class="concept-name">Visual Supports</span>
       <span class="concept-desc">Anchors in the environment that reduce the need to hold information in working memory — schedules, anchor charts, procedure reminders.</span>
       <span class="curated-link"><a href="https://www.edutopia.org/article/making-most-visual-aids/">Student-created visual aids</a></span>
+    </li>
+  </ul>
+
+  <p class="section-label" style="margin-top:2rem;">Strategies in this strand</p>
+  <ul class="concept-list">
+    <li>
+      <a class="strategy-name" href="strategies/teach-the-transition.html">Teach the Transition</a>
+      <span class="concept-desc">Teaching and rehearsing transitions the way content is taught — so the sequence runs from memory, not narration.</span>
+    </li>
+    <li>
+      <a class="strategy-name" href="strategies/design-the-room-around-the-work.html">Design the Room Around the Work</a>
+      <span class="concept-desc">Arranging furniture and materials so the easiest physical action is the one the lesson needs.</span>
+    </li>
+    <li>
+      <a class="strategy-name" href="strategies/post-what-youd-otherwise-repeat.html">Post What You'd Otherwise Repeat</a>
+      <span class="concept-desc">Making visible the information students would otherwise hold in their heads or ask you for.</span>
     </li>
   </ul>
 
