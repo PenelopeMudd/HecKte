@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restorative Interactions — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; Restorative Interactions</nav>
+
+<p class="section-label">Missouri Standard 5.3 &middot; Relationship Building</p>
+<h1>Restorative Interactions</h1>
+<p class="summary">Two minutes of non-academic conversation with one hard-to-reach student, held for ten consecutive school days. The goal is not the ten conversations themselves; the goal is building a durable relationship with a student who is currently reachable only through the deed, not the person. Known in the field as 2&times;10.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>A student who feels unseen, or only seen when in trouble</li>
+<li>Redirections that keep spending the bond instead of building it</li>
+<li>A relationship that starts and stays in the negative</li>
+<li>Escalating behavior with no relational channel to reach through</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effect comes from the accumulation and the non-academic framing, not from any single conversation. Potential mechanisms include:</p>
+<ul>
+<li><strong>Ten consecutive days signals reliability</strong> &mdash; the student learns the adult keeps coming back. The consecutiveness matters more than the two minutes.</li>
+<li><strong>Non-academic content keeps the contact from reading as correction in disguise.</strong> The discipline is not steering the conversation toward school.</li>
+<li>Repeated positive contact builds relationship <em>before</em> the next hard moment &mdash; so later redirection can land without spending the bond.</li>
+<li>Belonging conditions motivation; students engage more where they feel accepted. The channel that feedback and instruction travel on gets stronger.</li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<ul>
+<li>The conversations stay genuinely non-academic &mdash; no schoolwork, no behavior talk.</li>
+<li>The teacher can protect two low-stakes minutes daily (arrival, transition, dismissal).</li>
+<li>Consistency across all ten days &mdash; a broken streak resets the signal.</li>
+<li>The teacher is curious about this student, not gathering leverage.</li>
+<li>Contact stays private and low-pressure &mdash; the student is not put on the spot publicly.</li>
+</ul>
+<p>The common misconception is that 2&times;10 is a behavior-fix trick. The actual design principle: <strong>build the relationship before you need it, on the student's terms, not the classroom's.</strong></p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>Two minutes of unhurried attention inside the existing day &mdash; arrival, snack, lining up. Talk about what they bring up, not what you'd choose. Young students will tell you about their life immediately if the attention is genuinely without an agenda; the discipline is not steering it.</p></div>
+<div id="band-35" class="band-content" hidden><p>Their interests are specific enough now to be a real conversation, and an interest survey is a fair launch point. Protect the consecutiveness &mdash; the ten days matter more than the two minutes, because what registers is that you came back.</p></div>
+<div id="band-68" class="band-content" hidden><p>Low-key and private. An adolescent will read a visible daily check-in as being singled out, so use hallway contact, the walk to class, or a written back-and-forth instead. Expect several days of nothing before anything opens; that stretch is the intervention, not a sign it's failing.</p></div>
+
+<h3>Other situations</h3>
+<ul>
+<li>Split across two staff who share the student.</li>
+<li>Advisory or homeroom slot &mdash; the built-in version.</li>
+<li>Written back-and-forth (note, journal) for students who prefer text to talk.</li>
+<li>Team version &mdash; several teachers each take a different student.</li>
+<li>Extend past ten days when momentum is building.</li>
+</ul>
+
+<hr>
+
+<h2>Evidence</h2>
+<p>Wlodkowski's "two-minute intervention" is the origin, later popularized in Allen Mendler's <em>Connecting with Students</em>. The frequently quoted <strong>85% behavior-improvement figure is practitioner-reported and illustrative &mdash; treat it as a story about what became possible, not a measured finding.</strong> Repeating it as a research result overstates what exists.</p>
+<p>What holds independently of that figure is the mechanism, which both lenses support: belonging conditions motivation and students engage more where they feel accepted <em>(Deans for Impact, SoL 2nd ed. 2026, Q4)</em>; feedback and correction are received through the relationship rather than despite it <em>(SoL Q2)</em>; and relational deposit made before the hard moment is what allows a later redirect to land without spending the bond <em>(Klevan 2021)</em>.</p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often interpret 2&times;10 as a compliance lever &mdash; "spend two minutes, get better behavior." The underlying design principle is broader: relationship built <em>before</em> the hard moment is what lets later redirection land without spending the bond.</p>
+<p>The non-academic framing is not incidental. It is the part that keeps the contact from reading as correction. A conversation about school or behavior is not 2&times;10 &mdash; it is another interaction in the correction ledger.</p>
+<p class="tell-line">The tell that it's working isn't better behavior. It's that you know something about this student that has nothing to do with their grade.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Relationships</span>
+<span class="chip">Belonging</span>
+<span class="chip">Behavior &amp; Redirections</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>

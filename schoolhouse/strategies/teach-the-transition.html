@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teach the Transition — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; Teach the Transition</nav>
+
+<p class="section-label">Missouri Standard 5.2 &middot; Transitions</p>
+<h1>Teach the Transition</h1>
+<p class="summary">A transition is taught and rehearsed the way content is taught &mdash; modeled, practiced, and named &mdash; rather than announced once and enforced afterward. The goal is not a quiet move between activities; the goal is a sequence students can run without holding it in their heads.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>The seam between activities is where most instructional time leaks &mdash; five minutes, five times a day, across a year.</li>
+<li>Students stall at the boundary not because they're refusing but because they don't know the next action.</li>
+<li>The teacher ends up narrating every move, which makes the class dependent on the narration.</li>
+<li>Noise and drift at the seam get read as a behavior problem when the source is structural.</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effect comes from the sequence being <em>automatic</em>, not from the students being quiet. Potential mechanisms include:</p>
+<ul>
+<li>A rehearsed sequence runs from memory rather than being assembled on the spot &mdash; working memory is freed for the work waiting on the other side of the move. Load drops exactly where it otherwise spikes.</li>
+<li>Each rehearsal is a low-stakes retrieval of the sequence, which strengthens it. Practice that is spaced and repeated is what makes it durable, not a single explanation. <em>(SoL: practice must be spaced and retrieval-based.)</em></li>
+<li>A known sequence narrows what attention has to track &mdash; one next action instead of a whole noisy room.</li>
+<li>Teaching the move in advance means the teacher shapes the moment rather than correcting after it, so relationships don't get spent on friction the design created.</li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<ul>
+<li>The steps are few and concrete enough to rehearse &mdash; the specific next action, not "transition quietly."</li>
+<li>Time is set aside to practice when nothing is at stake, early, before it's needed under pressure.</li>
+<li>The signal is consistent &mdash; a cue that changes weekly has to be re-learned each time.</li>
+<li>The room supports it: materials where hands already are, a visible next step.</li>
+<li>The sequence gets re-rehearsed after breaks and when it degrades, rather than being re-announced louder.</li>
+</ul>
+<p>The common misconception is getting students to move quickly and quietly. The actual design principle: <strong>students can only run a sequence they've practiced. Anything not rehearsed has to be assembled in the moment, and the moment is when there's least room to assemble it.</strong></p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>Attach the sequence to a song, chant, or counted signal; rehearse it as its own activity; pair it with a picture schedule.</p></div>
+<div id="band-35" class="band-content" hidden><p>Students manage their own materials and route inside the sequence; introduce a visible timer; rehearse the format change (whole group &rarr; partners) rather than each individual step.</p></div>
+<div id="band-68" class="band-content" hidden><p>Fewer steps, stated once, then handed over; students set the norm for what a clean move looks like; the sequence is between <em>formats</em>, not between <em>tasks</em>.</p></div>
+
+<h3>Other situations</h3>
+<p>After a disruption to the schedule &mdash; assembly, sub, testing week &mdash; rehearse rather than assume. The sequence degrades and re-teaching it is faster than correcting it.</p>
+
+<hr>
+
+<h2>Evidence</h2>
+<p><strong>Kounin (1970)</strong> established <em>momentum</em> and <em>smoothness</em> &mdash; the finding that well-managed classrooms anticipate friction at activity boundaries rather than reacting to it. Foundational classroom-ecology work, and the lineage this move sits in.</p>
+<p>The widely repeated estimate that transitions cost roughly <strong>75 hours of instructional time per year is practitioner-sourced and illustrative</strong> &mdash; a useful way to see the scale of the seam, not a measured finding.</p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often hear this as "practice lining up until they get it right," which turns a design move into a drill. The mechanism isn't obedience through repetition &mdash; it's that a sequence retrieved from memory costs almost nothing to run, while a sequence assembled on the spot costs the most exactly when there's least room for it.</p>
+<p class="tell-line">The tell that it's working isn't silence. It's that the move happens without the teacher narrating it.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Transitions</span>
+<span class="chip">Routines</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>

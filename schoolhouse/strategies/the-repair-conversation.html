@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Repair Conversation — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; The Repair Conversation</nav>
+
+<p class="section-label">Missouri Standard 5.3 &middot; Repair</p>
+<h1>The Repair Conversation</h1>
+<p class="summary">A short, structured conversation after harm, built on four questions that surface what happened and what would make it right &mdash; held with each person separately first, then together when both are ready. The goal is not an apology; the goal is that the student stays inside the community that has to keep working after the incident.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>Something happened and the room can't just proceed as if it didn't.</li>
+<li>The available responses feel like a choice between letting it go and removing someone &mdash; neither addresses the harm.</li>
+<li>A forced apology gets produced and nothing about tomorrow is different.</li>
+<li>The student who caused harm leaves knowing they're in trouble but not what they'd do differently.</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effect comes from <em>who does the accounting</em>. In a consequence, the adult names the wrong and assigns the cost. In a repair conversation, the student constructs the account &mdash; that's the part that changes behavior, and the part removal skips entirely. Potential mechanisms include:</p>
+<ul>
+<li><strong>"What happened?" opens a story; "Why did you do that?" invites a defense.</strong> The first question gets information, the second gets justification. Same intent, opposite result &mdash; the wording is doing the work.</li>
+<li>Naming who was affected makes the harm concrete and external, so the student is looking at an impact rather than defending an identity.</li>
+<li>The student stays inside relationships and belonging &mdash; the channel any future correction has to travel through. Removal solves the moment by removing the mechanism.</li>
+<li>Staying reachable keeps feedback and instruction working; a student who's been excluded is harder to teach for weeks afterward, not just that hour. <em>(SoL Q2.)</em></li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<p>It won't hold as a one-off pulled out after a blowup:</p>
+<ul>
+<li>Relationship is already banked. A repair conversation spends relational credit; if none was deposited, there's nothing to spend.</li>
+<li>Both people are regulated enough to talk. Held too soon, it becomes a second incident.</li>
+<li>Each person is met <em>separately first</em> &mdash; the joint conversation only works if both arrive already able to hear the other.</li>
+<li>The teacher can sit with silence and not fill it. Most of the useful thinking happens in the pause after a question.</li>
+<li>The agreement reached is small enough to actually happen and gets followed up on. An unkept repair teaches that the process is decorative.</li>
+<li>The whole-school context isn't undercutting it &mdash; the practice underperforms when used reactively and in isolation.</li>
+</ul>
+<p>The common misconception is that this is the soft alternative to a consequence. The actual design principle: <strong>harm is the problem to be addressed, not the person. The response has to keep the student inside the community that has to metabolize what happened.</strong></p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>Two questions, not four &mdash; what happened and what would help. Concrete restitution the child can physically do (rebuild the tower, help clean up). A designated peace corner where the conversation happens, so the place carries part of the routine.</p></div>
+<div id="band-35" class="band-content" hidden><p>All four questions, teacher-facilitated. Introduce the apology-of-action &mdash; doing something rather than saying something. Students begin holding these with light support.</p></div>
+<div id="band-68" class="band-content" hidden><p>Students can facilitate for peers once they've been through several. Affective statements ("when that happened, I felt&hellip;") in place of accusation. Privacy matters more at this age than at any other &mdash; a repair conversation held where peers can watch will fail on audience alone.</p></div>
+
+<h3>Other situations</h3>
+<p><strong>Teacher-and-student repair:</strong> the same four questions when the rupture is between you and a student, including your own account. This is the version teachers skip and the one students remember.</p>
+
+<hr>
+
+<h2>Evidence</h2>
+<p><strong>Exclusionary discipline is associated with increased future misbehavior and dropout risk</strong> &mdash; the response intended to correct behavior predicts more of it. That finding is what makes repair a practical argument rather than a moral one. <em>(Klevan 2021.)</em></p>
+<p>The strongest honest caution in this literature is about <strong>fidelity, not efficacy</strong>: a restorative conversation run once, after a blowup, with no prior relational deposit, is not the same intervention as a practice running all year &mdash; and shouldn't be judged as one. <em>(Klevan 2021.)</em></p>
+<p>A named limit worth keeping: <strong>a structured process does not guarantee that every voice is genuinely heard.</strong> Formal equality in turn-taking and actual equity of participation are different things.</p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often read this as a script &mdash; four questions, asked in order, incident closed. The questions aren't the intervention; they're a shape that keeps the adult from doing the accounting for the student. A teacher who asks all four and then supplies the answers has run the form of it and none of the substance.</p>
+<p>Repair doesn't mean no consequence. It means the consequence is <em>doing something about the harm</em> rather than being removed from the room where it happened.</p>
+<p class="tell-line">The tell that it's working isn't the apology. It's whether the two of them can work together next week.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Repair</span>
+<span class="chip">Behavior &amp; Redirections</span>
+<span class="chip">Relationships</span>
+<span class="chip">Belonging</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>

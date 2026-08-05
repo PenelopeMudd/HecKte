@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greet Students at the Door — SchoolHouse</title>
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+<nav class="strand-nav"><a href="../">SchoolHouse</a> &rsaquo; Greet Students at the Door</nav>
+
+<p class="section-label">Missouri Standard 5.1 &middot; Entry Routine</p>
+<h1>Greet Students at the Door</h1>
+<p class="summary">Greeting students at the door is one example of an effective entry routine. The goal is not the greeting itself; the goal is creating a predictable transition from the hallway into learning.</p>
+
+<hr>
+
+<h2>What problem does this solve?</h2>
+<ul>
+<li>Unstructured transition time</li>
+<li>Difficulty beginning class</li>
+<li>Limited teacher-student connection</li>
+<li>Lost instructional minutes</li>
+<li>Lack of predictability</li>
+</ul>
+
+<h2>Why does it work?</h2>
+<p>The effectiveness comes from the systems surrounding the greeting, not the greeting alone. Potential mechanisms include:</p>
+<ul>
+<li>Predictable routines reduce uncertainty &mdash; cognitive load drops as students know what to do next.</li>
+<li>Students receive an immediate cue that learning has begun &mdash; attention shifts in at the door, before they sit down.</li>
+<li>Teachers gather quick information before instruction: a student's face at the door tells you something a seating chart won't.</li>
+<li>Positive interactions at entry strengthen relationships and belonging before the first correction of the day.</li>
+<li>Entry becomes intentional rather than accidental &mdash; the lesson effectively starts in the hall.</li>
+</ul>
+
+<h2>What conditions must exist?</h2>
+<p>Greeting students alone is unlikely to improve classroom management unless additional systems are in place:</p>
+<ul>
+<li>Students know what to do immediately after entering &mdash; the entry routine has been explicitly taught.</li>
+<li>Bell work or an opening task is already prepared and visible.</li>
+<li>Materials are accessible.</li>
+<li>Classroom expectations have been explicitly taught.</li>
+<li>The teacher can monitor both hallway and classroom at the same time.</li>
+</ul>
+<p>The common misconception is that <em>standing at the door</em> is the practice. The actual design principle: <strong>create a predictable, personal transition into learning.</strong> Greeting is one implementation of that principle.</p>
+
+<hr>
+
+<h2>By grade band</h2>
+<div class="band-picker">
+<button class="band-btn" data-band="k2" onclick="selectBand('k2')">K&ndash;2</button>
+<button class="band-btn" data-band="35" onclick="selectBand('35')">3&ndash;5</button>
+<button class="band-btn" data-band="68" onclick="selectBand('68')">6&ndash;8</button>
+</div>
+<div id="band-k2" class="band-content" hidden><p>A named greeting plus a choice of how &mdash; wave, high five, fist bump &mdash; posted as pictures by the door so the child picks without words. Pair it with the entry routine so arrival is one sequence, not two. Kindergarten welcome song for the whole-group version.</p></div>
+<div id="band-35" class="band-content" hidden><p>Name plus one specific thing you remember about them &mdash; the game, the sibling, yesterday's question. Students can take turns as greeters, which makes the routine theirs. Morning meeting extends it into the first five minutes.</p></div>
+<div id="band-68" class="band-content" hidden><p>Shorter and less performed &mdash; a nod with a name, one sentence, no audience. Adolescents will refuse a greeting that makes them the center of attention while accepting the same contact delivered quietly. In a block or rotating schedule, the door is often the only unhurried moment you get with them all day.</p></div>
+
+<h3>Other situations</h3>
+<ul>
+<li><strong>Advisory or homeroom</strong> &mdash; the built-in slot for the longer version.</li>
+<li><strong>Digital check-in / mood meter</strong> &mdash; for students who'd rather report than talk, and for remote or hybrid settings.</li>
+</ul>
+
+<hr>
+
+<h2>Evidence</h2>
+<p><strong>Cook et al. (2018)</strong> found positive greetings raised academic engagement by roughly 20 percentage points and reduced disruptive behavior by about 9 points in the observed classrooms. One of the few classroom-management moves with a clean effect size attached.</p>
+<p>Scale disclosed: the study was <strong>10 classes across 2 middle schools</strong> &mdash; well-designed with random assignment, but a small sample and generalizability is limited. Treat it as a strong signal, not a settled effect size.</p>
+<p>What the finding supports and what it doesn't: it's a real study with real numbers, on a specific implementation &mdash; name, eye contact, a brief individual acknowledgment at entry. It is <strong>not</strong> evidence that any warm gesture produces that effect, and the effect depends on the greeting being individual rather than a blanket hello to the room.</p>
+
+<hr>
+
+<h2>Translation notes</h2>
+<p>Teachers often interpret this as "be friendly." The underlying design principle is much broader: this is a system that intentionally manages the transition from hallway behavior to learning behavior. The relationship deposit made at the door is not separate from instruction &mdash; it is what makes instruction reachable later in the period.</p>
+<p class="tell-line">The tell that it's working isn't a warm room. It's that arrival doesn't require management &mdash; students enter, the routine runs, and class begins without the teacher having to redirect or repeat.</p>
+
+<hr>
+<p class="section-label">Connects to</p>
+<div class="concept-chips">
+<span class="chip">Transitions</span>
+<span class="chip">Relationships</span>
+<span class="chip">Belonging</span>
+<span class="chip">Routines</span>
+<span class="chip">Behavior &amp; Redirections</span>
+<span class="chip">Expectations &amp; Norms</span>
+</div>
+
+<footer class="site-footer"><a href="../">SchoolHouse</a> &middot; an unreliable translator</footer>
+
+<script>
+function selectBand(b){document.querySelectorAll('.band-content').forEach(el=>el.hidden=true);document.querySelectorAll('.band-btn').forEach(el=>el.classList.remove('active'));document.getElementById('band-'+b).hidden=false;document.querySelector('[data-band="'+b+'"]').classList.add('active')}
+selectBand('k2');
+</script>
+</body>
+</html>
