@@ -3,55 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Concept Map — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: #1a1a1a; background: #ffffff; line-height: 1.8; }
-    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; flex-wrap: wrap; align-items: center; }
-    .strand-nav a { color: #999; text-decoration: none; }
-    .strand-nav a:hover { color: #555; }
-    .strand-nav .active { color: #1a1a1a; }
-    .strand-nav .sep { color: #ddd; }
-    header { border-bottom: 2px solid #1a1a1a; padding-bottom: 1.5rem; margin-bottom: 2rem; }
-    .eyebrow { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.5rem; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+      --rule: rgba(27,58,75,0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #1E1B16;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+        --rule: rgba(228,217,204,0.08);
+      }
+    }
+    :root[data-theme="dark"] { --ground: #1E1B16; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14); --rule: rgba(228,217,204,0.08); }
+    :root[data-theme="light"] { --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15); --rule: rgba(27,58,75,0.08); }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: var(--ink); background: var(--ground); line-height: 1.8; }
+    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); flex-wrap: wrap; align-items: center; }
+    .strand-nav a { color: var(--muted); text-decoration: none; }
+    .strand-nav a:hover { color: var(--ink); }
+    .strand-nav .active { color: var(--ink); }
+    .strand-nav .sep { color: var(--border); }
+    header { border-bottom: 2px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .eyebrow { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
     h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
-    .lede { font-size: 0.92rem; line-height: 1.75; color: #555; margin-bottom: 2rem; }
+    .lede { font-size: 0.92rem; line-height: 1.75; color: var(--muted); margin-bottom: 2rem; }
     .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid #1a1a1a; background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: #1a1a1a; }
-    .band-btn.active { background: #1a1a1a; color: #fff; }
-    .band-prompt { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 2rem; }
-    .band-note { font-size: 0.82rem; color: #bbb; font-style: italic; margin-bottom: 2rem; }
+    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--ink); background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: var(--ink); }
+    .band-btn.active { background: var(--ink); color: var(--ground); }
+    .band-prompt { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 2rem; }
+    .band-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 2rem; opacity: 0.7; }
     .strand-section { margin-bottom: 3rem; }
-    .strand-header { border-top: 2px solid #1a1a1a; padding-top: 0.6rem; margin-bottom: 1rem; }
-    .strand-header-num { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; }
+    .strand-header { border-top: 2px solid var(--ink); padding-top: 0.6rem; margin-bottom: 1rem; }
+    .strand-header-num { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
     .strand-header-name { font-size: 1rem; font-weight: normal; }
-    .concept-row { border-top: 1px solid #eee; padding: 0.85rem 0; }
-    .concept-row:last-child { border-bottom: 1px solid #eee; }
+    .concept-row { border-top: 1px solid var(--rule); padding: 0.85rem 0; }
+    .concept-row:last-child { border-bottom: 1px solid var(--rule); }
     .concept-top { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.25rem; flex-wrap: wrap; }
-    .concept-name { font-size: 0.95rem; color: #1a1a1a; }
+    .concept-name { font-size: 0.95rem; color: var(--ink); }
     a.concept-name { text-decoration: none; }
     a.concept-name:hover { text-decoration: underline; }
-    .tag { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.4rem; border: 1px solid #ddd; color: #999; }
-    .tag-designed { border-color: #bbb; color: #777; }
-    .tag-hub { border-color: #1a1a1a; color: #1a1a1a; }
-    .concept-desc { font-size: 0.82rem; color: #666; margin-bottom: 0.4rem; line-height: 1.55; }
-    .edges { font-size: 0.78rem; color: #999; line-height: 1.7; }
-    .edge-type { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: #bbb; display: inline-block; width: 3.5rem; }
-    .cross { color: #1a1a1a; font-style: italic; }
-    .strategies { font-size: 0.78rem; color: #777; margin-top: 0.35rem; }
-    .strategies strong { font-weight: normal; color: #1a1a1a; }
-    .links-line { font-size: 0.75rem; color: #888; margin-top: 0.25rem; }
-    .links-line a { color: #666; }
-    .bridge-note { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; margin-left: 0.5rem; }
-    .sol-section { border-top: 1px solid #ddd; padding-top: 1.5rem; margin-top: 1rem; }
-    .sol-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
-    .sol-row { border-top: 1px solid #eee; padding: 0.7rem 0; font-size: 0.82rem; }
-    .sol-row:last-child { border-bottom: 1px solid #eee; }
-    .sol-name { color: #1a1a1a; }
+    .tag { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.4rem; border: 1px solid var(--border); color: var(--muted); }
+    .tag-designed { border-color: var(--border); color: var(--muted); }
+    .tag-hub { border-color: var(--ink); color: var(--ink); }
+    .concept-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.55; }
+    .edges { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
+    .edge-type { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); opacity: 0.6; display: inline-block; width: 3.5rem; }
+    .cross { color: var(--ink); font-style: italic; }
+    .strategies { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; }
+    .strategies strong { font-weight: normal; color: var(--ink); }
+    .links-line { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+    .links-line a { color: var(--muted); }
+    .bridge-note { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-left: 0.5rem; }
+    .sol-section { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; }
+    .sol-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .sol-row { border-top: 1px solid var(--rule); padding: 0.7rem 0; font-size: 0.82rem; }
+    .sol-row:last-child { border-bottom: 1px solid var(--rule); }
+    .sol-name { color: var(--ink); }
     a.sol-name { text-decoration: none; }
     a.sol-name:hover { text-decoration: underline; }
-    .sol-note { color: #777; font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.55; }
-    footer { border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: #999; }
+    .sol-note { color: var(--muted); font-size: 0.78rem; margin-top: 0.15rem; line-height: 1.55; }
+    footer { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: var(--muted); }
     @media (max-width: 560px) { body { padding: 1.5rem 1rem 3rem; } h1 { font-size: 1.4rem; } .edge-type { width: 2.75rem; } }
   </style>
 </head>
@@ -179,7 +200,7 @@
 
     <div class="concept-row">
       <div class="concept-top"><a class="concept-name" href="concepts/physical-space.html">Physical Space</a><span class="tag tag-designed">designed</span></div>
-      <p class="concept-desc">The room's arrangement as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</p>
+      <p class="concept-desc">The room’s arrangement as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</p>
       <div class="edges">
         <div><span class="edge-type">requires</span> —</div>
         <div><span class="edge-type">unlocks</span> transitions · routines · <span class="cross">belonging (→5.3)</span> · <span class="cross">engagement (→5.1)</span></div>
@@ -197,7 +218,7 @@
         <div><span class="edge-type">unlocks</span> transitions · working memory (SoL) · <span class="cross">belonging (→5.3)</span></div>
         <div><span class="edge-type">next to</span> physical space</div>
       </div>
-      <div class="strategies"><strong>Post What You'd Otherwise Repeat</strong></div>
+      <div class="strategies"><strong>Post What You’d Otherwise Repeat</strong></div>
       <div class="links-line"><a href="https://www.edutopia.org/article/making-most-visual-aids/">Student-created visual aids</a></div>
     </div>
   </div>
@@ -248,7 +269,7 @@
     <p class="sol-label">Science of Learning — supporting nodes</p>
     <div class="sol-row">
       <a class="sol-name" href="concepts/cognitive-load.html">Cognitive Load</a>
-      <p class="sol-note">The mind's workspace is limited; extraneous load crowds out the germane load that is the actual learning. Linked from: transitions, routines, expectations &amp; norms.</p>
+      <p class="sol-note">The mind’s workspace is limited; extraneous load crowds out the germane load that is the actual learning. Linked from: transitions, routines, expectations &amp; norms.</p>
     </div>
     <div class="sol-row">
       <a class="sol-name" href="concepts/working-memory.html">Working Memory</a>

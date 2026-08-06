@@ -3,28 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Browse — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #1E1B16;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] { --ground: #1E1B16; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14); }
+    :root[data-theme="light"] { --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15); }
     body {
       font-family: Georgia, 'Times New Roman', serif;
       max-width: 720px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
-      color: #1a1a1a;
-      background: #ffffff;
+      color: var(--ink);
+      background: var(--ground);
       line-height: 1.8;
     }
     .back-link {
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #999;
+      color: var(--muted);
       text-decoration: none;
       display: inline-block;
       margin-bottom: 2.5rem;
     }
-    .back-link:hover { color: #555; }
+    .back-link:hover { color: var(--ink); }
     h1 {
       font-size: 2rem;
       font-weight: normal;
@@ -33,34 +52,27 @@
     }
     .lede {
       font-size: 0.9rem;
-      color: #777;
+      color: var(--muted);
       margin-bottom: 2.5rem;
       line-height: 1.65;
     }
-    .article-list {
-      list-style: none;
-    }
-    .article-list li {
-      border-top: 1px solid #ddd;
-      padding: 1rem 0;
-    }
-    .article-list li:last-child {
-      border-bottom: 1px solid #ddd;
-    }
+    .article-list { list-style: none; }
+    .article-list li { border-top: 1px solid var(--border); padding: 1rem 0; }
+    .article-list li:last-child { border-bottom: 1px solid var(--border); }
     .article-list a {
       font-size: 1rem;
-      color: #1a1a1a;
+      color: var(--ink);
       text-decoration: none;
       display: block;
       line-height: 1.4;
     }
     .article-list a:hover { text-decoration: underline; }
     footer {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid var(--border);
       padding-top: 1rem;
       margin-top: 3rem;
       font-size: 0.78rem;
-      color: #999;
+      color: var(--muted);
     }
     @media (max-width: 560px) {
       body { padding: 2rem 1rem 4rem; }
