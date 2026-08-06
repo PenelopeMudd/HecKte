@@ -6,41 +6,65 @@
   <title>5.3 Culture &amp; Belonging — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: #1a1a1a; background: #ffffff; line-height: 1.8; }
-    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; flex-wrap: wrap; align-items: center; }
-    .strand-nav a { color: #999; text-decoration: none; }
-    .strand-nav a:hover { color: #555; }
-    .strand-nav .active { color: #1a1a1a; }
-    .strand-nav .sep { color: #ddd; }
-    header { border-bottom: 2px solid #1a1a1a; padding-bottom: 1.5rem; margin-bottom: 2rem; }
-    .strand-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.5rem; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #0E1E26;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] {
+      --ground: #0E1E26; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14);
+    }
+    :root[data-theme="light"] {
+      --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15);
+    }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: var(--ink); background: var(--ground); line-height: 1.8; }
+    .strand-nav { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); flex-wrap: wrap; align-items: center; }
+    .strand-nav a { color: var(--muted); text-decoration: none; }
+    .strand-nav a:hover { color: var(--ink); }
+    .strand-nav .active { color: var(--ink); }
+    .strand-nav .sep { color: var(--border); }
+    header { border-bottom: 2px solid var(--ink); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .strand-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
     h1 { font-size: 1.75rem; font-weight: normal; line-height: 1.3; }
-    .lede { font-size: 1rem; line-height: 1.75; color: #444; margin-bottom: 2rem; }
-    .section-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
+    .lede { font-size: 1rem; line-height: 1.75; color: var(--muted); margin-bottom: 2rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
     .band-picker { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid #1a1a1a; background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: #1a1a1a; }
-    .band-btn.active { background: #1a1a1a; color: #fff; }
-    .band-prompt { font-size: 0.82rem; color: #999; margin-bottom: 2rem; font-style: italic; }
-    .band-content { border-left: 3px solid #eee; padding-left: 1.25rem; margin-bottom: 2.5rem; }
-    .band-framing { font-size: 0.82rem; color: #999; font-style: italic; margin-bottom: 0.9rem; }
-    .band-intro { font-size: 0.88rem; line-height: 1.75; color: #444; }
+    .band-btn { font-family: Georgia, 'Times New Roman', serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--ink); background: none; padding: 0.4rem 0.9rem; cursor: pointer; color: var(--ink); }
+    .band-btn.active { background: var(--ink); color: var(--ground); }
+    .band-prompt { font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; font-style: italic; }
+    .band-content { border-left: 3px solid var(--border); padding-left: 1.25rem; margin-bottom: 2.5rem; }
+    .band-framing { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.9rem; }
+    .band-intro { font-size: 0.88rem; line-height: 1.75; color: var(--muted); }
     .concept-list { list-style: none; margin-bottom: 2.5rem; }
-    .concept-list li { border-top: 1px solid #ddd; padding: 0.9rem 0; }
-    .concept-list li:last-child { border-bottom: 1px solid #ddd; }
-    .concept-name { font-size: 0.95rem; color: #1a1a1a; display: block; }
-    .concept-desc { font-size: 0.82rem; color: #777; margin-top: 0.2rem; line-height: 1.5; display: block; }
-    .strategy-name { font-size: 0.95rem; color: #555; display: block; text-decoration: none; }
-    .strategy-name:hover { color: #1a1a1a; text-decoration: underline; }
-    .foundation-ref { border-top: 1px solid #ddd; padding-top: 1.25rem; margin-top: 0.5rem; font-size: 0.82rem; color: #777; }
-    .foundation-ref a { color: #555; }
-    footer { border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: #999; }
+    .concept-list li { border-top: 1px solid var(--border); padding: 0.9rem 0; }
+    .concept-list li:last-child { border-bottom: 1px solid var(--border); }
+    .concept-name { font-size: 0.95rem; color: var(--ink); display: block; }
+    .concept-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; display: block; }
+    .strategy-name { font-size: 0.95rem; color: var(--muted); display: block; text-decoration: none; }
+    .strategy-name:hover { color: var(--ink); text-decoration: underline; }
+    .foundation-ref { border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted); }
+    .foundation-ref a { color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+    .back-link { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .back-link:hover { color: var(--ink); }
     @media (max-width: 560px) { body { padding: 1.5rem 1rem 3rem; } h1 { font-size: 1.4rem; } }
   </style>
 </head>
 <body>
 
   <nav class="strand-nav">
-    <a href="index.html">SchoolHouse</a>
+    <a href="classroom-management.html">Classroom Management</a>
     <span class="sep">/</span>
     <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a>
     <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a>
@@ -112,7 +136,10 @@
     Level 1 foundation for this strand: <a href="foundations/schoolhouse-foundation-3-restorative-practices.html">Restorative Practices Basics</a>
   </div>
 
-  <footer><p>SchoolHouse · an unreliable translator</p></footer>
+  <footer>
+    <a href="classroom-management.html" class="back-link">&larr; Classroom Management</a>
+    <p>SchoolHouse · an unreliable translator</p>
+  </footer>
 
   <script>
     function selectBand(band) {
