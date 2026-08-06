@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #0E1E26;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] {
+      --ground: #0E1E26;
+      --ink: #E4D9CC;
+      --muted: rgba(228,217,204,0.55);
+      --amber: #D09652;
+      --border: rgba(228,217,204,0.14);
+    }
+    :root[data-theme="light"] {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: var(--ink);
+      background: var(--ground);
+      line-height: 1.8;
+    }
+    .back-link {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: var(--ink); }
+    .eyebrow {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.35rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .standfirst {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+    .door {
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 1.25rem;
+    }
+    .door-title {
+      font-size: 1.05rem;
+      font-weight: normal;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline;
+      line-height: 1.35;
+    }
+    .door-title:hover { text-decoration: underline; }
+    .door-title.disabled {
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .pill {
+      display: inline-block;
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.45rem;
+      margin-left: 0.55rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .factor-list {
+      margin-top: 0.5rem;
+    }
+    .resource-link {
+      display: block;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .resource-link:hover { color: var(--ink); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    @media (max-width: 560px) {
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="../">&larr; SchoolHouse</a>
+
+  <p class="eyebrow">Missouri DESE &middot; Standard 5</p>
+  <h1>Attendance</h1>
+  <p class="standfirst">Attendance is a territory &mdash; a set of conditions, not a single behavior. This room maps what we know, what&rsquo;s emerging, and what remains open.</p>
+
+  <div class="factor-list">
+
+    <div class="door">
+      <span class="door-title disabled">Poverty &amp; Economic Instability</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Housing Instability</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Transportation</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Health Access</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">School Climate</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Chronic Health Conditions</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Family Engagement</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Mental Health</span><span class="pill">Coming</span>
+    </div>
+
+    <div class="door">
+      <span class="door-title disabled">Mobility &amp; Enrollment Instability</span><span class="pill">Coming</span>
+    </div>
+
+  </div>
+
+  <a class="resource-link" href="resources/">&rarr; Attendance Resource Room</a>
+
+  <footer>SchoolHouse &nbsp;&middot;&nbsp; an unreliable translator</footer>
+
+</body>
+</html>

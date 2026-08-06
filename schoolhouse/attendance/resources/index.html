@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Resource Room — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #0E1E26;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] {
+      --ground: #0E1E26;
+      --ink: #E4D9CC;
+      --muted: rgba(228,217,204,0.55);
+      --amber: #D09652;
+      --border: rgba(228,217,204,0.14);
+    }
+    :root[data-theme="light"] {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: var(--ink);
+      background: var(--ground);
+      line-height: 1.8;
+    }
+    .back-link {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: var(--ink); }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .standfirst {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+    .placeholder {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    @media (max-width: 560px) {
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="../">&larr; Attendance</a>
+
+  <h1>Attendance<br>Resource Room</h1>
+  <p class="standfirst">Sources used across Attendance articles. Each claim links here; scope and standing are noted at the point of claim.</p>
+
+  <div class="placeholder">Sources added as articles are built.</div>
+
+  <footer>SchoolHouse &nbsp;&middot;&nbsp; an unreliable translator</footer>
+
+</body>
+</html>
