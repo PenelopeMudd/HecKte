@@ -7,11 +7,34 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --ink: #1a1a1a;
-      --bg: #ffffff;
-      --muted: #777;
-      --rule: #dedede;
-      --label: #999;
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #0E1E26;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] {
+      --ground: #0E1E26;
+      --ink: #E4D9CC;
+      --muted: rgba(228,217,204,0.55);
+      --amber: #D09652;
+      --border: rgba(228,217,204,0.14);
+    }
+    :root[data-theme="light"] {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
     }
     body {
       font-family: Georgia, 'Times New Roman', serif;
@@ -19,23 +42,23 @@
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
       color: var(--ink);
-      background: var(--bg);
+      background: var(--ground);
       line-height: 1.8;
     }
     .room-nav {
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--label);
+      color: var(--muted);
       margin-bottom: 2rem;
     }
-    .room-nav a { color: var(--label); text-decoration: none; }
+    .room-nav a { color: var(--muted); text-decoration: none; }
     .room-nav a:hover { color: var(--ink); }
     .page-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--label);
+      color: var(--muted);
       margin-bottom: 0.5rem;
     }
     h1 {
@@ -51,7 +74,7 @@
       line-height: 1.7;
     }
     .lever {
-      border-left: 3px solid var(--ink);
+      border-left: 3px solid var(--amber);
       padding: .8rem 1.2rem;
       margin: 1.5rem 0 2.5rem;
       font-style: italic;
@@ -64,7 +87,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--label);
+      color: var(--muted);
       margin-bottom: 0;
       font-family: -apple-system, Arial, sans-serif;
     }
@@ -89,7 +112,7 @@
       font-family: -apple-system, Arial, sans-serif;
     }
     .door {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid var(--border);
       padding: 0.9rem 0 1.1rem;
     }
     .door-num {
@@ -97,10 +120,10 @@
       font-size: 0.68rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--label);
+      color: var(--muted);
       margin-bottom: 0.2rem;
     }
-    .door-num .hinge { color: var(--muted); font-weight: 600; }
+    .door-num .hinge { color: var(--amber); font-weight: 600; }
     .door-title {
       font-size: 1.08rem;
       font-weight: normal;
@@ -119,22 +142,30 @@
     .aux-group { margin-top: 2.5rem; }
     .browse-group { margin-top: 2.5rem; }
     footer {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid var(--border);
       padding-top: 1rem;
       margin-top: 3rem;
       font-size: 0.78rem;
-      color: var(--label);
-      font-family: -apple-system, Arial, sans-serif;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--ink); }
     @media (max-width: 560px) {
       body { padding: 2rem 1rem 4rem; }
       h1 { font-size: 1.8rem; }
     }
-    @media (prefers-color-scheme: dark) {
-      :root { --ink: #e2e2e2; --bg: #181818; --muted: #999; --rule: #2e2e2e; --label: #888; }
-    }
-    :root[data-theme="dark"] { --ink: #e2e2e2; --bg: #181818; --muted: #999; --rule: #2e2e2e; --label: #888; }
-    :root[data-theme="light"] { --ink: #1a1a1a; --bg: #ffffff; --muted: #777; --rule: #dedede; --label: #999; }
   </style>
 </head>
 <body>
@@ -239,7 +270,8 @@
   </div>
 
   <footer>
-    <p><a href="./" style="color:var(--label);text-decoration:none;">SchoolHouse</a> &nbsp;&middot;&nbsp; an unreliable translator</p>
+    <a href="./" class="back-link">&larr; SchoolHouse</a>
+    <p>Attendance &nbsp;&middot;&nbsp; an unreliable translator</p>
   </footer>
 
 </body>
