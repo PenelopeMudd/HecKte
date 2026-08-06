@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Glossary — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #1E1B16;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] { --ground: #1E1B16; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14); }
+    :root[data-theme="light"] { --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15); }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: var(--ink);
+      background: var(--ground);
+      line-height: 1.8;
+    }
+    .room-nav {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .room-nav a { color: var(--muted); text-decoration: none; }
+    .room-nav a:hover { color: var(--ink); }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .standfirst {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .tier-block { margin-top: 3rem; }
+    .tier-label {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .tier-name {
+      border-top: 2px solid var(--ink);
+      padding-top: 0.75rem;
+      font-size: 1.05rem;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+    .tier-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .gloss-entry {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem 0;
+    }
+    .gloss-entry:last-child { border-bottom: 1px solid var(--border); }
+    .gloss-term {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .gloss-def {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.35rem;
+    }
+    .gloss-stub {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.35rem;
+    }
+    .gloss-src {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--muted);
+      opacity: 0.75;
+    }
+    .gloss-src a { color: var(--muted); text-decoration: none; }
+    .gloss-src a:hover { color: var(--ink); text-decoration: underline; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: -apple-system, Arial, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--ink); }
+    @media (max-width: 560px) {
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="room-nav"><a href="./">SchoolHouse</a> &rsaquo; Glossary</nav>
+
+  <h1>Glossary</h1>
+  <p class="standfirst">Three tiers: the field’s domain vocabulary, the house’s named strategies, and the house’s own coined terms. Entries marked <span style="font-family:-apple-system,Arial,sans-serif;font-size:0.75em;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);">needs definition</span> are scaffolded — in use throughout the house but not yet formally defined here.</p>
+
+  <!-- TIER 1 -->
+  <div class="tier-block">
+    <p class="tier-label">Tier 1</p>
+    <h2 class="tier-name">Core Concept Terms</h2>
+    <p class="tier-note">Domain vocabulary the research uses. The house treats these as defined atoms; most link to concept pages not yet built — this glossary is where they live until those pages exist.</p>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Attention</div>
+      <p class="gloss-def">Finite and easily captured by whatever is most salient. Protected by clean transitions and low extraneous load.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (Science of Learning layer)</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Behavior &amp; Redirections</div>
+      <p class="gloss-def">What redirection looks like when it works — naming the deed, not the doer; the difference between correction and punishment.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.1) &middot; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Belonging</div>
+      <p class="gloss-def">The belief that one has a place in this room and in this community — precondition for engagement, risk-taking, and the willingness to try again.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.3) &middot; <a href="strand-5-3-culture-belonging.html">5.3 Culture &amp; Belonging</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Cognitive Load</div>
+      <p class="gloss-def">The mind’s workspace is limited; extraneous load crowds out the germane load that is the actual learning. Classroom management, viewed through this lens, is largely extraneous load reduction.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (SoL layer) &middot; <a href="foundations/schoolhouse-foundation-2-science-of-learning.html">Science of Learning Basics</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Engagement</div>
+      <p class="gloss-def">Active investment of attention and effort — what learning requires from a student; not the same as compliance or quiet.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.1) &middot; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Expectations &amp; Norms</div>
+      <p class="gloss-def">Shared agreements that make engagement and culture possible — structural prerequisite for both strands (5.1 and 5.3).</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.1/5.3 bridge)</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Feedback</div>
+      <p class="gloss-def">How information about performance travels back to a student in ways that actually change what they do next. Requires a relationship to land.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.1) &middot; <a href="foundations/schoolhouse-foundation-2-science-of-learning.html">Science of Learning Basics</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Motivation</div>
+      <p class="gloss-def">Internal and external conditions that sustain or suppress engagement over time; mastery, autonomy, and belonging are the levers.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.1)</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Physical Space</div>
+      <p class="gloss-def">The room’s arrangement as a designed condition — where students sit, where materials live, what the walls communicate or compete with.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.2) &middot; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Relationships</div>
+      <p class="gloss-def">The foundational condition — the channel every correction, feedback, and repair has to travel through to land. Built first, not after.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.3 hub) &middot; <a href="strand-5-3-culture-belonging.html">5.3 Culture &amp; Belonging</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Repair</div>
+      <p class="gloss-def">What happens after harm — how a classroom community metabolizes conflict and returns to function without removing the people involved from it.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.3) &middot; <a href="foundations/schoolhouse-foundation-3-restorative-practices.html">Restorative Practices Basics</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Routines</div>
+      <p class="gloss-def">Repeated procedures that become automatic, freeing working memory for the actual learning. The difference between a procedure a class has been taught and one they are still figuring out.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.2) &middot; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Transitions</div>
+      <p class="gloss-def">The movement between activities — predictable transitions reduce extraneous cognitive load; unpredictable ones spend working memory on navigation instead of content.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.2) &middot; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Visual Supports</div>
+      <p class="gloss-def">Environmental anchors that reduce the need to hold information in working memory — schedules, anchor charts, procedure reminders.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (5.2) &middot; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Working Memory</div>
+      <p class="gloss-def">The small, active store where thinking happens. Automaticity from rehearsed routines frees it for complex work. Holds roughly four chunks at a time; fatigues under extraneous load.</p>
+      <p class="gloss-src">&rarr; <a href="concept-map.html">Concept Map</a> (SoL layer) &middot; <a href="foundations/schoolhouse-foundation-2-science-of-learning.html">Science of Learning Basics</a></p>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="tier-block">
+    <p class="tier-label">Tier 2</p>
+    <h2 class="tier-name">Named Strategies</h2>
+    <p class="tier-note">The house’s proper-noun “moves” — distinct enough that a newcomer needs them defined before they can use them.</p>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Co-Created Norms</div>
+      <p class="gloss-def">A class agreement authored with students — where investment replaces compliance.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Design the Room Around the Work</div>
+      <p class="gloss-def">Arranging furniture and materials so the easiest physical action is the one the lesson needs.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Everybody Answers</div>
+      <p class="gloss-def">Structuring questions so every student retrieves before anyone shares aloud.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Greet Students at the Door</div>
+      <p class="gloss-def">Creating a predictable, personal transition from hallway to learning.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Post What You’d Otherwise Repeat</div>
+      <p class="gloss-def">Making visible the information students would otherwise hold in their heads or ask you for.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Precorrection</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use &middot; may source from vault</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Restorative Interactions</div>
+      <p class="gloss-def">Two minutes of non-academic conversation, ten days running — building the relationship before you need it.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-3-culture-belonging.html">5.3 Culture &amp; Belonging</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Teach the Transition</div>
+      <p class="gloss-def">Teaching and rehearsing transitions the way content is taught — so the sequence runs from memory, not narration.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-2-time-space-flow.html">5.2 Time, Space &amp; Flow</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">The Repair Conversation</div>
+      <p class="gloss-def">A structured conversation after harm that keeps the student inside the community that has to keep working.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-3-culture-belonging.html">5.3 Culture &amp; Belonging</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Third Point Feedback</div>
+      <p class="gloss-def">Aiming feedback at the work, not the person, so the student can evaluate without defending themselves.</p>
+      <p class="gloss-src">&rarr; <a href="strand-5-1-behavior-engagement.html">5.1 Behavior &amp; Engagement</a></p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">Two-by-Ten</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use &middot; may overlap with Restorative Interactions &middot; check vault</p>
+    </div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div class="tier-block">
+    <p class="tier-label">Tier 3 &mdash; most needed</p>
+    <h2 class="tier-name">House Architecture</h2>
+    <p class="tier-note">The coined vocabulary of the SchoolHouse system — terms that exist nowhere else. A reader can’t look these up. These stubs need definitions from PhD/Kim or pulled verbatim from existing vault notes where definitions already appear.</p>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">the room</div>
+      <p class="gloss-def">The structural unit of SchoolHouse. Each major topic area is a room with its own frame, its own reading, its own reader. “Start with whichever one is closest to what’s on your mind.”</p>
+      <p class="gloss-src">&rarr; <a href="index.html">SchoolHouse index</a> (standfirst) &middot; in use: 121 times</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">concept row</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use: 79 times</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">factor row</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use: 59 times</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">connect factor / fix factor</div>
+      <p class="gloss-def">The load-bearing distinction in Attendance: a school can connect to a barrier condition — reduce friction, support the transition back — but cannot fix what sits in the household. “You connect; you don’t fix. Agency sits with the household at these bands.”</p>
+      <p class="gloss-src">&rarr; <a href="attendance.html">Attendance hub</a> (barrier half-header)</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">the return</div>
+      <p class="gloss-def">What a student walks back into after an absence — the social, academic, and relational conditions waiting on the other side. “The school owns the return, not the illness.”</p>
+      <p class="gloss-src">&rarr; <a href="attendance/factor-1-physical-health.html">Factor 1: Physical Health</a> &middot; in use: 10 times</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">non-deficit</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use: 5 times &middot; check vault for source</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">the residual</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use: 2 times &middot; check vault for source</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">test-out</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use &middot; check vault for source</p>
+    </div>
+
+    <div class="gloss-entry">
+      <div class="gloss-term">door-not-gate</div>
+      <p class="gloss-stub">needs definition</p>
+      <p class="gloss-src">in use &middot; check vault for source</p>
+    </div>
+  </div>
+
+  <footer>
+    <a href="./" class="back-link">&larr; SchoolHouse</a>
+    <p>Glossary &nbsp;&middot;&nbsp; an unreliable translator</p>
+  </footer>
+
+</body>
+</html>
