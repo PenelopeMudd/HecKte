@@ -6,37 +6,36 @@
   <title>Attendance — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink: #1a1a1a;
+      --bg: #ffffff;
+      --muted: #777;
+      --rule: #dedede;
+      --label: #999;
+    }
     body {
       font-family: Georgia, 'Times New Roman', serif;
       max-width: 720px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
-      color: #1a1a1a;
-      background: #ffffff;
+      color: var(--ink);
+      background: var(--bg);
       line-height: 1.8;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --ink: #e2e2e2; --bg: #181818; --muted: #888; --rule: #2e2e2e; }
-      body { color: var(--ink); background: var(--bg); }
-      .room-nav a { color: #888; }
-      .door-title { color: var(--ink); }
-      .door-title:hover { color: var(--ink); }
-      hr { border-color: var(--rule); }
     }
     .room-nav {
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #999;
+      color: var(--label);
       margin-bottom: 2rem;
     }
-    .room-nav a { color: #999; text-decoration: none; }
-    .room-nav a:hover { color: #555; }
+    .room-nav a { color: var(--label); text-decoration: none; }
+    .room-nav a:hover { color: var(--ink); }
     .page-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #999;
+      color: var(--label);
       margin-bottom: 0.5rem;
     }
     h1 {
@@ -47,31 +46,31 @@
     }
     .standfirst {
       font-size: 1rem;
-      color: #555;
+      color: var(--muted);
       margin-bottom: 2rem;
       line-height: 1.7;
     }
     .lever {
-      border-left: 3px solid #1a1a1a;
+      border-left: 3px solid var(--ink);
       padding: .8rem 1.2rem;
       margin: 1.5rem 0 2.5rem;
       font-style: italic;
       font-size: 1.02rem;
       line-height: 1.65;
-      color: #333;
+      color: var(--ink);
     }
     .lever p + p { margin-top: .6rem; }
     .section-label {
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #bbb;
+      color: var(--label);
       margin-bottom: 0;
       font-family: -apple-system, Arial, sans-serif;
     }
     .half-header {
       margin: 2rem 0 0;
-      border-top: 2px solid #1a1a1a;
+      border-top: 2px solid var(--ink);
       padding-top: 1rem;
     }
     .half-label {
@@ -80,18 +79,17 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 600;
+      color: var(--ink);
       margin-bottom: 0.2rem;
     }
-    .half-label.barriers { color: #444; }
-    .half-label.reasons { color: #1a1a1a; }
     .half-note {
       font-size: 0.82rem;
-      color: #777;
+      color: var(--muted);
       margin-bottom: 1rem;
       font-family: -apple-system, Arial, sans-serif;
     }
     .door {
-      border-top: 1px solid #dedede;
+      border-top: 1px solid var(--rule);
       padding: 0.9rem 0 1.1rem;
     }
     .door-num {
@@ -99,14 +97,14 @@
       font-size: 0.68rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #bbb;
+      color: var(--label);
       margin-bottom: 0.2rem;
     }
-    .door-num .hinge { color: #888; font-weight: 600; }
+    .door-num .hinge { color: var(--muted); font-weight: 600; }
     .door-title {
       font-size: 1.08rem;
       font-weight: normal;
-      color: #1a1a1a;
+      color: var(--ink);
       text-decoration: none;
       display: block;
       line-height: 1.35;
@@ -114,24 +112,29 @@
     .door-title:hover { text-decoration: underline; }
     .door-desc {
       font-size: 0.85rem;
-      color: #777;
+      color: var(--muted);
       margin-top: 0.3rem;
       line-height: 1.6;
     }
     .aux-group { margin-top: 2.5rem; }
     .browse-group { margin-top: 2.5rem; }
     footer {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid var(--rule);
       padding-top: 1rem;
       margin-top: 3rem;
       font-size: 0.78rem;
-      color: #999;
+      color: var(--label);
       font-family: -apple-system, Arial, sans-serif;
     }
     @media (max-width: 560px) {
       body { padding: 2rem 1rem 4rem; }
       h1 { font-size: 1.8rem; }
     }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #e2e2e2; --bg: #181818; --muted: #999; --rule: #2e2e2e; --label: #888; }
+    }
+    :root[data-theme="dark"] { --ink: #e2e2e2; --bg: #181818; --muted: #999; --rule: #2e2e2e; --label: #888; }
+    :root[data-theme="light"] { --ink: #1a1a1a; --bg: #ffffff; --muted: #777; --rule: #dedede; --label: #999; }
   </style>
 </head>
 <body>
@@ -148,7 +151,7 @@
   </blockquote>
 
   <div class="half-header">
-    <p class="half-label barriers">Barriers &mdash; whether attendance is possible</p>
+    <p class="half-label">Barriers &mdash; whether attendance is possible</p>
     <p class="half-note">You connect; you don&rsquo;t fix. Agency sits with the household at these bands.</p>
   </div>
 
@@ -183,7 +186,7 @@
   </div>
 
   <div class="half-header" style="margin-top:2.5rem">
-    <p class="half-label reasons">Reasons &mdash; whether attendance is chosen</p>
+    <p class="half-label">Reasons &mdash; whether attendance is chosen</p>
     <p class="half-note">This is your zone. Agency moves toward the student across these bands.</p>
   </div>
 
@@ -236,7 +239,7 @@
   </div>
 
   <footer>
-    <p><a href="./" style="color:#999;text-decoration:none;">SchoolHouse</a> &nbsp;&middot;&nbsp; an unreliable translator</p>
+    <p><a href="./" style="color:var(--label);text-decoration:none;">SchoolHouse</a> &nbsp;&middot;&nbsp; an unreliable translator</p>
   </footer>
 
 </body>
