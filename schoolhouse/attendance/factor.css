@@ -1,8 +1,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1a1a1a;--bg:#fff;--muted:#666;--rule:#dedede;--chip-bg:#f5f5f5}
-@media(prefers-color-scheme:dark){:root{--ink:#e2e2e2;--bg:#181818;--muted:#888;--rule:#2e2e2e;--chip-bg:#222}}
-:root[data-theme=dark]{--ink:#e2e2e2;--bg:#181818;--muted:#888;--rule:#2e2e2e;--chip-bg:#222}
-:root[data-theme=light]{--ink:#1a1a1a;--bg:#fff;--muted:#666;--rule:#dedede;--chip-bg:#f5f5f5}
+:root{--ink:#1B3A4B;--bg:#F5F0E8;--muted:rgba(27,58,75,0.55);--rule:rgba(27,58,75,0.15);--chip-bg:rgba(27,58,75,0.05);--amber:#C4883A}
+@media(prefers-color-scheme:dark){:root{--ink:#E4D9CC;--bg:#0E1E26;--muted:rgba(228,217,204,0.55);--rule:rgba(228,217,204,0.14);--chip-bg:rgba(228,217,204,0.05);--amber:#D09652}}
+:root[data-theme=dark]{--ink:#E4D9CC;--bg:#0E1E26;--muted:rgba(228,217,204,0.55);--rule:rgba(228,217,204,0.14);--chip-bg:rgba(228,217,204,0.05);--amber:#D09652}
+:root[data-theme=light]{--ink:#1B3A4B;--bg:#F5F0E8;--muted:rgba(27,58,75,0.55);--rule:rgba(27,58,75,0.15);--chip-bg:rgba(27,58,75,0.05);--amber:#C4883A}
 body{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.7;color:var(--ink);background:var(--bg);max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
 a{color:var(--ink)}
 .strand-nav{font-family:-apple-system,Arial,sans-serif;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
@@ -20,7 +20,7 @@ li{margin-bottom:.4rem;line-height:1.65}
 .agency-table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.9rem;overflow-x:auto;display:table}
 .agency-table td{padding:.55rem .75rem;vertical-align:top;border-top:1px solid var(--rule);line-height:1.6}
 .agency-table td:first-child{font-family:-apple-system,Arial,sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:6rem;white-space:nowrap;padding-right:1rem}
-.boundary-box{border-left:4px solid var(--ink);background:var(--chip-bg);padding:1.2rem 1.4rem;margin:2.5rem 0;font-style:italic;line-height:1.65;font-size:1.05rem}
+.boundary-box{border-left:4px solid var(--amber);background:var(--chip-bg);padding:1.2rem 1.4rem;margin:2.5rem 0;font-style:italic;line-height:1.65;font-size:1.05rem}
 .boundary-box p+p{margin-top:.9rem}
 .boundary-box strong{font-style:normal}
 .boundary-note{font-family:-apple-system,Arial,sans-serif;font-size:.85rem;font-style:normal;color:var(--ink);margin-top:1rem;line-height:1.5}
