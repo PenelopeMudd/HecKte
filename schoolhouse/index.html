@@ -101,7 +101,21 @@
       margin-top: 3rem;
       font-size: 0.78rem;
       color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--ink); }
     @media (max-width: 560px) {
       body { padding: 2rem 1rem 4rem; }
       h1 { font-size: 1.8rem; }
@@ -135,6 +149,7 @@
   </div>
 
   <footer>
+    <a href="https://penelopemudd.github.io/unreliable-translator/" class="back-link">&larr; An Unreliable Translator</a>
     <p>SchoolHouse &nbsp;&middot;&nbsp; an unreliable translator</p>
   </footer>
 
