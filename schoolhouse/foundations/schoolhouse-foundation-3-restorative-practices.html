@@ -115,7 +115,21 @@
       margin-top: 3rem;
       font-size: 0.8rem;
       color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--ink); }
     @media (max-width: 560px) {
       body { padding: 1.5rem 1rem 3rem; }
       h1 { font-size: 1.4rem; }
@@ -182,6 +196,7 @@
   </div>
 
   <footer>
+    <a href="../index.html" class="back-link">&larr; SchoolHouse</a>
     <p>SchoolHouse Foundations · an unreliable translator</p>
   </footer>
 
