@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #e2e2e2; --bg: #181818; --muted: #888; --rule: #2e2e2e; }
+      body { color: var(--ink); background: var(--bg); }
+      .room-nav a { color: #888; }
+      .door-title { color: var(--ink); }
+      .door-title:hover { color: var(--ink); }
+      hr { border-color: var(--rule); }
+    }
+    .room-nav {
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 2rem;
+    }
+    .room-nav a { color: #999; text-decoration: none; }
+    .room-nav a:hover { color: #555; }
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .standfirst {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .lever {
+      border-left: 3px solid #1a1a1a;
+      padding: .8rem 1.2rem;
+      margin: 1.5rem 0 2.5rem;
+      font-style: italic;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: #333;
+    }
+    .lever p + p { margin-top: .6rem; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 0;
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    .half-header {
+      margin: 2rem 0 0;
+      border-top: 2px solid #1a1a1a;
+      padding-top: 1rem;
+    }
+    .half-label {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .half-label.barriers { color: #444; }
+    .half-label.reasons { color: #1a1a1a; }
+    .half-note {
+      font-size: 0.82rem;
+      color: #777;
+      margin-bottom: 1rem;
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    .door {
+      border-top: 1px solid #dedede;
+      padding: 0.9rem 0 1.1rem;
+    }
+    .door-num {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 0.2rem;
+    }
+    .door-num .hinge { color: #888; font-weight: 600; }
+    .door-title {
+      font-size: 1.08rem;
+      font-weight: normal;
+      color: #1a1a1a;
+      text-decoration: none;
+      display: block;
+      line-height: 1.35;
+    }
+    .door-title:hover { text-decoration: underline; }
+    .door-desc {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.3rem;
+      line-height: 1.6;
+    }
+    .aux-group { margin-top: 2.5rem; }
+    .browse-group { margin-top: 2.5rem; }
+    footer {
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: #999;
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    @media (max-width: 560px) {
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="room-nav"><a href="./">SchoolHouse</a> &rsaquo; Attendance</nav>
+
+  <p class="page-eyebrow">The second room</p>
+  <h1>Attendance</h1>
+  <p class="standfirst">Attendance is the systemic requirement. Absenteeism is the absence of that quality. The lack belongs to the requirement, not to the child &mdash; and the school requires something it cannot produce. Nine factors, ordered by what a school can actually do.</p>
+
+  <blockquote class="lever">
+    <p>The school cannot move the child&rsquo;s house. But it can redesign the friction between the house and the classroom.</p>
+    <p>We don&rsquo;t own the geography. We do own part of the journey.</p>
+  </blockquote>
+
+  <div class="half-header">
+    <p class="half-label barriers">Barriers &mdash; whether attendance is possible</p>
+    <p class="half-note">You connect; you don&rsquo;t fix. Agency sits with the household at these bands.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 1</p>
+    <a class="door-title" href="attendance/factor-1-physical-health.html">Physical Health</a>
+    <p class="door-desc">Is the body able to be here today &mdash; and what happens when it wasn&rsquo;t? The school owns the return, not the illness.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 2</p>
+    <a class="door-title" href="attendance/factor-2-transportation-access.html">Transportation &amp; Access</a>
+    <p class="door-desc">Can the student physically get here? The room&rsquo;s metaphor made literal &mdash; the strongest Redesign column of the barriers.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 3</p>
+    <a class="door-title" href="attendance/factor-3-basic-needs.html">Basic Needs &amp; Economic Stability</a>
+    <p class="door-desc">Is the material floor under this student steady enough for a school day to sit on top of it? The largest factor; the thinnest Redesign column.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 4</p>
+    <a class="door-title" href="attendance/factor-4-family-capacity.html">Family Capacity &amp; Caregiving</a>
+    <p class="door-desc">Does the household have the bandwidth to execute a school morning? The agreement is with an adult the school may never have met.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num"><span class="hinge">Factor 5 &mdash; the hinge</span></p>
+    <a class="door-title" href="attendance/factor-5-mental-behavioral-health.html">Mental &amp; Behavioral Health</a>
+    <p class="door-desc">Can the student tolerate being here? Where barrier turns into experience, and where the building itself is a variable.</p>
+  </div>
+
+  <div class="half-header" style="margin-top:2.5rem">
+    <p class="half-label reasons">Reasons &mdash; whether attendance is chosen</p>
+    <p class="half-note">This is your zone. Agency moves toward the student across these bands.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 6</p>
+    <a class="door-title" href="attendance/factor-6-school-climate-safety.html">School Climate &amp; Safety</a>
+    <p class="door-desc">What is it like to be here, and does being here cost anything? The first factor whose answer is authored almost entirely inside the walls.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 7</p>
+    <a class="door-title" href="attendance/factor-7-relationships-belonging.html">Relationships &amp; Belonging</a>
+    <p class="door-desc">Is there anyone here who would notice they were gone? The lever &mdash; the factor a school-based relationship-holder can actually move.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 8</p>
+    <a class="door-title" href="attendance/factor-8-academic-experience.html">Academic Experience</a>
+    <p class="door-desc">Is the work survivable, and is it worth doing? The factor that compounds: absence makes work harder; harder work makes returning more expensive.</p>
+  </div>
+
+  <div class="door">
+    <p class="door-num">Factor 9</p>
+    <a class="door-title" href="attendance/factor-9-meaning-identity-value.html">Meaning, Identity &amp; Value</a>
+    <p class="door-desc">Why is this school worth attending? This room&rsquo;s Missing Measure &mdash; least studied in the literature, most within school design.</p>
+  </div>
+
+  <div class="aux-group">
+    <p class="section-label">This room reads through</p>
+    <div class="door">
+      <a class="door-title" href="attendance/restorative-practices-basics.html">Restorative Practices</a>
+      <p class="door-desc">Absence as a lapsed agreement, not a violation. The lens inherited from the Classroom Management room &mdash; what it explains and where it stops.</p>
+    </div>
+  </div>
+
+  <div class="browse-group">
+    <p class="section-label">Foundation</p>
+    <div class="door">
+      <a class="door-title" href="attendance/what-this-room-means-by-attendance.html">What This Room Means by Attendance</a>
+      <p class="door-desc">The working definition &mdash; presence versus participation, how Missouri measures it, and why nine disciplines all point away from the building.</p>
+    </div>
+    <div class="door">
+      <a class="door-title" href="attendance/what-this-room-assumes.html">What This Room Assumes</a>
+      <p class="door-desc">What each claim rests on, said at the strength it actually has. The three-level evidence scheme used across all nine factor pages.</p>
+    </div>
+    <div class="door">
+      <a class="door-title" href="attendance/the-iteration-of-nine.html">The Iteration of Nine</a>
+      <p class="door-desc">Nine factors against nine disciplines. The empty bottom-right corner is the argument.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="./" style="color:#999;text-decoration:none;">SchoolHouse</a> &nbsp;&middot;&nbsp; an unreliable translator</p>
+  </footer>
+
+</body>
+</html>
