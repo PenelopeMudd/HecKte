@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — SchoolHouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ground: #0E1E26;
+        --ink: #E4D9CC;
+        --muted: rgba(228,217,204,0.55);
+        --amber: #D09652;
+        --border: rgba(228,217,204,0.14);
+      }
+    }
+    :root[data-theme="dark"] {
+      --ground: #0E1E26;
+      --ink: #E4D9CC;
+      --muted: rgba(228,217,204,0.55);
+      --amber: #D09652;
+      --border: rgba(228,217,204,0.14);
+    }
+    :root[data-theme="light"] {
+      --ground: #F5F0E8;
+      --ink: #1B3A4B;
+      --muted: rgba(27,58,75,0.55);
+      --amber: #C4883A;
+      --border: rgba(27,58,75,0.15);
+    }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      color: var(--ink);
+      background: var(--ground);
+      line-height: 1.8;
+    }
+    .room-nav {
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-family: -apple-system, Arial, sans-serif;
+    }
+    .room-nav a { color: var(--muted); text-decoration: none; }
+    .room-nav a:hover { color: var(--ink); }
+    .page-eyebrow {
+      font-family: -apple-system, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+    }
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    a { color: var(--ink); }
+    a:hover { color: var(--amber); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: -apple-system, Arial, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--ink); }
+    @media (max-width: 560px) {
+      body { padding: 2rem 1rem 4rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="room-nav"><a href="./">SchoolHouse</a> &rsaquo; About</nav>
+
+  <p class="page-eyebrow">The researcher</p>
+  <h1>Kim Starkey, Ph.D.</h1>
+
+  <p>The researcher, Kim Starkey, Ph.D., who despises referring to herself in the third person but respects the convention, is a translational educational researcher who works at the intersection of learning science, restorative practice, human-centered design, and systems thinking. Her work focuses on helping educators make research more usable&mdash;and helping researchers better understand the realities of classrooms.</p>
+
+  <p>Her writing is at <a href="https://penelopemudd.github.io/unreliable-translator/">An Unreliable Translator</a>.</p>
+
+  <footer>
+    <a href="./" class="back-link">&larr; SchoolHouse</a>
+    <p>SchoolHouse &nbsp;&middot;&nbsp; an unreliable translator</p>
+  </footer>
+
+</body>
+</html>
