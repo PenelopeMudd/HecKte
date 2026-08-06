@@ -33,11 +33,14 @@ li{margin-bottom:.4rem;line-height:1.65}
 .label-d{font-family:-apple-system,Arial,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#2a6b2a}
 .label-r{font-family:-apple-system,Arial,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#8a5a00}
 .label-p{font-family:-apple-system,Arial,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-@media(prefers-color-scheme:dark){.label-d{color:#7bc87b}.label-r{color:#c8a060}}
+.label-u{font-family:-apple-system,Arial,sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#8a3800}
+@media(prefers-color-scheme:dark){.label-d{color:#7bc87b}.label-r{color:#c8a060}.label-u{color:#d4865a}}
 :root[data-theme=dark] .label-d{color:#7bc87b}
 :root[data-theme=dark] .label-r{color:#c8a060}
+:root[data-theme=dark] .label-u{color:#d4865a}
 :root[data-theme=light] .label-d{color:#2a6b2a}
 :root[data-theme=light] .label-r{color:#8a5a00}
+:root[data-theme=light] .label-u{color:#8a3800}
 .honest-limit{border-left:2px solid var(--rule);padding:.5rem 0 .5rem 1rem;color:var(--muted);font-size:.9rem;margin:1rem 0;line-height:1.6}
 .connected-links{font-family:-apple-system,Arial,sans-serif;font-size:.88rem;color:var(--muted)}
 .connected-links a{color:var(--muted);text-decoration:none}
