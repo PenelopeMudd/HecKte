@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Growth vs. Fixed Mindset Basics — SchoolHouse Foundations</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Growth Mindset — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -15,7 +16,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --ground: #0E1E26;
+        --ground: #1E1B16;
         --ink: #E4D9CC;
         --muted: rgba(228,217,204,0.55);
         --amber: #D09652;
@@ -23,187 +24,81 @@
       }
     }
     :root[data-theme="dark"] {
-      --ground: #0E1E26;
-      --ink: #E4D9CC;
-      --muted: rgba(228,217,204,0.55);
-      --amber: #D09652;
-      --border: rgba(228,217,204,0.14);
+      --ground: #1E1B16; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14);
     }
     :root[data-theme="light"] {
-      --ground: #F5F0E8;
-      --ink: #1B3A4B;
-      --muted: rgba(27,58,75,0.55);
-      --amber: #C4883A;
-      --border: rgba(27,58,75,0.15);
+      --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15);
     }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-      color: var(--ink);
-      background: var(--ground);
-      line-height: 1.8;
-    }
-    .foundations-nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-    .foundations-nav .active { color: var(--ink); }
-    .foundations-nav a { color: var(--muted); text-decoration: none; }
-    .foundations-nav a:hover { color: var(--ink); }
-    header {
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .series-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      font-size: 1.75rem;
-      font-weight: normal;
-      line-height: 1.3;
-    }
-    .meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.03em;
-    }
-    h2 {
-      font-size: 0.8rem;
-      font-weight: normal;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 2.5rem 0 0.75rem;
-    }
-    p { margin-bottom: 1.4em; }
-    .pull-quote {
-      border-left: 3px solid var(--amber);
-      margin: 2.5rem 0;
-      padding: 0 0 0 1.25rem;
-    }
-    .pull-quote blockquote {
-      font-style: italic;
-      font-size: 1.05rem;
-      margin: 0;
-      line-height: 1.7;
-    }
-    .ref-link {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      margin-top: 2.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .back-link {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 680px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; color: var(--ink); background: var(--ground); line-height: 1.85; }
+    .article-nav { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .article-nav a { color: var(--muted); text-decoration: none; }
+    .article-nav a:hover { color: var(--ink); }
+    .article-eyebrow { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
+    h1 { font-size: 1.9rem; font-weight: normal; line-height: 1.25; margin-bottom: 0.6rem; }
+    .article-standfirst { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; }
+    h2 { font-size: 1.05rem; font-weight: 600; margin: 2.25rem 0 0.75rem; }
+    p { margin-bottom: 1.1rem; font-size: 0.97rem; line-height: 1.85; }
+    blockquote { border-left: 3px solid var(--amber); padding-left: 1.2rem; margin: 1.5rem 0; font-style: italic; color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
+    .article-rule { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .concept-row { display: flex; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--border); }
+    .concept-row:last-child { border-bottom: 1px solid var(--border); }
+    .concept-term { font-size: 0.88rem; font-weight: 600; color: var(--ink); min-width: 160px; flex-shrink: 0; }
+    .concept-def { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .aside-box { background: rgba(27,58,75,0.04); border: 1px solid var(--border); padding: 1.1rem 1.3rem; margin: 1.5rem 0; font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
+    @media (prefers-color-scheme: dark) { .aside-box { background: rgba(228,217,204,0.04); } }
+    :root[data-theme="dark"] .aside-box { background: rgba(228,217,204,0.04); }
+    :root[data-theme="light"] .aside-box { background: rgba(27,58,75,0.04); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.9rem; display: block; }
+    footer { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+    .back-link { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
-    @media (max-width: 560px) {
-      body { padding: 1.5rem 1rem 3rem; }
-      h1 { font-size: 1.4rem; }
-      .foundations-nav { gap: 1rem; }
-    }
+    @media (max-width: 560px) { body { padding: 2rem 1rem 4rem; } h1 { font-size: 1.5rem; } .concept-row { flex-direction: column; gap: 0.25rem; } .concept-term { min-width: auto; } }
   </style>
 </head>
 <body>
 
-  <nav class="foundations-nav">
-    <a href="schoolhouse-foundation-1-classroom-management.html">Classroom Management</a>
-    <a href="schoolhouse-foundation-2-science-of-learning.html">Science of Learning</a>
-    <a href="schoolhouse-foundation-3-restorative-practices.html">Restorative Practices</a>
-    <span class="active">Growth Mindset</span>
-  </nav>
+  <nav class="article-nav"><a href="../classroom-management.html">Classroom Management</a> &rsaquo; <a href="index.html">Browse</a> &rsaquo; Growth Mindset</nav>
 
-  <header>
-    <p class="series-label">SchoolHouse Foundations · Level 1</p>
-    <h1>Growth vs. Fixed Mindset Basics</h1>
-  </header>
+  <p class="article-eyebrow">Level 1 Foundation</p>
+  <h1>Growth Mindset</h1>
+  <p class="article-standfirst">What the research actually says about ability beliefs — and the gap between the research and most classroom applications of it.</p>
 
-  <p class="meta">The stance underneath every strand · Practitioner draft · July 2026</p>
+  <hr class="article-rule">
 
-  <h2>Why you need this before any strand lands</h2>
+  <h2>The core finding</h2>
+  <p>Carol Dweck’s research on implicit theories of intelligence distinguishes two belief systems: a <em>fixed mindset</em> (intelligence is a stable trait you either have or don’t) and a <em>growth mindset</em> (intelligence develops through effort and learning). The finding: students who hold a growth mindset show more resilience after failure, take on harder challenges, and perform better over time — particularly in domains they find difficult.</p>
+  <blockquote>“In a fixed mindset, students believe their basic qualities, like their intelligence or talent, are simply fixed traits. In a growth mindset, students understand that their abilities can be developed.”<br><span style="font-size:0.82rem;font-style:normal;">Dweck, 2006</span></blockquote>
 
-  <p>This one doesn't belong to a single quality indicator the way Science of Learning belongs to 5.1/5.2 or Restorative Practices belongs to 5.3. It belongs underneath all of them, because it answers a prior question: what do you believe is true about whether a given student can change? Every practice in this system — a redirection, a repair conversation, a retry after a failed attempt — only works if the adult running it believes the student in front of them is capable of being different tomorrow than they are today. Skip this belief, and the strands turn into technique performed over a fixed judgment, which students can feel.</p>
+  <hr class="article-rule">
 
-  <h2>The distinction, plainly</h2>
+  <h2>What the research supports</h2>
+  <p>The finding that is most robustly replicated: feedback that is process-focused (“you tried a different approach when the first one didn’t work”) tends to produce more persistence after setbacks than feedback that is person-focused (“you’re so smart”). Person-focused praise can backfire when students hit difficulty — if success means you’re smart, struggle means you’re not.</p>
+  <p>The finding that is more contested: whether growth mindset <em>interventions</em> — teaching students about neuroplasticity, having them read about famous people who struggled — reliably improve academic outcomes. The replication record is mixed.</p>
 
-  <p>Carol Dweck's research (2006 and after) describes two implicit beliefs people hold about ability — intelligence, character, "being good at" something — and shows that which belief a person holds changes how they respond to difficulty and failure.</p>
+  <hr class="article-rule">
 
-  <p>A fixed mindset treats ability as a fixed quantity you either have or don't. Under this belief, a mistake or a struggle is diagnostic — it reveals how much of the fixed quantity you actually have, which makes failure something to avoid proving, not something to learn from. Difficulty gets read as a threat to identity, not as normal terrain.</p>
-
-  <p>A growth mindset treats ability as something that develops through effort, strategy, and feedback. Under this belief, a mistake is information, not a verdict. Difficulty is the site where the ability is actually built, not a place where a fixed level gets exposed.</p>
-
-  <p>The practical difference shows up first in how a person responds to being wrong: fixed-mindset framing makes being wrong dangerous, so people avoid the situations most likely to produce learning. Growth-mindset framing makes being wrong survivable, even useful, so people stay in those situations long enough to learn from them.</p>
-
-  <h2>Why this is the stance, not just a topic</h2>
-
-  <p>Two things follow directly from that distinction, and both are load-bearing for everything else in this system:</p>
-
-  <p>Being-wrong-survivable is a precondition for retrieval practice, effortful struggle, and real feedback — all core Science of Learning moves. A student operating from fixed-mindset threat will avoid the very difficulty that produces durable learning, because the risk to identity outweighs the learning gain. You cannot get a class to do effortful, error-prone practice while simultaneously treating every error as evidence of what they lack.</p>
-
-  <p>Repair, not exclusion, only makes sense if you believe capacity for change is real. Restorative practice is a bet that a student who caused harm can be part of building the repair — which is a growth-mindset claim about the person, not just a technique for handling the incident. A teacher who privately holds a fixed view of a particular student ("he's just like that") will find restorative process feels performative, because the belief underneath it isn't actually held. The strand doesn't fail because the technique is wrong. It fails because the stance contradicts it.</p>
-
-  <p>Belonging depends on this too: a student can tell, over time, whether an adult believes they're capable of being other than what they've already shown. That belief — held or not held — is legible to kids well before it's ever spoken.</p>
-
-  <h2>The honest caveats</h2>
-
-  <p>This is worth being precise about, because "growth mindset" has been oversold in ways Dweck herself has pushed back on.</p>
-
-  <p>Simple praise-based interventions ("just tell kids to have a growth mindset," or praise effort generically) show small and inconsistent effects in later, larger studies and meta-analyses — the idea got compressed into a slogan faster than the evidence supported. Dweck has explicitly named a "false growth mindset": praising effort that didn't actually produce progress, or treating "growth mindset" as a mood to induce rather than a structural response to difficulty (better strategies, better feedback, more accurate information about where a student actually is). Telling a struggling student "you can do anything if you try" without changing the strategy or the support around them is not the intervention — it's the caricature of it.</p>
-
-  <p>What holds up better: the belief is more powerful as a stance the adult holds about the student's capacity than as a message delivered directly to the student. A teacher's own beliefs about whether a given kid can improve shape the opportunities, feedback, and patience that kid actually receives — which is closer to an expectancy effect than a motivational slogan, and it's the more defensible claim to build this system on.</p>
-
-  <h2>What this explains, one level up</h2>
-
-  <p>Why a redirection is supposed to name the deed, not the doer (5.3): "that was against our agreement" is a growth-mindset statement about behavior; "you always do this" is a fixed-mindset statement about identity. Same moment, opposite belief encoded in the language.</p>
-
-  <p>Why retrieval practice and productive struggle require psychological safety (5.1/5.2 substrate): if being wrong isn't survivable, a student will not risk the visible struggle that learning requires.</p>
-
-  <p>Why "that teacher just has the gift" is the wrong frame for classroom management generally: it's a fixed-mindset claim about teachers, and it does the same damage in the other direction — it tells a struggling teacher that competence is something you either have or don't, instead of something built through the same effortful, corrigible process we're asking of students.</p>
-
-  <div class="pull-quote">
-    <blockquote>Every practice in this system assumes the person in front of you — student or teacher — can be different tomorrow than they are today; growth vs. fixed mindset is just the name for whether you actually believe that, and kids can tell which one you hold before you say a word.</blockquote>
+  <h2>The gap between research and application</h2>
+  <p>Growth mindset has been widely adopted in education, and some of the application drifts from what the research supports:</p>
+  <p><strong>Effort praise without strategy feedback</strong> is not growth mindset. Telling students they “tried hard” without helping them try differently leaves them stuck. The research points toward effort <em>plus strategy</em>: not just “you worked hard” but “you tried a different approach, and look what happened.”</p>
+  <p><strong>Dismissing difficulty</strong> (“everyone can do this if they try”) is not growth mindset. Some material is genuinely hard. Some students have fewer resources. Growth mindset doesn’t mean difficulty doesn’t exist — it means difficulty isn’t final.</p>
+  <div class="aside-box">
+    The most honest version: growth mindset is about how a student responds to setback, not about whether everything is achievable with enough effort. The classroom condition that supports it is a culture where making mistakes doesn’t end membership.
   </div>
 
-  <div class="ref-link">
-    <p>Dweck, C. S. (2006). <em>Mindset: The New Psychology of Success.</em> Random House. Yeager, D. S., &amp; Dweck, C. S. (2020) and related work on "false growth mindset" and the limits of praise-only interventions. Sisk, V. F., et al. (2018) meta-analysis on mindset intervention effect sizes — cited here for the honest-caveat section, not to overclaim.</p>
-  </div>
+  <hr class="article-rule">
+
+  <h2>Where it connects to classroom management</h2>
+  <p>The relevant management implication isn’t the intervention — it’s the feedback culture. What happens when a student gets something wrong, gives up, or avoids a hard task? A classroom where wrong answers are corrective data rather than evidence of fixed failure is the environment growth mindset research describes. That culture is built through thousands of small moments — how questions are handled, how correction lands, what happens after a student gives up.</p>
+
+  <hr class="article-rule">
+
+  <span class="section-label">Connected in this room</span>
+  <div class="concept-row"><div class="concept-term"><a href="../strand-5-1-behavior-engagement.html" style="color:var(--ink);">5.1 Behavior &amp; Engagement</a></div><div class="concept-def">Feedback loops and motivation — the strand where growth mindset shows up in daily practice.</div></div>
+  <div class="concept-row"><div class="concept-term"><a href="../strand-5-3-culture-belonging.html" style="color:var(--ink);">5.3 Culture &amp; Belonging</a></div><div class="concept-def">The culture where mistakes are survivable — the condition growth mindset requires.</div></div>
 
   <footer>
-    <a href="../index.html" class="back-link">&larr; SchoolHouse</a>
-    <p>SchoolHouse Foundations · an unreliable translator</p>
+    <a href="index.html" class="back-link">&larr; Browse</a>
+    <p>SchoolHouse &middot; an unreliable translator</p>
   </footer>
 
 </body>

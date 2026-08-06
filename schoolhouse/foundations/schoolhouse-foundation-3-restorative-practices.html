@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restorative Practices Basics — SchoolHouse Foundations</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Restorative Practices Basics — SchoolHouse</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -15,7 +16,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --ground: #0E1E26;
+        --ground: #1E1B16;
         --ink: #E4D9CC;
         --muted: rgba(228,217,204,0.55);
         --amber: #D09652;
@@ -23,181 +24,83 @@
       }
     }
     :root[data-theme="dark"] {
-      --ground: #0E1E26;
-      --ink: #E4D9CC;
-      --muted: rgba(228,217,204,0.55);
-      --amber: #D09652;
-      --border: rgba(228,217,204,0.14);
+      --ground: #1E1B16; --ink: #E4D9CC; --muted: rgba(228,217,204,0.55); --amber: #D09652; --border: rgba(228,217,204,0.14);
     }
     :root[data-theme="light"] {
-      --ground: #F5F0E8;
-      --ink: #1B3A4B;
-      --muted: rgba(27,58,75,0.55);
-      --amber: #C4883A;
-      --border: rgba(27,58,75,0.15);
+      --ground: #F5F0E8; --ink: #1B3A4B; --muted: rgba(27,58,75,0.55); --amber: #C4883A; --border: rgba(27,58,75,0.15);
     }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-      color: var(--ink);
-      background: var(--ground);
-      line-height: 1.8;
-    }
-    .foundations-nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-    .foundations-nav .active { color: var(--ink); }
-    .foundations-nav a { color: var(--muted); text-decoration: none; }
-    .foundations-nav a:hover { color: var(--ink); }
-    header {
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .series-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      font-size: 1.75rem;
-      font-weight: normal;
-      line-height: 1.3;
-    }
-    .meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.03em;
-    }
-    h2 {
-      font-size: 0.8rem;
-      font-weight: normal;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 2.5rem 0 0.75rem;
-    }
-    p { margin-bottom: 1.4em; }
-    .pull-quote {
-      border-left: 3px solid var(--amber);
-      margin: 2.5rem 0;
-      padding: 0 0 0 1.25rem;
-    }
-    .pull-quote blockquote {
-      font-style: italic;
-      font-size: 1.05rem;
-      margin: 0;
-      line-height: 1.7;
-    }
-    .ref-link {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      margin-top: 2.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .back-link {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
+    body { font-family: Georgia, 'Times New Roman', serif; max-width: 680px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; color: var(--ink); background: var(--ground); line-height: 1.85; }
+    .article-nav { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .article-nav a { color: var(--muted); text-decoration: none; }
+    .article-nav a:hover { color: var(--ink); }
+    .article-eyebrow { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
+    h1 { font-size: 1.9rem; font-weight: normal; line-height: 1.25; margin-bottom: 0.6rem; }
+    .article-standfirst { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; }
+    h2 { font-size: 1.05rem; font-weight: 600; margin: 2.25rem 0 0.75rem; }
+    p { margin-bottom: 1.1rem; font-size: 0.97rem; line-height: 1.85; }
+    blockquote { border-left: 3px solid var(--amber); padding-left: 1.2rem; margin: 1.5rem 0; font-style: italic; color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
+    .article-rule { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .concept-row { display: flex; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--border); }
+    .concept-row:last-child { border-bottom: 1px solid var(--border); }
+    .concept-term { font-size: 0.88rem; font-weight: 600; color: var(--ink); min-width: 160px; flex-shrink: 0; }
+    .concept-def { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .aside-box { background: rgba(27,58,75,0.04); border: 1px solid var(--border); padding: 1.1rem 1.3rem; margin: 1.5rem 0; font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
+    @media (prefers-color-scheme: dark) { .aside-box { background: rgba(228,217,204,0.04); } }
+    :root[data-theme="dark"] .aside-box { background: rgba(228,217,204,0.04); }
+    :root[data-theme="light"] .aside-box { background: rgba(27,58,75,0.04); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.9rem; display: block; }
+    footer { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 3rem; font-size: 0.78rem; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+    .back-link { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
-    @media (max-width: 560px) {
-      body { padding: 1.5rem 1rem 3rem; }
-      h1 { font-size: 1.4rem; }
-      .foundations-nav { gap: 1rem; }
-    }
+    @media (max-width: 560px) { body { padding: 2rem 1rem 4rem; } h1 { font-size: 1.5rem; } .concept-row { flex-direction: column; gap: 0.25rem; } .concept-term { min-width: auto; } }
   </style>
 </head>
 <body>
 
-  <nav class="foundations-nav">
-    <a href="schoolhouse-foundation-1-classroom-management.html">Classroom Management</a>
-    <a href="schoolhouse-foundation-2-science-of-learning.html">Science of Learning</a>
-    <span class="active">Restorative Practices</span>
-    <a href="schoolhouse-foundation-4-growth-mindset.html">Growth Mindset</a>
-  </nav>
+  <nav class="article-nav"><a href="../classroom-management.html">Classroom Management</a> &rsaquo; <a href="index.html">Browse</a> &rsaquo; Restorative Practices Basics</nav>
 
-  <header>
-    <p class="series-label">SchoolHouse Foundations · Level 1</p>
-    <h1>Restorative Practices Basics</h1>
-  </header>
+  <p class="article-eyebrow">Level 1 Foundation</p>
+  <h1>Restorative Practices Basics</h1>
+  <p class="article-standfirst">A framework for thinking about harm, repair, and community in a classroom — and what it asks of a teacher.</p>
 
-  <p class="meta">The substrate under 5.3 (Culture and Belonging) · Practitioner draft · July 2026</p>
+  <hr class="article-rule">
 
-  <h2>Why you need this before the strand lands</h2>
+  <h2>The central idea</h2>
+  <p>Restorative practices start from a single premise: when someone causes harm, the relevant question is not <em>what rule was broken and what punishment follows</em>, but <em>who was affected, how, and what needs to happen to make it right</em>.</p>
+  <p>In a school context, this shifts the purpose of discipline from consequences to repair — and it changes who’s involved. The student who caused harm, the student who was harmed, and the community that holds them both are all part of the conversation.</p>
+  <blockquote>“Restorative approaches shift the central question from ‘what rule was broken and who broke it’ to ‘who was harmed and what do they need.’”<br><span style="font-size:0.82rem;font-style:normal;">Zehr, 2002</span></blockquote>
 
-  <p>The Relationships row says "relationship IS the mechanism" and cites Klevan (2021) for it. If restorative practice sounds to you like a soft alternative to "real" discipline — a nicer way of saying the same thing — the 5.3 strand will read as sentiment, not structure. It isn't sentiment. It's a specific, evidence-linked claim about which mechanism actually changes behavior over time, and which one only appears to. This piece lays out that claim so 5.3 lands as engineering, not etiquette.</p>
+  <hr class="article-rule">
 
-  <h2>The core move: relationship first, repair over exclusion</h2>
-
-  <p>Restorative practice starts from a specific bet: that behavior is regulated more durably by relationship and belonging than by the threat of consequence, and that when harm happens, the more effective response is one that repairs the relationship and the community rather than one that removes the student from it.</p>
-
-  <p>That reframes two things teachers are usually taught to treat as separate:</p>
-
-  <p>Discipline stops being primarily about what happens after something goes wrong, and becomes primarily about what was already built before it did. A strong relationship is not a nice-to-have that makes correction easier. It's the actual channel correction travels through. Feedback — including a redirection — is only received as help, not as threat, in the context of a relationship that can carry it. Without that relationship already banked, the same words land as an attack.</p>
-
-  <p>"Consequence" stops meaning "removal" by default, and starts meaning "repair" by default. Exclusionary discipline (office referrals, suspension, removal from the room) treats the student as the problem to be extracted. Restorative response treats the harm as the problem to be addressed — which keeps the student inside the community that has to metabolize what happened, rather than outsourcing it.</p>
-
-  <h2>What the evidence actually says — and where it doesn't</h2>
-
-  <p>This matters enough to be precise about, in both directions.</p>
-
-  <p>What's reasonably well supported: whole-school restorative practice is associated with improved school climate, stronger connectedness, and reduced exclusionary discipline (Klevan, 2021). School connectedness itself is linked to a wide set of academic and wellbeing outcomes — so the climate effect isn't a soft outcome, it's upstream of harder ones.</p>
-
-  <p>The finding that should change how you implement, not just whether you do: effects depend heavily on implementation quality. Narrow, reactive use of restorative practice — pulled out only after something has already gone wrong, used as a script rather than a stance — underperforms routine, whole-school, proactively-used practice (Klevan, 2021). Adoption alone doesn't produce the result. Fidelity does. A restorative circle run once after a blowup, with no relational deposit already made, is not the same intervention as a practice that's been running all year. Don't judge the approach by a version of it that was never actually implemented.</p>
-
-  <p>What a learning-sciences reading adds: relationship isn't just a moral good, it's the channel engagement and feedback travel on — students engage further where belonging is present, and belonging is a documented condition for motivation, not a bonus on top of it (Deans for Impact, SoL 2nd ed. 2026). The restorative and cognitive-science literatures converge here from two different directions on the same conclusion.</p>
-
-  <p>What the approach does not claim: restorative practice is not "no consequences," and it is not a guarantee that formally equal turn-taking produces equitable participation — structural equality in a process is not the same as every voice actually being heard, and that gap is a real, named limit of the practice, not a flaw to paper over.</p>
-
-  <h2>What this explains, one level up</h2>
-
-  <p>Why "build relationships first" isn't just kindness advice (5.3): it's the mechanism that makes every later correction possible to land. Skipping it doesn't just feel colder — it removes the channel the correction needs to travel through.</p>
-
-  <p>Why redirections are supposed to name the deed, not the doer: keeping the correction about the action, not an indictment of the person, is what keeps the relationship intact enough to keep doing its job tomorrow.</p>
-
-  <p>Why "exclude" is a category error for most classroom problems: removing a student may stop the immediate disruption, but it also removes the only mechanism — presence in the relationship and the community — that restorative response depends on to actually change what happens next time.</p>
-
-  <div class="pull-quote">
-    <blockquote>Relationship isn't the soft part of classroom management — it's the channel every correction, every piece of feedback, and every routine has to travel through to land, which means building it first isn't optional groundwork, it's the actual intervention.</blockquote>
+  <h2>What it’s not</h2>
+  <p>Restorative practices are often misread as “no consequences” or “saying sorry and moving on.” Neither is accurate.</p>
+  <p>A restorative approach can include significant consequences — the difference is that consequences are tied to repair rather than punishment, and the student has some role in determining what repair looks like. A student who breaks something fixes it. A student who excludes someone finds a way to include them. The consequence is calibrated to the harm.</p>
+  <div class="aside-box">
+    Accountability in a restorative frame means the student understands what they did, who it affected, and what they’re doing about it — not that they received a pre-set consequence.
   </div>
 
-  <div class="ref-link">
-    <p>Klevan (2021) — whole-school restorative practice, school climate/connectedness, exclusionary discipline, and the implementation-fidelity finding. Deans for Impact, <em>The Science of Learning</em> (2nd ed., 2026) — belonging and feedback-through-relationship, Q2/Q4. Parker &amp; Bickmore — the limit finding on structural vs. equitable participation.</p>
-  </div>
+  <hr class="article-rule">
+
+  <h2>Proactive, not just reactive</h2>
+  <p>Most of what restorative practice accomplishes in a classroom happens <em>before</em> there’s a conflict. The community-building piece — circle practice, shared norms, regular relational conversations — builds the relationships and shared agreements that make repair possible when something goes wrong.</p>
+  <p>A repair conversation works because the people in it already have some relationship. A class meeting can metabolize conflict because students already know how to speak to each other in that structure. The proactive work is what makes the reactive work possible.</p>
+
+  <hr class="article-rule">
+
+  <h2>The classroom teacher’s role</h2>
+  <p>Full restorative practice — formal conferences, trained facilitators, circle processes — is a school-level system. A classroom teacher isn’t running formal conferences. What a classroom teacher can do is smaller and more constant: building enough relationship that repair conversations are possible, speaking restoratively when something goes wrong, and designing a culture where mistakes don’t end membership.</p>
+  <p>The repair conversation — a two-to-five-minute structured exchange — is the classroom-level tool. It’s not a formal process. It’s a habit of asking the right questions.</p>
+
+  <hr class="article-rule">
+
+  <span class="section-label">Connected in this room</span>
+  <div class="concept-row"><div class="concept-term"><a href="../strand-5-3-culture-belonging.html" style="color:var(--ink);">5.3 Culture &amp; Belonging</a></div><div class="concept-def">The strand where restorative practice lives in the Classroom Management room.</div></div>
+  <div class="concept-row"><div class="concept-term"><a href="../strategies/restorative-interactions.html" style="color:var(--ink);">Restorative Interactions</a></div><div class="concept-def">The classroom-scale strategy: two minutes of non-academic conversation, ten days running.</div></div>
+  <div class="concept-row"><div class="concept-term"><a href="../strategies/the-repair-conversation.html" style="color:var(--ink);">The Repair Conversation</a></div><div class="concept-def">The classroom-scale tool for what happens after harm.</div></div>
 
   <footer>
-    <a href="../index.html" class="back-link">&larr; SchoolHouse</a>
-    <p>SchoolHouse Foundations · an unreliable translator</p>
+    <a href="index.html" class="back-link">&larr; Browse</a>
+    <p>SchoolHouse &middot; an unreliable translator</p>
   </footer>
 
 </body>
