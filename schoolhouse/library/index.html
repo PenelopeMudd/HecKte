@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Library — SchoolHouse</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ground: #EEF5F3;
+  --ink: #1A3D3B;
+  --muted: rgba(26,61,59,0.55);
+  --amber: #4E9E96;
+  --border: rgba(26,61,59,0.15);
+  --shelf-bg: rgba(26,61,59,0.07);
+  --shelf-board: rgba(26,61,59,0.32);
+  --book-a: #2A5C56;
+  --book-b: #3A7A72;
+  --book-c: #4E9E96;
+  --book-d: #1A4A45;
+  --book-e: #6BB8B0;
+  --reserved-bg: rgba(26,61,59,0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0E1C1B;
+    --ink: #C8E0DD;
+    --muted: rgba(200,224,221,0.55);
+    --amber: #5DBBB3;
+    --border: rgba(200,224,221,0.14);
+    --shelf-bg: rgba(200,224,221,0.05);
+    --shelf-board: rgba(200,224,221,0.28);
+    --book-a: #2A6A64;
+    --book-b: #3A8A82;
+    --book-c: #5DBBB3;
+    --book-d: #1A5A55;
+    --book-e: #7BCAC2;
+    --reserved-bg: rgba(200,224,221,0.07);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0E1C1B;
+  --ink: #C8E0DD;
+  --muted: rgba(200,224,221,0.55);
+  --amber: #5DBBB3;
+  --border: rgba(200,224,221,0.14);
+  --shelf-bg: rgba(200,224,221,0.05);
+  --shelf-board: rgba(200,224,221,0.28);
+  --book-a: #2A6A64;
+  --book-b: #3A8A82;
+  --book-c: #5DBBB3;
+  --book-d: #1A5A55;
+  --book-e: #7BCAC2;
+  --reserved-bg: rgba(200,224,221,0.07);
+}
+:root[data-theme="light"] {
+  --ground: #EEF5F3;
+  --ink: #1A3D3B;
+  --muted: rgba(26,61,59,0.55);
+  --amber: #4E9E96;
+  --border: rgba(26,61,59,0.15);
+  --shelf-bg: rgba(26,61,59,0.07);
+  --shelf-board: rgba(26,61,59,0.32);
+  --book-a: #2A5C56;
+  --book-b: #3A7A72;
+  --book-c: #4E9E96;
+  --book-d: #1A4A45;
+  --book-e: #6BB8B0;
+  --reserved-bg: rgba(26,61,59,0.08);
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  color: var(--ink);
+  background: var(--ground);
+  line-height: 1.8;
+}
+
+.back-link {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--ink); }
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 3.5rem;
+}
+
+.shelf-unit {
+  margin-bottom: 3.5rem;
+}
+
+.shelf-name {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+}
+
+.shelf-books {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 1.25rem 1rem 0;
+  background: var(--shelf-bg);
+  border-radius: 3px 3px 0 0;
+  min-height: 140px;
+}
+
+.shelf-board {
+  height: 7px;
+  background: var(--shelf-board);
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.10);
+}
+
+.book {
+  border-radius: 2px 2px 0 0;
+  flex-shrink: 0;
+}
+
+.book-reserved {
+  flex-shrink: 0;
+  border-radius: 2px 2px 0 0;
+  border: 1px dashed var(--muted);
+  background: var(--reserved-bg);
+  width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reserved-label {
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.shelf-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.875rem;
+  padding-left: 0.25rem;
+  line-height: 1.6;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+footer a {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 560px) {
+  body { padding: 2rem 1rem 4rem; }
+  h1 { font-size: 1.8rem; }
+  .shelf-books { min-height: 110px; padding: 1rem 0.75rem 0; }
+}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="../index.html">&larr; SchoolHouse</a>
+
+<h1>Library</h1>
+
+<!-- ACADEMIC -->
+<div class="shelf-unit">
+  <div class="shelf-name">Academic</div>
+  <div class="shelf-books">
+    <div class="book" style="width:28px;height:112px;background:var(--book-a);"></div>
+    <div class="book" style="width:38px;height:128px;background:var(--book-d);"></div>
+    <div class="book" style="width:24px;height:98px;background:var(--book-c);"></div>
+    <div class="book" style="width:32px;height:120px;background:var(--book-b);"></div>
+    <div class="book" style="width:26px;height:90px;background:var(--book-e);"></div>
+    <div class="book" style="width:30px;height:108px;background:var(--book-a);"></div>
+  </div>
+  <div class="shelf-board"></div>
+  <p class="shelf-desc">&mdash;</p>
+</div>
+
+<!-- SYSTEM -->
+<div class="shelf-unit">
+  <div class="shelf-name">System</div>
+  <div class="shelf-books">
+    <div class="book" style="width:34px;height:120px;background:var(--book-c);"></div>
+    <div class="book" style="width:26px;height:104px;background:var(--book-b);"></div>
+    <div class="book" style="width:42px;height:132px;background:var(--book-d);"></div>
+    <div class="book" style="width:28px;height:96px;background:var(--book-e);"></div>
+    <div class="book" style="width:30px;height:114px;background:var(--book-a);"></div>
+  </div>
+  <div class="shelf-board"></div>
+  <p class="shelf-desc">&mdash;</p>
+</div>
+
+<!-- PRACTITIONER -->
+<div class="shelf-unit">
+  <div class="shelf-name">Practitioner</div>
+  <div class="shelf-books">
+    <div class="book" style="width:30px;height:106px;background:var(--book-b);"></div>
+    <div class="book" style="width:24px;height:90px;background:var(--book-e);"></div>
+    <div class="book-reserved" style="height:100px;">
+      <span class="reserved-label">Coming</span>
+    </div>
+    <div class="book" style="width:36px;height:122px;background:var(--book-d);"></div>
+    <div class="book" style="width:28px;height:98px;background:var(--book-c);"></div>
+  </div>
+  <div class="shelf-board"></div>
+  <p class="shelf-desc">&mdash;</p>
+</div>
+
+<footer>
+  <a href="../index.html">&larr; SchoolHouse</a>
+  <p>Library &nbsp;&middot;&nbsp; SchoolHouse</p>
+</footer>
+
+</body>
+</html>
