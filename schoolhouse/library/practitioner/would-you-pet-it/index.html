@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Would You Pet It?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=Nunito:wght@400;600;700&display=swap">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ground:    #EFF4ED;
+  --card-back: #FAFCF9;
+  --ink:       #1A2218;
+  --muted:     rgba(26,34,24,0.52);
+  --faint:     rgba(26,34,24,0.10);
+  --missouri:  #5E8E4A;
+  --other:     #3B78BF;
+  --border:    rgba(26,34,24,0.10);
+  --shadow:    rgba(26,34,24,0.13);
+  --wc-g:      rgba(94,142,74,0.09);
+  --wc-b:      rgba(59,120,191,0.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:    #111810;
+    --card-back: #1B2819;
+    --ink:       #CCE8C8;
+    --muted:     rgba(204,232,200,0.52);
+    --faint:     rgba(204,232,200,0.09);
+    --missouri:  #74B45C;
+    --other:     #5492D8;
+    --border:    rgba(204,232,200,0.12);
+    --shadow:    rgba(0,0,0,0.55);
+    --wc-g:      rgba(116,180,92,0.11);
+    --wc-b:      rgba(84,146,216,0.09);
+  }
+}
+:root[data-theme="dark"] {
+  --ground:    #111810;
+  --card-back: #1B2819;
+  --ink:       #CCE8C8;
+  --muted:     rgba(204,232,200,0.52);
+  --faint:     rgba(204,232,200,0.09);
+  --missouri:  #74B45C;
+  --other:     #5492D8;
+  --border:    rgba(204,232,200,0.12);
+  --shadow:    rgba(0,0,0,0.55);
+  --wc-g:      rgba(116,180,92,0.11);
+  --wc-b:      rgba(84,146,216,0.09);
+}
+:root[data-theme="light"] {
+  --ground:    #EFF4ED;
+  --card-back: #FAFCF9;
+  --ink:       #1A2218;
+  --muted:     rgba(26,34,24,0.52);
+  --faint:     rgba(26,34,24,0.10);
+  --missouri:  #5E8E4A;
+  --other:     #3B78BF;
+  --border:    rgba(26,34,24,0.10);
+  --shadow:    rgba(26,34,24,0.13);
+  --wc-g:      rgba(94,142,74,0.09);
+  --wc-b:      rgba(59,120,191,0.07);
+}
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: var(--ground);
+  color: var(--ink);
+  padding: 3rem 1.5rem 5rem;
+  min-height: 100vh;
+}
+
+.site-header {
+  max-width: 980px;
+  margin: 0 auto 3.5rem;
+}
+.back-link {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--ink); }
+.site-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+.site-sub {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.group {
+  max-width: 980px;
+  margin: 0 auto 3.5rem;
+}
+.group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 2px solid currentColor;
+}
+.group-label.mo { color: var(--missouri); }
+.group-label.op { color: var(--other); }
+
+.deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 315px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.card:focus-visible { outline: none; }
+.card:focus-visible .card-inner {
+  outline: 2px solid var(--missouri);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.35, 0.1, 0.25, 1.0);
+}
+.card.flipped .card-inner { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .card-inner { transition: none; }
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-front {
+  box-shadow: 0 2px 10px var(--shadow), 0 0 0 1px var(--border);
+}
+.g1  { background: radial-gradient(ellipse at 55% 35%, #78B850 0%, #3A7028 55%, #1E4A18 100%); }
+.g2  { background: radial-gradient(ellipse at 45% 55%, #C8A870 0%, #7A6040 50%, #2C4C1E 100%); }
+.g3  { background: radial-gradient(ellipse at 60% 35%, #D05040 0%, #7A2820 55%, #1E4818 100%); }
+.g4  { background: radial-gradient(ellipse at 50% 45%, #E8902A 0%, #B86010 50%, #2A3C18 100%); }
+.g5  { background: radial-gradient(ellipse at 50% 40%, #5A9450 0%, #2E5028 55%, #1A3C14 100%); }
+.g6  { background: radial-gradient(ellipse at 50% 30%, #E0EAF0 0%, #7AAAC8 45%, #1C3C80 100%); }
+.g7  { background: radial-gradient(ellipse at 45% 50%, #B0A898 0%, #685C50 50%, #3C3428 100%); }
+.g8  { background: radial-gradient(ellipse at 50% 35%, #C8DCF0 0%, #4880C0 50%, #182850 100%); }
+.g9  { background: radial-gradient(ellipse at 55% 45%, #E8D890 0%, #C0980A 50%, #7A5C10 100%); }
+.g10 { background: radial-gradient(ellipse at 38% 32%, #D83020 0%, #E89020 38%, #1C5020 100%); }
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.flip-cue {
+  position: absolute;
+  bottom: 9px;
+  right: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  background: rgba(0,0,0,0.30);
+  padding: 3px 8px;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(ellipse at 92% 8%, var(--wc-g) 0%, transparent 52%),
+    radial-gradient(ellipse at 8% 92%, var(--wc-b) 0%, transparent 52%),
+    var(--card-back);
+  box-shadow: 0 2px 10px var(--shadow), 0 0 0 1px var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.1rem 1rem;
+}
+.facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--faint) transparent;
+}
+.facts li {
+  font-size: 0.76rem;
+  line-height: 1.42;
+  color: var(--ink);
+  padding-left: 0.9rem;
+  position: relative;
+}
+.facts li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.sources-section {
+  max-width: 980px;
+  margin: 1rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sources-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.875rem;
+}
+.sources-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.sources-list li {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: flex;
+  gap: 0.6rem;
+}
+.sources-list .animal-name {
+  min-width: 130px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.sources-list a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.sources-list a:hover { color: var(--ink); }
+
+@media (max-width: 540px) {
+  body { padding: 2rem 0.875rem 4rem; }
+  .site-title { font-size: 2rem; }
+  .deck { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .card { height: 255px; }
+  .facts li { font-size: 0.68rem; }
+  .sources-list li { flex-direction: column; gap: 0.1rem; }
+  .sources-list .animal-name { min-width: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back-link" href="../../index.html">&larr; Library</a>
+  <h1 class="site-title">Would You Pet It?</h1>
+  <p class="site-sub">Kindergarten &nbsp;&middot;&nbsp; Kg</p>
+</header>
+
+<section class="group">
+  <h2 class="group-label mo">Missouri Animals</h2>
+  <div class="deck">
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g1">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/400px-North-American-bullfrog1.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in ponds, lakes, and streams.</li>
+            <li>Needs water, bugs, and warm weather.</li>
+            <li>Has to stay wet or it will dry out.</li>
+            <li>Absorbs water through its skin.</li>
+            <li>Whatever is on your hands can go into its body.</li>
+            <li>It gulps air and puffs its body up big and round, so it’s too much to swallow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/White-tailed_deer.jpg/400px-White-tailed_deer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in forests and fields across Missouri.</li>
+            <li>Eats grasses, leaves, and berries.</li>
+            <li>Can jump higher than a door.</li>
+            <li>Can run as fast as a car on your street.</li>
+            <li>A baby fawn has almost no smell and lies frozen-still in the grass, so hunters walk right past it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Male_northern_cardinal_in_Central_Park_%2852612%29.jpg/400px-Male_northern_cardinal_in_Central_Park_%2852612%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Missouri’s state bird.</li>
+            <li>Stays all winter — it does not migrate.</li>
+            <li>Eats seeds, berries, and bugs all year long.</li>
+            <li>It is against the law to catch or keep a wild cardinal.</li>
+            <li>It will chase a hawk or a cat many times its size away from its nest without backing down.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/400px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Caterpillars can only eat milkweed.</li>
+            <li>Adult butterflies drink nectar from flowers.</li>
+            <li>Migrates through Missouri — up to 2,800 miles to reach Mexico.</li>
+            <li>Wings are covered in tiny scales like colored dust — touch them and the scales rub off.</li>
+            <li>It saves up poison from the milkweed it ate as a caterpillar, so a bird that tries one never tries another.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g5">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Florida_Box_Turtle_Digon3.jpg/400px-Florida_Box_Turtle_Digon3.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in forests and fields in Missouri.</li>
+            <li>Eats worms, berries, and bugs.</li>
+            <li>Knows one small patch of woods its whole life — move it far and it will spend the rest of its life trying to get back.</li>
+            <li>It snaps its shell shut like a door with a hinge — pulled all the way in, nothing can reach it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="group">
+  <h2 class="group-label op">From Other Places</h2>
+  <div class="deck">
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g6">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg/400px-Polar_Bear_-_Alaska_%28cropped%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in the Arctic, near the North Pole.</li>
+            <li>Hunts seals on sea ice to survive.</li>
+            <li>Needs cold — without ice, it can’t live.</li>
+            <li>Weighs as much as a car.</li>
+            <li>Its fur isn’t really white; it’s clear and hollow, so the bear seems to disappear against the snow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g7">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/400px-African_Bush_Elephant.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in Africa and Asia, near rivers and grasslands.</li>
+            <li>Eats up to 660 pounds of food every day.</li>
+            <li>Its skin looks tough but is actually sensitive to the sun — rolls in mud to protect it.</li>
+            <li>When danger comes, the grown-ups make a ring around the babies with the little ones tucked safe in the middle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g8">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/400px-South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in Antarctica — not the Arctic.</li>
+            <li>Eats fish from cold southern oceans.</li>
+            <li>Takes turns keeping eggs warm in freezing weather.</li>
+            <li>They pack into one giant crowd so a hunter can’t pick out a single penguin to chase.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g9">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg/400px-07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in hot deserts in Africa and the Middle East.</li>
+            <li>Eats desert plants.</li>
+            <li>Can go up to 10 days without water.</li>
+            <li>Its hump stores fat — not water.</li>
+            <li>When something bothers it, a camel spits up a smelly mess from its stomach to make the bother go away.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' ')this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front g10">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Toucans_%28Ramphastidae%29.jpg/400px-Toucans_%28Ramphastidae%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="flip-cue">tap to flip</span>
+        </div>
+        <div class="card-face card-back">
+          <ul class="facts">
+            <li>Lives in rainforests in Central and South America.</li>
+            <li>Eats fruit high up in the tree canopy.</li>
+            <li>Its giant bill is hollow and lightweight.</li>
+            <li>At the first sign of trouble it ducks into a hole high in a tree, where bigger animals can’t follow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sources-section">
+  <p class="sources-label">Sources</p>
+  <ul class="sources-list">
+    <li><span class="animal-name">Bullfrog</span><a href="https://en.wikipedia.org/wiki/American_bullfrog" target="_blank" rel="noopener">en.wikipedia.org/wiki/American_bullfrog</a></li>
+    <li><span class="animal-name">White-tailed deer</span><a href="https://en.wikipedia.org/wiki/White-tailed_deer" target="_blank" rel="noopener">en.wikipedia.org/wiki/White-tailed_deer</a></li>
+    <li><span class="animal-name">Northern cardinal</span><a href="https://en.wikipedia.org/wiki/Northern_cardinal" target="_blank" rel="noopener">en.wikipedia.org/wiki/Northern_cardinal</a></li>
+    <li><span class="animal-name">Monarch butterfly</span><a href="https://en.wikipedia.org/wiki/Monarch_butterfly" target="_blank" rel="noopener">en.wikipedia.org/wiki/Monarch_butterfly</a></li>
+    <li><span class="animal-name">Box turtle</span><a href="https://en.wikipedia.org/wiki/Common_box_turtle" target="_blank" rel="noopener">en.wikipedia.org/wiki/Common_box_turtle</a></li>
+    <li><span class="animal-name">Polar bear</span><a href="https://en.wikipedia.org/wiki/Polar_bear" target="_blank" rel="noopener">en.wikipedia.org/wiki/Polar_bear</a></li>
+    <li><span class="animal-name">Elephant</span><a href="https://en.wikipedia.org/wiki/Elephant" target="_blank" rel="noopener">en.wikipedia.org/wiki/Elephant</a></li>
+    <li><span class="animal-name">Penguin</span><a href="https://en.wikipedia.org/wiki/Penguin" target="_blank" rel="noopener">en.wikipedia.org/wiki/Penguin</a></li>
+    <li><span class="animal-name">Camel</span><a href="https://en.wikipedia.org/wiki/Camel" target="_blank" rel="noopener">en.wikipedia.org/wiki/Camel</a></li>
+    <li><span class="animal-name">Toucan</span><a href="https://en.wikipedia.org/wiki/Toucan" target="_blank" rel="noopener">en.wikipedia.org/wiki/Toucan</a></li>
+  </ul>
+</section>
+
+</body>
+</html>
